@@ -5,6 +5,7 @@ import RichPortableText from '@src/components/RichPortableText';
 import Title from '@src/components/Title';
 import { getPage } from '@/sanity/sanity.queries';
 import { Metadata } from 'next';
+import Wrapper from '@src/components/Wrapper';
 
 type Props = {
   params: { slug: string };
@@ -21,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: `Allan Aoudji | ${page.name}`,
+    title: `Blog | ${page.name}`,
     description: 'single page',
   };
 }
@@ -37,10 +38,14 @@ export default async function Page({
   }
 
   return (
-    <PageContainer className="pt-36 transition-all sm:pt-48" drawer={drawer}>
-      <Title className="pb-16 transition-all uppercase sm:pb-24">
-        {page.name}
-      </Title>
+    <PageContainer
+      drawer={drawer}
+      header={
+        <Wrapper>
+          <Title className="uppercase">{page.name}</Title>
+        </Wrapper>
+      }
+    >
       {page.body && <RichPortableText value={page.body} />}
     </PageContainer>
   );

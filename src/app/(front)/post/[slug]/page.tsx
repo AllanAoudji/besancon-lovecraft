@@ -4,9 +4,10 @@ import NextPostCard from '@src/components/NextPostCard';
 import PageContainer from '@src/components/PageContainer';
 import RichPortableText from '@src/components/RichPortableText';
 import WorkHeader from '@src/components/WorkHeader';
-import WorkTitle from '@src/components/WorkTitle';
 import { getPost } from '@/sanity/sanity.queries';
 import { Metadata } from 'next';
+import Wrapper from '@src/components/Wrapper';
+import Title from '@src/components/Title';
 
 type Props = {
   params: { slug: string };
@@ -37,17 +38,18 @@ async function Post({ params, searchParams: { drawer } }: Props) {
 
   return (
     <PageContainer
-      className="grid pt-8 relative sm:gap-8 sm:grid-cols-7"
       drawer={drawer}
       footer={
         <NextPostCard className="pt-52 sm:pt-72" nextPost={post.nextPost} />
       }
-      header={<WorkTitle title={post.title} year={post.year} />}
+      header={
+        <Wrapper>
+          <Title className="md:col-span-4 lg:col-span-3">{post.title}</Title>
+        </Wrapper>
+      }
     >
       <WorkHeader post={post} />
-      <div className="col-span-1 pt-8 px-8 sm:col-span-4 sm:pt-0 sm:px-0">
-        {post.body && <RichPortableText value={post.body} />}
-      </div>
+      <div>{post.body && <RichPortableText value={post.body} />}</div>
     </PageContainer>
   );
 }

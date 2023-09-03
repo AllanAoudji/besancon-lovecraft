@@ -1,4 +1,5 @@
 import DrawerContainer from './DrawerContainer';
+import Wrapper from './Wrapper';
 
 type Props = {
   children?: React.ReactNode;
@@ -16,15 +17,11 @@ function PageContainer({
   header,
 }: Props) {
   return (
-    <div>
+    <div className="pt-16">
       <DrawerContainer open={drawer === 'true' ? true : false} />
       <div>
         {header}
-        <section
-          className={`duration-300 mx-auto px-6 transition-all sm:px-12 md:max-w-6xl ${className}`}
-        >
-          {children}
-        </section>
+        <Wrapper className={className}>{children}</Wrapper>
         {footer}
       </div>
     </div>

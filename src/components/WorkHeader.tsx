@@ -7,7 +7,7 @@ type Props = {
 
 function WorkHeader({ post }: Props) {
   return (
-    <div className="col-span-1 top-0 sm:col-span-3 sm:sticky">
+    <div>
       <LinkImage
         alt={post.title}
         blurDataURL={post.mainImage.metadata.lqip}

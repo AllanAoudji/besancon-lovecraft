@@ -1,4 +1,3 @@
-import HomeHeader from '@src/components/HomeHeader';
 import PageContainer from '@src/components/PageContainer';
 import Posts from '@src/components/Posts';
 import { getPosts } from '@/sanity/sanity.queries';
@@ -17,7 +16,6 @@ export default async function Home({ searchParams: { drawer } }: Props) {
       <PageContainer
         className="gap-x-8 gap-y-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
         drawer={drawer}
-        header={<HomeHeader />}
       >
         <Posts posts={posts} />
       </PageContainer>

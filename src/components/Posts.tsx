@@ -1,9 +1,7 @@
 'use client';
 
-import Image from 'next/image';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-import helloWorld from '@/public/hello-world-light.png';
 import { getPosts, getPostsByCategory } from '@/sanity/sanity.queries';
 import useScrollPosition from '@src/hooks/useScrollPosition';
 
@@ -22,7 +20,6 @@ function Posts({
   categorySlug = null,
   posts: initialPost,
   showCategories = true,
-  showHeaderText = true,
 }: Props) {
   const [lastYear, setLastYear] = useState<number>(Number.MAX_SAFE_INTEGER);
   const [lastSlug, setLastSlug] = useState<string | null>('');
@@ -92,13 +89,6 @@ function Posts({
 
   return (
     <>
-      {showHeaderText && (
-        <Image
-          alt="home-text"
-          className="self-end mb-36 sm:col-span-2 lg:mb-0 sm:pr-28 transition-all"
-          src={helloWorld}
-        />
-      )}
       {posts.map((post) => (
         <PostCard showCategories={showCategories} post={post} key={post._id} />
       ))}

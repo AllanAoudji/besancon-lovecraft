@@ -11,7 +11,7 @@ function PostCard({ post, showCategories = true }: Props) {
   return (
     <Link
       className="flex flex-col col-span-1 [&_img]:hover:scale-150"
-      href={`/work/${post.slug}`}
+      href={`/post/${post.slug}`}
     >
       {post.mainImage && post.mainImage.url && (
         <div className="overflow-hidden">
@@ -45,7 +45,7 @@ function PostCard({ post, showCategories = true }: Props) {
       )}
       <div className=" pt-3 grow">
         <h3 className={`font-bold text-light text-3xl ${bodoniModa.className}`}>
-          {post.title} <span className="font-light text-2xl">{post.year}</span>
+          {post.title}
         </h3>
       </div>
     </Link>
