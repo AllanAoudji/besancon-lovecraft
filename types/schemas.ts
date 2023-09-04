@@ -55,7 +55,7 @@ declare global {
 
   type Post = {
     _id: string;
-    _createdAt: Date;
+    _createdAt: string;
     author: {
       name: string;
       slug: string;
@@ -78,7 +78,6 @@ declare global {
     publishedAt: string;
     slug: string;
     title: string;
-    year: number;
   };
 
   type Social = {

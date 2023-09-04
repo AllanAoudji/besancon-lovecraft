@@ -9,7 +9,7 @@ type Props = {
 };
 
 export default async function Home({ searchParams: { drawer } }: Props) {
-  const posts = await getPosts(Number.MAX_SAFE_INTEGER, '');
+  const posts = await getPosts('', '');
 
   return (
     <>

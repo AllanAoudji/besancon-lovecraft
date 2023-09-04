@@ -3,9 +3,9 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { getPosts, getPostsByCategory } from '@/sanity/sanity.queries';
-import useScrollPosition from '@src/hooks/useScrollPosition';
 
 import PostCard from './PostCard';
+import LoaderButton from './LoaderButton';
 
 type Props = {
   categorySlug?: string | null;
@@ -14,34 +14,41 @@ type Props = {
   showHeaderText?: boolean;
 };
 
-const NUM_OF_POST_BY_BATCH = 15;
+const NUM_OF_POST_BY_BATCH = 12;
 
 function Posts({
   categorySlug = null,
   posts: initialPost,
   showCategories = true,
 }: Props) {
-  const [lastYear, setLastYear] = useState<number>(Number.MAX_SAFE_INTEGER);
-  const [lastSlug, setLastSlug] = useState<string | null>('');
+  const [lastPublishedAt, setLastPublishedAt] = useState<string>(
+    initialPost[initialPost.length - 1].publishedAt
+  );
+  const [lastSlug, setLastSlug] = useState<string | null>(
+    initialPost.length < NUM_OF_POST_BY_BATCH
+      ? null
+      : initialPost[initialPost.length - 1].slug
+  );
   const [loading, setLoading] = useState<boolean>(false);
   const [posts, setPosts] = useState<Post[]>(initialPost);
 
-  const initaleFetchingRef = useRef<boolean>(true);
   const mountedRef = useRef<boolean>(true);
 
-  const scrollPosition = useScrollPosition();
-
   const postsGetter = useCallback(async () => {
-    if (lastSlug == null) return;
+    if (lastSlug == null || loading) return;
 
     setLoading(true);
 
     let result: Post[];
 
     if (categorySlug) {
-      result = await getPostsByCategory(lastYear, lastSlug, categorySlug);
+      result = await getPostsByCategory(
+        lastPublishedAt,
+        lastSlug,
+        categorySlug
+      );
     } else {
-      result = await getPosts(lastYear, lastSlug);
+      result = await getPosts(lastPublishedAt, lastSlug);
     }
 
     if (!mountedRef.current) return;
@@ -51,33 +58,11 @@ function Posts({
       setLastSlug(null);
     } else {
       setLastSlug(result[result.length - 1].slug);
-      setLastYear(result[result.length - 1].year);
+      setLastPublishedAt(result[result.length - 1].publishedAt);
     }
 
     setLoading(false);
-  }, [categorySlug, lastYear, lastSlug]);
-
-  // initial post fetching
-  // only trigger on mount
-  useEffect(() => {
-    if (!initaleFetchingRef.current) {
-      return;
-    }
-    if (posts.length < NUM_OF_POST_BY_BATCH) {
-      setLastSlug(null);
-    } else {
-      setLastSlug(posts[posts.length - 1].slug);
-      setLastYear(posts[posts.length - 1].year);
-    }
-    initaleFetchingRef.current = false;
-  }, [posts]);
-
-  // fetch next post if scroll to bottom
-  useEffect(() => {
-    if (scrollPosition && scrollPosition > 80 && !loading) {
-      postsGetter();
-    }
-  }, [loading, scrollPosition, postsGetter]);
+  }, [categorySlug, lastPublishedAt, lastSlug, loading]);
 
   // dismount before async call finished
   useEffect(
@@ -92,6 +77,14 @@ function Posts({
       {posts.map((post) => (
         <PostCard showCategories={showCategories} post={post} key={post._id} />
       ))}
+      <LoaderButton
+        className="col-span-1 flex items-center justify-center sm:col-span-2 lg:col-span-3"
+        loading={loading}
+        onClick={postsGetter}
+        show={!!lastSlug}
+      >
+        Voir plus d&apos;article
+      </LoaderButton>
     </>
   );
 }

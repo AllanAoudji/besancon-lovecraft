@@ -24,6 +24,17 @@ export default defineType({
       },
     }),
     defineField({
+      name: 'publishedAt',
+      title: 'Published At',
+      type: 'datetime',
+      validation: (Rule) => Rule.required(),
+      options: {
+        dateFormat: 'YYYY-MM-DD',
+        timeFormat: 'HH:mm',
+        timeStep: 15,
+      },
+    }),
+    defineField({
       name: 'author',
       title: 'Author',
       type: 'reference',
@@ -47,23 +58,10 @@ export default defineType({
       ],
     }),
     defineField({
-      name: 'year',
-      title: 'Year',
-      type: 'number',
-      validation: (Rule) =>
-        Rule.max(new Date().getFullYear()).min(1900).integer().required(),
-    }),
-    defineField({
       name: 'categories',
       title: 'Categories',
       type: 'array',
       of: [{ type: 'reference', to: { type: 'category' } }],
-    }),
-    defineField({
-      name: 'publishedAt',
-      title: 'Published at',
-      type: 'datetime',
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'body',

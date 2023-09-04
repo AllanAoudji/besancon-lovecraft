@@ -3,7 +3,6 @@ export const sanityAPIVersion =
 export const sanityDataset =
   process.env.NEXT_PUBLIC_SANITY_DATASET || 'production';
 export const sanityProjectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '';
-export const sanityAPIReadToken = process.env.SANITY_API_READ_TOKEN;
 export const sanityTitle = process.env.NEXT_PUBLIC_SANITY_TITLE || 'title';
 export const sanityUseCdn = false;
 export const siteURL =
