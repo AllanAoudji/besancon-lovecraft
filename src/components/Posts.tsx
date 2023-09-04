@@ -21,6 +21,7 @@ function Posts({
   posts: initialPost,
   showCategories = true,
 }: Props) {
+  // TODO: need to catch id initialPost.length === 0
   const [lastPublishedAt, setLastPublishedAt] = useState<string>(
     initialPost[initialPost.length - 1].publishedAt
   );

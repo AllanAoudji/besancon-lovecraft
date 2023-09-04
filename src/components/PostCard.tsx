@@ -1,4 +1,5 @@
 import { bodoniModa } from '@src/utils/fonts';
+import moment from 'moment';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -43,7 +44,8 @@ function PostCard({ post, showCategories = true }: Props) {
           )}
         </div>
       )}
-      <div className=" pt-3 grow">
+      <div className=" pt-3 grow text-light">
+        <p>{moment(post.publishedAt).fromNow()}</p>
         <h3 className={`font-bold text-light text-3xl ${bodoniModa.className}`}>
           {post.title}
         </h3>

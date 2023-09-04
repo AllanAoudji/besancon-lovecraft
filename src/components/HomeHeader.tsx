@@ -1,28 +1,36 @@
 'use client';
 
-import { bodoniModa } from '@src/utils/fonts';
+import 'moment/locale/fr';
+
 import { AnimatePresence, motion, useAnimationControls } from 'framer-motion';
+import moment from 'moment';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useCallback, useEffect, useRef, useState } from 'react';
+
+import { bodoniModa } from '@src/utils/fonts';
+
+moment.locale('fr');
 
 type Props = {
   posts: Post[];
 };
 
 const ANIMATION_SPEED = 0.7;
+const IMAGE_DELAY = 0.2;
 const TIMER_SPEED = 6;
+const TITLE_DELAY = 0.4;
 const X_IMAGE_ANIMATION = 90;
 const Y_TITLE_ANIMATION = 100;
-const IMAGE_DELAY = 0.2;
-const TITLE_DELAY = 0.4;
 
 function HomeHeader({ posts }: Props) {
   const [index, setIndex] = useState(0);
   const [canPress, setCanPress] = useState(true);
 
-  const intervalRef = useRef<NodeJS.Timer | null>();
   const controlsImage = useAnimationControls();
   const controlsTitle = useAnimationControls();
+
+  const intervalRef = useRef<NodeJS.Timer | null>();
 
   const clearTimer = useCallback(() => {
     if (!intervalRef.current) {
@@ -171,45 +179,65 @@ function HomeHeader({ posts }: Props) {
   }
 
   return (
-    <div className="h-[calc(100vh-5rem)] max-h-[calc(180vw-5rem)] relative transition-all sm:mb-52 overflow-hidden">
-      <AnimatePresence>
-        <div className="overflow-hidden py-3 text-light absolute px-6 top-8 z-10">
-          <motion.h3
-            animate={controlsTitle}
-            className={`text-4xl font-bold uppercase ${bodoniModa.className}`}
-          >
-            {posts[index].title}
-          </motion.h3>
-        </div>
-        <div className="absolute w-screen pl-20 pr-6 top-36">
-          <motion.div
-            className="h-[calc(100vh-19rem)] max-h-[calc(180vw-19rem)] relative overflow-hidden w-full "
-            animate={controlsImage}
-          >
-            <Image
-              alt={posts[index].mainImage.alt || posts[index].title}
-              blurDataURL={posts[index].mainImage.metadata.lqip}
-              className="absolute h-full w-full object-cover grayscale-[20%]"
-              height={posts[index].mainImage.metadata.dimensions.height}
-              placeholder="blur"
-              src={posts[index].mainImage.url}
-              width={posts[index].mainImage.metadata.dimensions.width}
-            />
-          </motion.div>
-        </div>
-        {posts.length > 1 && (
-          <div className="flex absolute bottom-0 pl-20 pr-6 w-screen h-20 items-stretch text-light text-xl">
-            <div className="grow flex items-center justify-between">
-              <button className="uppercase" onClick={handlePressPrevious}>
-                previous
-              </button>
-              <button className="uppercase" onClick={handlePressNext}>
-                next
-              </button>
-            </div>
+    <div className="h-[calc(100vh-5rem)] max-h-[calc(190vw-5rem)] transition-all sm:mb-52 overflow-hidden px-6">
+      <div className="h-full overflow-hidden relative w-full">
+        <AnimatePresence>
+          <div className="absolute py-3 text-light top-8 z-10">
+            <motion.h3
+              animate={controlsTitle}
+              className={`font-bold text-4xl uppercase ${bodoniModa.className}`}
+            >
+              {posts[index].title}
+            </motion.h3>
           </div>
-        )}
-      </AnimatePresence>
+          <div className="absolute pl-14 top-36 w-full">
+            <motion.div
+              className="h-[calc(100vh-19rem)] max-h-[calc(190vw-19rem)] overflow-hidden relative w-full"
+              animate={controlsImage}
+            >
+              <Link href={`/post/${posts[index].slug}`}>
+                <Image
+                  alt={posts[index].mainImage.alt || posts[index].title}
+                  blurDataURL={posts[index].mainImage.metadata.lqip}
+                  className="absolute duration-1000 h-full object-cover transition-all w-full hover:scale-110"
+                  height={posts[index].mainImage.metadata.dimensions.height}
+                  placeholder="blur"
+                  src={posts[index].mainImage.url}
+                  width={posts[index].mainImage.metadata.dimensions.width}
+                />
+              </Link>
+            </motion.div>
+          </div>
+          <div className="absolute bottom-20 left-10 opacity-50 origin-bottom-left overflow-hidden -rotate-90 text-light text-xs">
+            <motion.span
+              className="block first-letter:uppercase"
+              animate={controlsTitle}
+            >
+              {moment(posts[index].publishedAt, 'YYYYMMDD').fromNow() + '.'}
+            </motion.span>
+          </div>
+          {posts.length > 1 && (
+            <div className="absolute bottom-0 flex h-20 items-stretch pl-14 text-light w-full">
+              <div className="flex grow items-center justify-between">
+                <span className="opacity-50 text-light text-xs">
+                  {index + 1}
+                  {' /// '}
+                  {posts.length}
+                </span>
+                <div>
+                  <button className="uppercase" onClick={handlePressPrevious}>
+                    précédent
+                  </button>
+                  /
+                  <button className="uppercase" onClick={handlePressNext}>
+                    suivant
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+        </AnimatePresence>
+      </div>
     </div>
   );
 }

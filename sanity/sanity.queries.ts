@@ -166,9 +166,9 @@ export const getPage = (slug: string) =>
 const postsQuery = groq`*[
   _type == "post" &&
   publishedAt <= $now &&
-  (publishedAt > $lastPublishedAt ||
+  (publishedAt < $lastPublishedAt ||
   (publishedAt == $lastPublishedAt && slug.current < $lastSlug))
-] | order(publishedAt, slug.current asc) [0...$query] {
+] | order(publishedAt desc, slug.current asc) [0...$query] {
   _id,
   _createdAt,
   body,
@@ -177,7 +177,7 @@ const postsQuery = groq`*[
   "nextPost": *[
     _type == "post" &&
     publishedAt <= $now &&
-    (publishedAt > ^.publishedAt ||
+    (publishedAt < ^.publishedAt ||
     (publishedAt == ^.publishedAt && slug.current < ^.slug.current))
   ] | order(publishedAt, slug.current) [0]{
     title,

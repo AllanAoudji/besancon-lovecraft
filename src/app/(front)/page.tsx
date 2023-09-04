@@ -10,7 +10,9 @@ type Props = {
 };
 
 export default async function Home({ searchParams: { drawer } }: Props) {
-  const firstPosts = await getPosts('', '', { firstsPost: true });
+  const firstPosts = await getPosts(new Date().toISOString(), '', {
+    firstsPost: true,
+  });
   let posts: Post[] = [];
 
   if (firstPosts.length) {
