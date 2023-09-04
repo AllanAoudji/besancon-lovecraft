@@ -17,7 +17,7 @@ function PageContainer({
   header,
 }: Props) {
   return (
-    <div className="pt-16">
+    <div>
       <DrawerContainer open={drawer === 'true' ? true : false} />
       <div>
         {header}

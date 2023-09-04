@@ -168,7 +168,7 @@ const postsQuery = groq`*[
   publishedAt <= $now &&
   (publishedAt > $lastPublishedAt ||
   (publishedAt == $lastPublishedAt && slug.current < $lastSlug))
-] | order(publishedAt, slug.current asc) [0...12] {
+] | order(publishedAt, slug.current asc) [0...$query] {
   _id,
   _createdAt,
   body,
@@ -205,12 +205,18 @@ const postsQuery = groq`*[
   },
   "slug": slug.current,
 }`;
-export const getPosts = (lastPublishedAt: string, lastSlug: string) => {
+export const getPosts = (
+  lastPublishedAt: string,
+  lastSlug: string,
+  options?: { firstsPost?: boolean }
+) => {
+  const query = options?.firstsPost ? 3 : 12;
   const now = new Date().toISOString();
   return getCachedClient()<Post[]>(postsQuery, {
     lastPublishedAt,
     lastSlug,
     now,
+    query,
   });
 };
 
