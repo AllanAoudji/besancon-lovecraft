@@ -11,7 +11,7 @@ type Props = {
 function Drawer({ open }: Props) {
   return (
     <div
-      className={`absolute bg-pink-200 duration-700 ease-in-out flex flex-col h-full p-6 top-0 transition-all w-3/4 ${
+      className={`absolute bg-secondary duration-700 ease-in-out flex flex-col h-full p-6 top-0 transition-all w-3/4 ${
         open ? 'left-0 opacity-100' : '-left-full opacity-0'
       }`}
     >

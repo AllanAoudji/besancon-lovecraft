@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import logoDark from '@/public/logo-fixe-dark.png';
-import logoLight from '@/public/logo-fixe-light.png';
+import logoDark from '@/public/logo-dark.png';
+import logoLight from '@/public/logo-light.png';
 
 type Props = {
   className?: string;
