@@ -4,6 +4,7 @@ import { getPosts } from '@/sanity/sanity.queries';
 import HomeHeader from '@src/components/HomeHeader';
 import HomeAbout from '@src/components/HomeAbout';
 import { bodoniModa } from '@src/utils/fonts';
+import InstaFeeds from '@src/components/InstaFeeds';
 
 type Props = {
   searchParams: {
@@ -29,6 +30,7 @@ export default async function Home({ searchParams: { drawer } }: Props) {
           <HomeAbout />
         </>
       }
+      footer={<InstaFeeds />}
       drawer={drawer}
     >
       <h4
@@ -36,7 +38,7 @@ export default async function Home({ searchParams: { drawer } }: Props) {
       >
         Les derniers articles
       </h4>
-      <div className="grid grid-cols-1 gap-0">
+      <div className="grid grid-cols-1 gap-0 pb-20">
         <Posts posts={posts} />
       </div>
     </PageContainer>
