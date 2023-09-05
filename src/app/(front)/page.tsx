@@ -2,6 +2,7 @@ import PageContainer from '@src/components/PageContainer';
 import Posts from '@src/components/Posts';
 import { getPosts } from '@/sanity/sanity.queries';
 import HomeHeader from '@src/components/HomeHeader';
+import HomeAbout from '@src/components/HomeAbout';
 
 type Props = {
   searchParams: {
@@ -25,14 +26,17 @@ export default async function Home({ searchParams: { drawer } }: Props) {
   }
 
   return (
-    <>
-      <PageContainer
-        className="gap-x-8 gap-y-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
-        header={<HomeHeader posts={firstPosts} />}
-        drawer={drawer}
-      >
-        <Posts posts={posts} />
-      </PageContainer>
-    </>
+    <PageContainer
+      className="gap-x-8 gap-y-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+      header={
+        <>
+          <HomeHeader posts={firstPosts} />
+          <HomeAbout />
+        </>
+      }
+      drawer={drawer}
+    >
+      <Posts posts={posts} />
+    </PageContainer>
   );
 }

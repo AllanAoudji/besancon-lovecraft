@@ -6,6 +6,7 @@ import { getPosts, getPostsByCategory } from '@/sanity/sanity.queries';
 
 import PostCard from './PostCard';
 import LoaderButton from './LoaderButton';
+import { bodoniModa } from '@src/utils/fonts';
 
 type Props = {
   categorySlug?: string | null;
@@ -75,6 +76,11 @@ function Posts({
 
   return (
     <>
+      <h4
+        className={`text-light pt-16 pb-4 text-4xl uppercase ${bodoniModa.className}`}
+      >
+        Les derniers articles
+      </h4>
       {posts.map((post) => (
         <PostCard showCategories={showCategories} post={post} key={post._id} />
       ))}
