@@ -2,32 +2,33 @@
 
 import 'moment/locale/fr';
 
-import { AnimatePresence, motion, useAnimationControls } from 'framer-motion';
-import moment from 'moment';
-import Image from 'next/image';
-import Link from 'next/link';
+import { AnimatePresence, useAnimationControls } from 'framer-motion';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-import { bodoniModa } from '@src/utils/fonts';
-
-moment.locale('fr');
+import HomeHeaderCategories from './HomeHeaderCategories';
+import HomeHeaderTitle from './HomeHeaderTitle';
+import HomeHeaderImage from './HomeHeaderImage';
+import HomeHeaderPublishedAt from './HomeHeaderPublishedAt';
+import HomeHeaderNavigation from './HomeHeaderNavigation';
 
 type Props = {
   posts: Post[];
 };
 
+const ANIMATION_DELAY = 0.2;
 const ANIMATION_SPEED = 0.7;
-const IMAGE_DELAY = 0.2;
 const TIMER_SPEED = 6;
-const TITLE_DELAY = 0.4;
 const X_IMAGE_ANIMATION = 90;
 const Y_TITLE_ANIMATION = 100;
+const Y_CATEGORIES_ANIMATION = 50;
 
 function HomeHeader({ posts }: Props) {
   const [index, setIndex] = useState(0);
   const [canPress, setCanPress] = useState(true);
 
+  const constrolsCategories = useAnimationControls();
   const controlsImage = useAnimationControls();
+  const controlsPublishedAt = useAnimationControls();
   const controlsTitle = useAnimationControls();
 
   const intervalRef = useRef<NodeJS.Timer | null>();
@@ -45,22 +46,38 @@ function HomeHeader({ posts }: Props) {
     }
     setCanPress(false);
     await Promise.all([
-      controlsTitle.start({
+      constrolsCategories.start({
         opacity: 0,
-        y: Y_TITLE_ANIMATION,
         transition: {
           bounce: false,
           duration: ANIMATION_SPEED,
-          delay: 0.1,
         },
+        y: Y_CATEGORIES_ANIMATION,
       }),
       controlsImage.start({
         opacity: 0,
-        x: -X_IMAGE_ANIMATION,
         transition: {
           bounce: false,
           duration: ANIMATION_SPEED,
         },
+        x: -X_IMAGE_ANIMATION,
+      }),
+      controlsPublishedAt.start({
+        opacity: 0,
+        transition: {
+          bounce: false,
+          duration: ANIMATION_SPEED,
+        },
+        y: Y_CATEGORIES_ANIMATION,
+      }),
+      controlsTitle.start({
+        opacity: 0,
+        transition: {
+          bounce: false,
+          delay: ANIMATION_DELAY,
+          duration: ANIMATION_SPEED,
+        },
+        y: Y_TITLE_ANIMATION,
       }),
     ]);
     setIndex((prevState) =>
@@ -68,27 +85,52 @@ function HomeHeader({ posts }: Props) {
     );
     controlsImage.set({ x: X_IMAGE_ANIMATION });
     await Promise.all([
-      controlsImage.start({
+      constrolsCategories.start({
         opacity: 1,
-        x: 0,
         transition: {
           bounce: false,
+          delay: ANIMATION_DELAY * 2,
           duration: ANIMATION_SPEED,
-          delay: IMAGE_DELAY,
         },
+        y: 0,
+      }),
+      controlsImage.start({
+        opacity: 1,
+        transition: {
+          bounce: false,
+          delay: ANIMATION_DELAY,
+          duration: ANIMATION_SPEED,
+        },
+        x: 0,
+      }),
+      controlsPublishedAt.start({
+        opacity: 1,
+        transition: {
+          bounce: false,
+          delay: ANIMATION_DELAY * 2,
+          duration: ANIMATION_SPEED,
+        },
+        y: 0,
       }),
       controlsTitle.start({
         opacity: 1,
-        y: 0,
         transition: {
           bounce: false,
-          duration: ANIMATION_SPEED,
-          delay: 0.1,
+          duration: ANIMATION_SPEED * 2,
+          delay: ANIMATION_DELAY,
         },
+        y: 0,
       }),
     ]);
     setCanPress(true);
-  }, [controlsImage, controlsTitle, posts, canPress]);
+  }, [
+    canPress,
+    constrolsCategories,
+    controlsImage,
+    controlsPublishedAt,
+    controlsTitle,
+    posts,
+  ]);
 
   const increaseIndex = useCallback(async () => {
     if (!canPress) {
@@ -96,16 +138,15 @@ function HomeHeader({ posts }: Props) {
     }
     setCanPress(false);
     await Promise.all([
-      controlsTitle.start({
+      constrolsCategories.start({
         opacity: 0,
-        y: Y_TITLE_ANIMATION,
         transition: {
           bounce: false,
           duration: ANIMATION_SPEED,
-          delay: IMAGE_DELAY,
         },
+        y: Y_CATEGORIES_ANIMATION,
       }),
-      await controlsImage.start({
+      controlsImage.start({
         opacity: 0,
         x: X_IMAGE_ANIMATION,
         transition: {
@@ -113,31 +154,73 @@ function HomeHeader({ posts }: Props) {
           duration: ANIMATION_SPEED,
         },
       }),
+      controlsPublishedAt.start({
+        opacity: 0,
+        transition: {
+          bounce: false,
+          duration: ANIMATION_SPEED,
+        },
+        y: Y_CATEGORIES_ANIMATION,
+      }),
+      controlsTitle.start({
+        opacity: 0,
+        y: Y_TITLE_ANIMATION,
+        transition: {
+          bounce: false,
+          duration: ANIMATION_SPEED,
+          delay: ANIMATION_DELAY,
+        },
+      }),
     ]);
     setIndex((prevState) => (prevState + 1) % posts.length);
     controlsImage.set({ x: -X_IMAGE_ANIMATION });
     await Promise.all([
+      constrolsCategories.start({
+        opacity: 1,
+        transition: {
+          bounce: false,
+          delay: ANIMATION_DELAY * 2,
+          duration: ANIMATION_SPEED,
+        },
+        y: 0,
+      }),
       controlsImage.start({
         opacity: 1,
         x: 0,
         transition: {
           bounce: false,
+          delay: ANIMATION_DELAY,
           duration: ANIMATION_SPEED,
-          delay: IMAGE_DELAY,
         },
+      }),
+      controlsPublishedAt.start({
+        opacity: 1,
+        transition: {
+          bounce: false,
+          delay: ANIMATION_DELAY * 2,
+          duration: ANIMATION_SPEED,
+        },
+        y: 0,
       }),
       controlsTitle.start({
         opacity: 1,
         y: 0,
         transition: {
           bounce: false,
+          delay: ANIMATION_DELAY * 2,
           duration: ANIMATION_SPEED,
-          delay: TITLE_DELAY,
         },
       }),
     ]);
     setCanPress(true);
-  }, [canPress, controlsImage, controlsTitle, posts]);
+  }, [
+    canPress,
+    constrolsCategories,
+    controlsPublishedAt,
+    controlsImage,
+    controlsTitle,
+    posts,
+  ]);
 
   const setTimer = useCallback(() => {
     const timer = setInterval(increaseIndex, TIMER_SPEED * 1000);
@@ -182,60 +265,36 @@ function HomeHeader({ posts }: Props) {
     <div className="h-[calc(100vh-5rem)] max-h-[calc(190vw-5rem)] transition-all sm:mb-52 overflow-hidden px-6">
       <div className="h-full overflow-hidden relative w-full">
         <AnimatePresence>
-          <div className="absolute py-3 text-light top-8 z-10">
-            <motion.h3
-              animate={controlsTitle}
-              className={`font-bold text-4xl uppercase ${bodoniModa.className}`}
-            >
-              {posts[index].title}
-            </motion.h3>
-          </div>
-          <div className="absolute pl-14 top-36 w-full">
-            <motion.div
-              className="h-[calc(100vh-19rem)] max-h-[calc(190vw-19rem)] overflow-hidden relative w-full"
-              animate={controlsImage}
-            >
-              <Link href={`/post/${posts[index].slug}`}>
-                <Image
-                  alt={posts[index].mainImage.alt || posts[index].title}
-                  blurDataURL={posts[index].mainImage.metadata.lqip}
-                  className="absolute duration-1000 h-full object-cover transition-all w-full hover:scale-110"
-                  height={posts[index].mainImage.metadata.dimensions.height}
-                  placeholder="blur"
-                  src={posts[index].mainImage.url}
-                  width={posts[index].mainImage.metadata.dimensions.width}
-                />
-              </Link>
-            </motion.div>
-          </div>
-          <div className="absolute bottom-20 left-10 opacity-50 origin-bottom-left overflow-hidden -rotate-90 text-light text-xs">
-            <motion.span
-              className="block first-letter:uppercase"
-              animate={controlsTitle}
-            >
-              {moment(posts[index].publishedAt, 'YYYYMMDD').fromNow() + '.'}
-            </motion.span>
-          </div>
-          {posts.length > 1 && (
-            <div className="absolute bottom-0 flex h-20 items-stretch pl-14 text-light w-full">
-              <div className="flex grow items-center justify-between">
-                <span className="opacity-50 text-light text-xs">
-                  {index + 1}
-                  {' /// '}
-                  {posts.length}
-                </span>
-                <div>
-                  <button className="uppercase" onClick={handlePressPrevious}>
-                    précédent
-                  </button>
-                  /
-                  <button className="uppercase" onClick={handlePressNext}>
-                    suivant
-                  </button>
-                </div>
-              </div>
-            </div>
-          )}
+          <HomeHeaderCategories
+            animate={constrolsCategories}
+            categories={posts[index].categories}
+            className="left-0 pl-14 py-3 text-sm top-3 w-full"
+          />
+          <HomeHeaderTitle
+            animate={controlsTitle}
+            className="py-3 text-4xl top-9"
+            title={posts[index].title}
+          />
+          <HomeHeaderImage
+            animate={controlsImage}
+            className="pl-14 top-36 w-full"
+            image={posts[index].mainImage}
+            imageClassName="h-[calc(100vh-19rem)] max-h-[calc(190vw-19rem)]"
+            slug={posts[index].slug}
+            title={posts[index].title}
+          />
+          <HomeHeaderPublishedAt
+            animate={controlsPublishedAt}
+            className="bottom-20 left-10 origin-bottom-left -rotate-90 text-xs"
+            publishedAt={posts[index].publishedAt}
+          />
+          <HomeHeaderNavigation
+            className="bottom-0 h-20 pl-14 w-full"
+            index={index}
+            onClickNext={handlePressNext}
+            onClickPrevious={handlePressPrevious}
+            postsLength={posts.length}
+          />
         </AnimatePresence>
       </div>
     </div>
