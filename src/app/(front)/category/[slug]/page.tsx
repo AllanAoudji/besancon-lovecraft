@@ -1,20 +1,21 @@
-import { notFound } from 'next/navigation';
+// import { notFound } from 'next/navigation';
 
-import { getCategory } from '@/sanity/sanity.queries';
-import PageContainer from '@src/components/PageContainer';
-import Posts from '@src/components/Posts';
-import Title from '@src/components/Title';
+// import { getCategory } from '@/sanity/sanity.queries';
+// import PageContainer from '@src/components/PageContainer';
+// import Posts from '@src/components/Posts';
+// import Title from '@src/components/Title';
 import { Metadata } from 'next';
-import Wrapper from '@src/components/Wrapper';
+// import Wrapper from '@src/components/Wrapper';
 
-type Props = {
-  params: { slug: string };
-  searchParams: {
-    drawer: string | undefined;
-  };
-};
+// type Props = {
+//   params: { slug: string };
+//   searchParams: {
+//     drawer: string | undefined;
+//   };
+// };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+// export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
   // const category = await getCategory(params.slug, Number.MAX_SAFE_INTEGER, '');
 
   // if (!category) {
@@ -28,7 +29,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {};
 }
 
-async function Categorypage({ params, searchParams: { drawer } }: Props) {
+// async function Categorypage({ params, searchParams: { drawer } }: Props) {
+async function Categorypage() {
   // const slug = await getCategory(params.slug, Number.MAX_SAFE_INTEGER, '');
 
   // if (!slug || slug.posts.length == 0) {
