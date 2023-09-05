@@ -15,43 +15,45 @@ type Props = {
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const category = await getCategory(params.slug, Number.MAX_SAFE_INTEGER, '');
+  // const category = await getCategory(params.slug, Number.MAX_SAFE_INTEGER, '');
 
-  if (!category) {
-    return {};
-  }
+  // if (!category) {
+  //   return {};
+  // }
 
-  return {
-    title: `Blog | ${category.name}`,
-    description: 'single category page',
-  };
+  // return {
+  //   title: `Blog | ${category.name}`,
+  //   description: 'single category page',
+  // };
+  return {};
 }
 
 async function Categorypage({ params, searchParams: { drawer } }: Props) {
-  const slug = await getCategory(params.slug, Number.MAX_SAFE_INTEGER, '');
+  // const slug = await getCategory(params.slug, Number.MAX_SAFE_INTEGER, '');
 
-  if (!slug || slug.posts.length == 0) {
-    notFound();
-  }
+  // if (!slug || slug.posts.length == 0) {
+  //   notFound();
+  // }
 
-  return (
-    <PageContainer
-      className="gap-x-6 gap-y-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
-      drawer={drawer}
-      header={
-        <Wrapper>
-          <Title>{slug.title}</Title>
-        </Wrapper>
-      }
-    >
-      <Posts
-        categorySlug={params.slug}
-        posts={slug.posts}
-        showCategories={false}
-        showHeaderText={false}
-      />
-    </PageContainer>
-  );
+  // return (
+  //   <PageContainer
+  //     className="gap-x-6 gap-y-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+  //     drawer={drawer}
+  //     header={
+  //       <Wrapper>
+  //         <Title>{slug.title}</Title>
+  //       </Wrapper>
+  //     }
+  //   >
+  //     <Posts
+  //       categorySlug={params.slug}
+  //       posts={slug.posts}
+  //       showCategories={false}
+  //       showHeaderText={false}
+  //     />
+  //   </PageContainer>
+  // );
+  return null;
 }
 
 export default Categorypage;

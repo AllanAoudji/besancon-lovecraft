@@ -87,7 +87,7 @@ function Posts({
         className="col-span-1 pt-20 flex text-light items-center justify-center text-xl sm:col-span-2 lg:col-span-3"
         loading={loading}
         onClick={postsGetter}
-        show={true}
+        show={!!lastSlug}
       >
         Voir plus d&apos;articles
       </LoaderButton>
