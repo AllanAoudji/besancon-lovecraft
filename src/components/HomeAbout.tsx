@@ -2,7 +2,7 @@ import { bodoniModa } from '@src/utils/fonts';
 
 function HomeAbout() {
   return (
-    <div className="bg-secondary py-10 px-6">
+    <div className="bg-secondary py-16 px-6">
       <h2
         className={`text-light text-xl uppercase pb-2 ${bodoniModa.className}`}
       >

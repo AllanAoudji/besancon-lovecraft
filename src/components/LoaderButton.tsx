@@ -23,7 +23,7 @@ function LoaderButton({
 
   return (
     <div className={className}>
-      <button className="text-light" onClick={onClick}>
+      <button className="border-b-2 border-secondary pb-2" onClick={onClick}>
         {loading ? loadingText : children}
       </button>
     </div>

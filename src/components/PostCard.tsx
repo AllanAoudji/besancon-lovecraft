@@ -5,17 +5,24 @@ import Link from 'next/link';
 
 type Props = {
   post: Post;
+  variant?: 'small' | 'normal';
   showCategories?: boolean;
 };
 
-function PostCard({ post, showCategories = true }: Props) {
+function PostCard({ post, variant = 'normal', showCategories = true }: Props) {
   return (
     <Link
-      className="flex flex-col col-span-1 [&_img]:hover:scale-150"
+      className={`flex col-span-1 [&_img]:hover:scale-150 last-of-type:pb-0 ${
+        variant === 'normal' ? 'flex-col pb-12' : 'justify-between pb-5'
+      }`}
       href={`/post/${post.slug}`}
     >
       {post.mainImage && post.mainImage.url && (
-        <div className="overflow-hidden">
+        <div
+          className={`overflow-hidden ${
+            variant === 'normal' ? '' : 'h-28 grow-0 shrink-0 basis-28 mr-4'
+          }`}
+        >
           <Image
             alt={post.mainImage.alt || post.title}
             blurDataURL={post.mainImage.metadata.lqip}
@@ -27,26 +34,34 @@ function PostCard({ post, showCategories = true }: Props) {
           />
         </div>
       )}
-      {post.categories && showCategories && (
-        <div className="flex gap-2 py-3 flex-wrap">
-          {post.categories.slice(0, 2).map((category) => (
-            <div
-              className="flex items-center text-dark bg-light rounded-full px-2 text-sm"
-              key={category.slug}
-            >
-              {category.name}
-            </div>
-          ))}
-          {post.categories.length > 2 && (
-            <div className="text-dark bg-light rounded-full px-2 text-sm flex items-center">
-              +{post.categories.length - 2}
+      <div className={`grow text-light ${variant === 'normal' ? 'pt-3' : ''}`}>
+        <div className="pb-4">
+          <p className="text-xs opacity-50 first-letter:uppercase">
+            {moment(post.publishedAt).fromNow()}
+          </p>
+          {post.categories && showCategories && (
+            <div className="flex gap-2 flex-wrap text-sm text-light font-bold">
+              {post.categories.slice(0, 2).map((category, index, array) => (
+                <span key={category.slug}>
+                  {category.name}
+                  {index < array.length - 1 ? (
+                    <span className="text-secondary">, </span>
+                  ) : (
+                    <span />
+                  )}
+                </span>
+              ))}
+              {post.categories.length > 2 && (
+                <span>+{post.categories.length - 2}</span>
+              )}
             </div>
           )}
         </div>
-      )}
-      <div className=" pt-3 grow text-light">
-        <p>{moment(post.publishedAt).fromNow()}</p>
-        <h3 className={`font-bold text-light text-3xl ${bodoniModa.className}`}>
+        <h3
+          className={`font-bold text-light uppercase ${bodoniModa.className} ${
+            variant === 'normal' ? 'text-3xl' : 'text-lg'
+          }`}
+        >
           {post.title}
         </h3>
       </div>

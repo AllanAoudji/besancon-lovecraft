@@ -3,6 +3,7 @@ import Posts from '@src/components/Posts';
 import { getPosts } from '@/sanity/sanity.queries';
 import HomeHeader from '@src/components/HomeHeader';
 import HomeAbout from '@src/components/HomeAbout';
+import { bodoniModa } from '@src/utils/fonts';
 
 type Props = {
   searchParams: {
@@ -11,32 +12,33 @@ type Props = {
 };
 
 export default async function Home({ searchParams: { drawer } }: Props) {
-  const firstPosts = await getPosts(new Date().toISOString(), '', {
-    firstsPost: true,
+  const headerPost = await getPosts(new Date().toISOString(), '', {
+    numToFetch: 5,
   });
   let posts: Post[] = [];
 
-  if (firstPosts.length) {
-    posts = [
-      ...(await getPosts(
-        firstPosts[firstPosts.length - 1].publishedAt,
-        firstPosts[firstPosts.length - 1].slug
-      )),
-    ];
+  if (headerPost.length) {
+    posts = await getPosts(new Date().toISOString(), '');
   }
 
   return (
     <PageContainer
-      className="gap-x-8 gap-y-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
       header={
         <>
-          <HomeHeader posts={firstPosts} />
+          <HomeHeader posts={headerPost} />
           <HomeAbout />
         </>
       }
       drawer={drawer}
     >
-      <Posts posts={posts} />
+      <h4
+        className={`text-light pt-16 pb-12 text-5xl uppercase ${bodoniModa.className}`}
+      >
+        Les derniers articles
+      </h4>
+      <div className="grid grid-cols-1 gap-0">
+        <Posts posts={posts} />
+      </div>
     </PageContainer>
   );
 }

@@ -208,9 +208,9 @@ const postsQuery = groq`*[
 export const getPosts = (
   lastPublishedAt: string,
   lastSlug: string,
-  options?: { firstsPost?: boolean }
+  options?: { numToFetch?: number }
 ) => {
-  const query = options?.firstsPost ? 3 : 12;
+  const query = options?.numToFetch ? options.numToFetch : 12;
   const now = new Date().toISOString();
   return getCachedClient()<Post[]>(postsQuery, {
     lastPublishedAt,
