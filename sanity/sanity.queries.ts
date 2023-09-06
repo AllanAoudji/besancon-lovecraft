@@ -332,31 +332,3 @@ export const getFirstPost = () => {
   const now = new Date().toISOString();
   return getCachedClient()<NextPost>(firstPostQuery, { now });
 };
-
-// ---------------------------------
-// Author
-// ---------------------------------
-// Get all social
-const socialsQuery = groq`*[_type == "social"] | order(slug.current) [0...10] {
-    _id,
-    _createdAt,
-    title,
-    url,
-    "metadata": logo.asset->metadata,
-    "slug": slug.current,
-    "logo": logo.asset->url,
-}`;
-export const getSocials = () => getCachedClient()<Social[]>(socialsQuery);
-
-// Get a single social by its slug
-const socialQuery = groq`*[type == "social" && slug.current == $slug][0] {
-    _id,
-    _createdAt,
-    title,
-    url,
-    "metadata": logo.asset->metadata,
-    "slug": slug.current,
-    "logo": logo.asset->url,
-}`;
-export const getSocial = (slug: string) =>
-  getCachedClient()<Social>(socialQuery, { slug });
