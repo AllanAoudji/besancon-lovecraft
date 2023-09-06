@@ -268,13 +268,13 @@ function HomeHeader({ posts }: Props) {
           <HomeHeaderCategories
             animate={constrolsCategories}
             categories={posts[index].categories}
+            key="categories"
             className="left-0 pl-14 py-3 text-sm top-3 w-full"
-            key={`categiries-${posts[index].slug}`}
           />
           <HomeHeaderTitle
             animate={controlsTitle}
             className="py-3 text-4xl top-9"
-            key={`title-${posts[index].slug}`}
+            key="title"
             title={posts[index].title}
           />
           <HomeHeaderImage
@@ -282,20 +282,20 @@ function HomeHeader({ posts }: Props) {
             className="pl-14 top-36 w-full"
             image={posts[index].mainImage}
             imageClassName="h-[calc(100vh-19rem)] max-h-[calc(190vw-19rem)]"
-            key={`image-${posts[index].slug}`}
             slug={posts[index].slug}
+            key="image"
             title={posts[index].title}
           />
           <HomeHeaderPublishedAt
             animate={controlsPublishedAt}
             className="bottom-20 left-10 origin-bottom-left -rotate-90 text-xs"
-            key={`publishedAt-${posts[index].slug}`}
+            key="publishedAt"
             publishedAt={posts[index].publishedAt}
           />
           <HomeHeaderNavigation
             className="bottom-0 h-20 pl-14 w-full"
             index={index}
-            key={`navigation-${posts[index].slug}`}
+            key="navigation"
             onClickNext={handlePressNext}
             onClickPrevious={handlePressPrevious}
             postsLength={posts.length}
