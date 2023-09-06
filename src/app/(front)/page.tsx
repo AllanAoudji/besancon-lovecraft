@@ -5,6 +5,7 @@ import HomeHeader from '@src/components/HomeHeader';
 import HomeAbout from '@src/components/HomeAbout';
 import { bodoniModa } from '@src/utils/fonts';
 import InstaFeeds from '@src/components/InstaFeeds';
+import NewsLetter from '@src/components/NewsLetter';
 
 type Props = {
   searchParams: {
@@ -30,7 +31,12 @@ export default async function Home({ searchParams: { drawer } }: Props) {
           <HomeAbout />
         </>
       }
-      footer={<InstaFeeds />}
+      footer={
+        <>
+          <InstaFeeds />
+          <NewsLetter />
+        </>
+      }
       drawer={drawer}
     >
       <h4

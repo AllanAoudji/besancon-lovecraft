@@ -1,3 +1,4 @@
+import { Form } from '@/lib/enums';
 import { PortableTextBlock } from 'sanity';
 
 declare global {
@@ -18,6 +19,11 @@ declare global {
     posts: Post[];
     slug: string;
     title: string;
+  };
+
+  type FormState = {
+    state: Form;
+    message?: string;
   };
 
   type ImageMetadata = {
