@@ -7,8 +7,6 @@ import { bodoniModa } from '@src/utils/fonts';
 function NewsLetter() {
   const { subscribe, form, inputEl } = useSubscribeToNewsletter();
 
-  console.log(form);
-
   return (
     <section className="py-16 px-3 bg-secondary">
       <h4 className={`pb-10 text-4xl ${bodoniModa.className}`}>

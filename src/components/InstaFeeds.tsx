@@ -78,6 +78,7 @@ async function InstaFeeds() {
                     : post.media_url
                 }
                 alt="image"
+                sizes="40vw"
                 className="object-cover"
                 fill
               />
