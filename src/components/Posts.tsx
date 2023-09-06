@@ -79,8 +79,8 @@ function Posts({
         <PostCard
           key={post._id}
           post={post}
-          variant={i < 3 ? 'normal' : 'small'}
           showCategories={showCategories}
+          variant={i < 3 ? 'normal' : 'small'}
         />
       ))}
       <LoaderButton

@@ -6,11 +6,10 @@ type Props = {
   animate: AnimationControls;
   className?: string;
   image: {
-    url: string;
-    metadata: ImageMetadata;
     alt: string;
+    metadata: ImageMetadata;
+    url: string;
   };
-  imageClassName?: string;
   slug: string;
   title: string;
 };
@@ -19,16 +18,12 @@ function HomeHeaderImage({
   animate,
   className = '',
   image,
-  imageClassName = '',
   slug,
   title,
 }: Props) {
   return (
     <div className={`absolute ${className}`}>
-      <motion.div
-        className={`overflow-hidden relative w-full ${imageClassName}`}
-        animate={animate}
-      >
+      <motion.div animate={animate} className="overflow-hidden relative w-full">
         <Link href={`/post/${slug}`}>
           <Image
             alt={image.alt || title}

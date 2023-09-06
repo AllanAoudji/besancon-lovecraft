@@ -19,8 +19,8 @@ type InstaFeeds = {
   data: Data[];
   paging: {
     cursors: {
-      before: string;
       after: string;
+      before: string;
     };
     next: string;
   };
@@ -46,40 +46,40 @@ async function InstaFeeds() {
 
     return (
       <div className="bg-light pb-16">
-        <div className="py-16 flex items-center justify-center">
+        <div className="flex items-center justify-center py-16">
           <h4
-            className={`font-bold px-6 text-3xl ${bodoniModa.className} text-center`}
+            className={`font-bold px-6 text-3xl text-center ${bodoniModa.className}`}
           >
             Suivez le projet sur{' '}
             <a
-              className="font-black text-secondary border-b-4 border-secondary"
-              target="_blank"
+              className="border-b-4 border-secondary font-black text-secondary"
               href={INSTAGRAM_LINK}
+              target="_blank"
             >
               Instagram
             </a>
           </h4>
         </div>
         <a
-          target="_blank"
+          className="gap-1 grid grid-cols-2 px-2"
           href={INSTAGRAM_LINK}
-          className="grid grid-cols-2 gap-1 px-2"
+          target="_blank"
         >
           {data.data.map((post) => (
             <div
+              className="aspect-square bg-secondary grow relative"
               key={post.id}
-              className="relative grow aspect-square bg-secondary"
             >
               <Image
+                alt="image"
+                className="object-cover"
+                fill
                 src={
                   post.media_type === 'VIDEO'
                     ? post.thumbnail_url
                     : post.media_url
                 }
-                alt="image"
                 sizes="40vw"
-                className="object-cover"
-                fill
               />
             </div>
           ))}

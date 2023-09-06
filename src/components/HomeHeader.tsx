@@ -6,10 +6,10 @@ import { AnimatePresence, useAnimationControls } from 'framer-motion';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 import HomeHeaderCategories from './HomeHeaderCategories';
-import HomeHeaderTitle from './HomeHeaderTitle';
 import HomeHeaderImage from './HomeHeaderImage';
-import HomeHeaderPublishedAt from './HomeHeaderPublishedAt';
 import HomeHeaderNavigation from './HomeHeaderNavigation';
+import HomeHeaderPublishedAt from './HomeHeaderPublishedAt';
+import HomeHeaderTitle from './HomeHeaderTitle';
 
 type Props = {
   posts: Post[];
@@ -19,8 +19,8 @@ const ANIMATION_DELAY = 0.2;
 const ANIMATION_SPEED = 0.7;
 const TIMER_SPEED = 6;
 const X_IMAGE_ANIMATION = 90;
-const Y_TITLE_ANIMATION = 100;
 const Y_CATEGORIES_ANIMATION = 50;
+const Y_TITLE_ANIMATION = 100;
 
 function HomeHeader({ posts }: Props) {
   const [index, setIndex] = useState(0);
@@ -262,14 +262,14 @@ function HomeHeader({ posts }: Props) {
   }
 
   return (
-    <div className="h-[calc(100vh-5rem)] max-h-[calc(190vw-5rem)] transition-all sm:mb-52 overflow-hidden px-6">
+    <div className="h-[calc(100vh-5rem)] max-h-[calc(190vw-5rem)] overflow-hidden px-6 transition-all sm:mb-52">
       <div className="h-full overflow-hidden relative w-full">
         <AnimatePresence>
           <HomeHeaderCategories
             animate={constrolsCategories}
             categories={posts[index].categories}
-            key="categories"
             className="left-0 pl-14 py-3 text-sm top-3 w-full"
+            key="categories"
           />
           <HomeHeaderTitle
             animate={controlsTitle}
@@ -279,11 +279,10 @@ function HomeHeader({ posts }: Props) {
           />
           <HomeHeaderImage
             animate={controlsImage}
-            className="pl-14 top-36 w-full"
+            className="pl-14 top-36 w-full [&_div]:h-[calc(100vh-19rem)] [&_div]:max-h-[calc(190vw-19rem)]"
             image={posts[index].mainImage}
-            imageClassName="h-[calc(100vh-19rem)] max-h-[calc(190vw-19rem)]"
-            slug={posts[index].slug}
             key="image"
+            slug={posts[index].slug}
             title={posts[index].title}
           />
           <HomeHeaderPublishedAt

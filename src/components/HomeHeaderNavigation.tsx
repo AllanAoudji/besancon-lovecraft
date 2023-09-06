@@ -18,6 +18,7 @@ function HomeHeaderNavigation({
   if (postsLength <= 1) {
     return null;
   }
+
   return (
     <div className={`absolute flex items-stretch text-light ${className}`}>
       <div className="flex grow items-center justify-between">

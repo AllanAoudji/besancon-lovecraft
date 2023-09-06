@@ -20,7 +20,7 @@ const RootLayout = ({ children }: Props) => {
       className={`bg-secondary flex flex-col min-h-screen relative ${rubik.className}`}
     >
       <FullScreenImage />
-      <div className="bg-gradient-to-b flex flex-col from-dark from-50% min-h-screen to-darker">
+      <div className="bg-gradient-to-b flex flex-col from-50% from-dark min-h-screen to-darker">
         <Header />
         <main className="grow">{children}</main>
         <Footer />

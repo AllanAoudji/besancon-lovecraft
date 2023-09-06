@@ -7,8 +7,8 @@ type Props = {
   categories:
     | {
         name: string;
-        title: string;
         slug: string;
+        title: string;
       }[]
     | null;
   className?: string;
@@ -23,9 +23,9 @@ function HomeHeaderCategories({ animate, categories, className = '' }: Props) {
         {!!categories &&
           categories
             .slice(0, 2)
-            .map((category, i, array) => (
+            .map((category, index, array) => (
               <span key={category.slug}>
-                {category.name + (i < array.length - 1 ? ', ' : '')}
+                {category.name + (index < array.length - 1 ? ', ' : '')}
               </span>
             ))}
         {!!categories && categories.length > 2 && (

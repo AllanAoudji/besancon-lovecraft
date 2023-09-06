@@ -18,9 +18,9 @@ function SocialMedias({ className = '' }: Props) {
     <div className={className}>
       {socialMedias.map((socialMedia) => (
         <SocialMediaCard
-          className="flex items-center gap-3 py-3 duration-1000 transition hover:opacity-60 uppercase [&_img]:h-5 [&_img]:w-auto"
-          socialMedia={socialMedia}
+          className="duration-1000 flex gap-3 items-center py-3 transition uppercase hover:opacity-60 [&_img]:h-5 [&_img]:w-auto"
           key={socialMedia.name}
+          socialMedia={socialMedia}
         />
       ))}
     </div>

@@ -40,6 +40,7 @@ function LinkImage({ post }: LinkImageProps) {
 async function NextPostCard({ className = '', nextPost }: Props) {
   if (!nextPost) {
     const firstPost = await getFirstPost();
+
     return (
       <div className={className}>
         <LinkImage post={firstPost} />

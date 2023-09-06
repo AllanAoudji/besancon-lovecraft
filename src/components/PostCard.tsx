@@ -5,14 +5,14 @@ import Link from 'next/link';
 
 type Props = {
   post: Post;
-  variant?: 'small' | 'normal';
   showCategories?: boolean;
+  variant?: 'small' | 'normal';
 };
 
-function PostCard({ post, variant = 'normal', showCategories = true }: Props) {
+function PostCard({ post, showCategories = true, variant = 'normal' }: Props) {
   return (
     <Link
-      className={`flex col-span-1 [&_img]:hover:scale-150 last-of-type:pb-0 ${
+      className={`col-span-1 flex last-of-type:pb-0 [&_img]:hover:scale-150 ${
         variant === 'normal' ? 'flex-col pb-12' : 'justify-between pb-5'
       }`}
       href={`/post/${post.slug}`}
@@ -20,7 +20,7 @@ function PostCard({ post, variant = 'normal', showCategories = true }: Props) {
       {post.mainImage && post.mainImage.url && (
         <div
           className={`overflow-hidden ${
-            variant === 'normal' ? '' : 'h-28 grow-0 shrink-0 basis-28 mr-4'
+            variant === 'normal' ? '' : 'basis-28 grow-0 h-28 mr-4 shrink-0'
           }`}
         >
           <Image
@@ -36,11 +36,11 @@ function PostCard({ post, variant = 'normal', showCategories = true }: Props) {
       )}
       <div className={`grow text-light ${variant === 'normal' ? 'pt-3' : ''}`}>
         <div className="pb-4">
-          <p className="text-xs opacity-50 first-letter:uppercase">
+          <p className="opacity-50 text-xs first-letter:uppercase">
             {moment(post.publishedAt).fromNow()}
           </p>
           {post.categories && showCategories && (
-            <div className="flex gap-2 flex-wrap text-sm text-light font-bold">
+            <div className="flex flex-wrap font-bold gap-2 text-light text-sm">
               {post.categories.slice(0, 2).map((category, index, array) => (
                 <span key={category.slug}>
                   {category.name}

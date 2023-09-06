@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 
-import NextPostCard from '@src/components/NextPostCard';
+import NextPostButton from '@src/components/NextPostButton';
 import PageContainer from '@src/components/PageContainer';
 import RichPortableText from '@src/components/RichPortableText';
 import WorkHeader from '@src/components/WorkHeader';
@@ -40,7 +40,7 @@ async function Post({ params, searchParams: { drawer } }: Props) {
     <PageContainer
       drawer={drawer}
       footer={
-        <NextPostCard className="pt-52 sm:pt-72" nextPost={post.nextPost} />
+        <NextPostButton className="pt-52 sm:pt-72" nextPost={post.nextPost} />
       }
       header={
         <Wrapper>

@@ -19,8 +19,8 @@ function Drawer({ open }: Props) {
         <Logo className="h-10" />
         <DrawerCloseLink />
       </div>
-      <Pages className="flex-col gap-1 text-xl font-bold text-light pt-8 [&_a]:border-b-2 [&_a]:border-light [&_a]:pb-2 [&_a]:pt-3 [&_a]:border-opacity-60 first:[&_a]:border-t-2" />
-      <SocialMedias className="gap-4 text-xl text-light grow pt-4" />
+      <Pages className="flex-col font-bold gap-1 pt-8 text-light text-xl [&_a]:border-b-2 [&_a]:border-light [&_a]:border-opacity-60 [&_a]:pb-2 [&_a]:pt-3 first:[&_a]:border-t-2" />
+      <SocialMedias className="gap-4 grow pt-4 text-light text-xl" />
       <Copyright className="text-light" />
     </div>
   );
