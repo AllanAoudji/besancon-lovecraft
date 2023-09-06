@@ -1,21 +1,15 @@
 import Image from 'next/image';
 
 type Props = {
-  socialMedia: Social;
+  className?: string;
+  socialMedia: SocialMedia;
 };
 
-function SocialMediaCard({ socialMedia }: Props) {
+function SocialMediaCard({ className = '', socialMedia }: Props) {
   return (
-    <a href={socialMedia.url} target="_blank">
-      <Image
-        alt={socialMedia.title}
-        blurDataURL={socialMedia.metadata.lqip}
-        className="h-11 w-auto"
-        height={socialMedia.metadata.dimensions.height}
-        placeholder="blur"
-        src={socialMedia.logo}
-        width={socialMedia.metadata.dimensions.width}
-      />
+    <a className={className} href={socialMedia.link} target="_blank">
+      <Image src={socialMedia.image} alt={`${socialMedia.name} logo`} />
+      {socialMedia.name}
     </a>
   );
 }

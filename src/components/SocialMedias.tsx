@@ -1,17 +1,27 @@
-import { getSocials } from '@/sanity/sanity.queries';
+import Instagram from '@/public/instagram.png';
 import SocialMediaCard from './SocialMediaCard';
 
 type Props = {
   className?: string;
 };
 
-async function SocialMedias({ className = '' }: Props) {
-  const socialMedias = await getSocials();
+const socialMedias: SocialMedia[] = [
+  {
+    image: Instagram,
+    link: 'https://www.instagram.com/allanjouannet/',
+    name: 'Instagram',
+  },
+];
 
+function SocialMedias({ className = '' }: Props) {
   return (
-    <div className={`flex ${className}`}>
+    <div className={className}>
       {socialMedias.map((socialMedia) => (
-        <SocialMediaCard key={socialMedia._id} socialMedia={socialMedia} />
+        <SocialMediaCard
+          className="flex items-center gap-3 py-3 duration-1000 transition hover:opacity-60 uppercase [&_img]:h-5 [&_img]:w-auto"
+          socialMedia={socialMedia}
+          key={socialMedia.name}
+        />
       ))}
     </div>
   );

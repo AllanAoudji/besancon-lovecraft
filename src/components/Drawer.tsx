@@ -11,7 +11,7 @@ type Props = {
 function Drawer({ open }: Props) {
   return (
     <div
-      className={`absolute bg-secondary duration-700 ease-in-out flex flex-col h-full p-6 top-0 transition-all w-3/4 ${
+      className={`absolute bg-secondary duration-700 ease-in-out flex flex-col h-full p-4 top-0 transition-all w-3/4 ${
         open ? 'left-0 opacity-100' : '-left-full opacity-0'
       }`}
     >
@@ -19,8 +19,8 @@ function Drawer({ open }: Props) {
         <Logo className="h-10" />
         <DrawerCloseLink />
       </div>
-      <Pages className="flex-col gap-8 grow items-center justify-center text-4xl text-light" />
-      <SocialMedias className="gap-4 pb-10" />
+      <Pages className="flex-col gap-1 text-xl font-bold text-light pt-8 [&_a]:border-b-2 [&_a]:border-light [&_a]:pb-2 [&_a]:pt-3 [&_a]:border-opacity-60 first:[&_a]:border-t-2" />
+      <SocialMedias className="gap-4 text-xl text-light grow pt-4" />
       <Copyright className="text-light" />
     </div>
   );

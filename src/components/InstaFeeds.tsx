@@ -50,7 +50,7 @@ async function InstaFeeds() {
           <h4
             className={`font-bold px-6 text-3xl ${bodoniModa.className} text-center`}
           >
-            Suivez moi sur{' '}
+            Suivez le projet sur{' '}
             <a
               className="font-black text-secondary border-b-4 border-secondary"
               target="_blank"
@@ -58,7 +58,6 @@ async function InstaFeeds() {
             >
               Instagram
             </a>
-            :
           </h4>
         </div>
         <a

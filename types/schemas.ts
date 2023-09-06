@@ -1,4 +1,5 @@
 import { Form } from '@/lib/enums';
+import { StaticImageData } from 'next/image';
 import { PortableTextBlock } from 'sanity';
 
 declare global {
@@ -86,13 +87,9 @@ declare global {
     title: string;
   };
 
-  type Social = {
-    _id: string;
-    _createdAt: Date;
-    logo: string;
-    metadata: ImageMetadata;
-    title: string;
-    slug: string;
-    url: string;
+  type SocialMedia = {
+    name: string;
+    image: StaticImageData;
+    link: string;
   };
 }

@@ -139,7 +139,7 @@ export const getCategory = (
 // Page
 // ---------------------------------
 // Get all pages
-const pagesQuery = groq`*[_type == "page"] | order(order asc, name asc) [0...15] {
+const pagesQuery = groq`*[_type == "page"] | order(order asc) [0...15] {
   _id,
   _createdAt,
   body,
