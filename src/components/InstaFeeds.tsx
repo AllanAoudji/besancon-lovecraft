@@ -26,6 +26,8 @@ type InstaFeeds = {
   };
 };
 
+const INSTAGRAM_LINK = 'https://www.instagram.com/allanjouannet/';
+
 async function getData(): Promise<InstaFeeds> {
   const res = await fetch(
     `https://graph.instagram.com/me/media?fields=id,media_type,media_url,thumbnail_url&limit=4&access_token=${instagramAccessToken}`
@@ -43,14 +45,25 @@ async function InstaFeeds() {
     }
 
     return (
-      <div className="bg-light py-16">
-        <h4 className={`font-bold px-6 text-2xl ${bodoniModa.className} pb-10`}>
-          Suivez moi sur Instagram:{' '}
-          <span className="font-light">@allanaoudji</span>
-        </h4>
+      <div className="bg-light pb-16">
+        <div className="py-16 flex items-center justify-center">
+          <h4
+            className={`font-bold px-6 text-3xl ${bodoniModa.className} text-center`}
+          >
+            Suivez moi sur{' '}
+            <a
+              className="font-black text-secondary border-b-4 border-secondary"
+              target="_blank"
+              href={INSTAGRAM_LINK}
+            >
+              Instagram
+            </a>
+            :
+          </h4>
+        </div>
         <a
           target="_blank"
-          href="https://www.instagram.com/allanjouannet/"
+          href={INSTAGRAM_LINK}
           className="grid grid-cols-2 gap-1 px-2"
         >
           {data.data.map((post) => (
