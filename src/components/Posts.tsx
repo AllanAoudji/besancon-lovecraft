@@ -23,7 +23,7 @@ function Posts({
 }: Props) {
   // TODO: need to catch id initialPost.length === 0
   const [lastPublishedAt, setLastPublishedAt] = useState<string>(
-    initialPost[initialPost.length - 1].publishedAt
+    initialPost.length ? initialPost[initialPost.length - 1].publishedAt : ''
   );
   const [lastSlug, setLastSlug] = useState<string | null>(
     initialPost.length < NUM_OF_POST_BY_BATCH

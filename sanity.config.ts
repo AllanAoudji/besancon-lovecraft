@@ -1,5 +1,6 @@
 import { defineConfig } from 'sanity';
 import { deskTool } from 'sanity/desk';
+import { visionTool } from '@sanity/vision';
 
 import {
   sanityAPIVersion as apiVersion,
@@ -16,7 +17,7 @@ const config = defineConfig({
   apiVersion,
   basePath: '/admin',
   dataset,
-  plugins: [deskTool({ defaultDocumentNode })],
+  plugins: [deskTool(), visionTool()],
   projectId,
   schema: { types: schemas },
   studio: {
