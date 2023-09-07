@@ -37,7 +37,7 @@ function LinkImage({ post }: LinkImageProps) {
   );
 }
 
-export const revalidate = 60;
+export const revalidate = 0;
 
 async function NextPostCard({ className = '', nextPost }: Props) {
   if (!nextPost) {
