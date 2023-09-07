@@ -28,6 +28,8 @@ type InstaFeeds = {
 
 const INSTAGRAM_LINK = 'https://www.instagram.com/allanjouannet/';
 
+export const revalidate = 3600;
+
 async function getData(): Promise<InstaFeeds> {
   const res = await fetch(
     `https://graph.instagram.com/me/media?fields=id,media_type,media_url,thumbnail_url&limit=4&access_token=${instagramAccessToken}`

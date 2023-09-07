@@ -37,6 +37,8 @@ function LinkImage({ post }: LinkImageProps) {
   );
 }
 
+export const revalidate = 60;
+
 async function NextPostCard({ className = '', nextPost }: Props) {
   if (!nextPost) {
     const firstPost = await getFirstPost();

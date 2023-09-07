@@ -5,6 +5,8 @@ type Props = {
   className?: string;
 };
 
+export const revalidate = 60;
+
 async function Pages({ className = '' }: Props) {
   const pages = await getPages();
 
