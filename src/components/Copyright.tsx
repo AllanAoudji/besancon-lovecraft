@@ -6,10 +6,11 @@ type Props = {
 
 function Copyright({ className = '' }: Props) {
   return (
-    <div className={`text-sm ${className}`}>
+    <div className={`flex flex-col text-sm ${className}`}>
       <span>
-        © Allan Aoudji, {currentYear != 2023 && '2023 - '} {currentYear}
+        © Besançon Lovecraft, {currentYear != 2023 && '2023 - '} {currentYear}
       </span>
+      <span>site web: Allan Aoudji</span>
     </div>
   );
 }

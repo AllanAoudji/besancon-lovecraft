@@ -46,7 +46,7 @@ export default async function Home({ searchParams: { drawer } }: Props) {
       >
         Les derniers articles
       </h4>
-      <div className="grid grid-cols-1 gap-0 pb-20">
+      <div className="grid grid-cols-1 gap-0 pb-20 sm:gap-4 sm:grid-cols-2">
         <Posts posts={posts} />
       </div>
     </PageContainer>

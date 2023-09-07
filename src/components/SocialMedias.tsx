@@ -15,10 +15,10 @@ const socialMedias: SocialMedia[] = [
 
 function SocialMedias({ className = '' }: Props) {
   return (
-    <div className={className}>
+    <div className={`flex ${className}`}>
       {socialMedias.map((socialMedia) => (
         <SocialMediaCard
-          className="duration-1000 flex gap-3 items-center py-3 transition uppercase hover:opacity-60 [&_img]:h-5 [&_img]:w-auto"
+          className="duration-1000 flex gap-3 items-center transition uppercase hover:opacity-60 [&_img]:h-5 [&_img]:w-auto"
           key={socialMedia.name}
           socialMedia={socialMedia}
         />

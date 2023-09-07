@@ -20,7 +20,7 @@ function Drawer({ open }: Props) {
         <DrawerCloseLink />
       </div>
       <Pages className="flex-col font-bold gap-1 pt-8 text-light text-xl [&_a]:border-b-2 [&_a]:border-light [&_a]:border-opacity-60 [&_a]:pb-2 [&_a]:pt-3 first:[&_a]:border-t-2" />
-      <SocialMedias className="gap-4 grow pt-4 text-light text-xl" />
+      <SocialMedias className="flex-col grow pt-4 text-light text-xl [&_a]:py-3" />
       <Copyright className="text-light" />
     </div>
   );

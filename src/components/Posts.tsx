@@ -80,7 +80,7 @@ function Posts({
           key={post._id}
           post={post}
           showCategories={showCategories}
-          variant={i < 3 ? 'normal' : 'small'}
+          variant={i < 4 ? 'normal' : 'small'}
         />
       ))}
       <LoaderButton
