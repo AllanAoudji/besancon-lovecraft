@@ -262,7 +262,7 @@ function HomeHeader({ posts }: Props) {
   }
 
   return (
-    <div className="h-[calc(100vh-5rem)] max-h-[calc(190vw-5rem)] overflow-hidden px-6 transition-all sm:px-12">
+    <div className="h-[calc(100vh-5rem)] max-h-[calc(190vw-5rem)] overflow-hidden px-6 sm:px-12 sm:max-h-[calc(90vw-5rem)]">
       <div className="h-full overflow-hidden relative w-full">
         <AnimatePresence>
           <HomeHeaderCategories
@@ -279,7 +279,7 @@ function HomeHeader({ posts }: Props) {
           />
           <HomeHeaderImage
             animate={controlsImage}
-            className="pl-14 top-36 w-full [&_div]:h-[calc(100vh-19rem)] [&_div]:max-h-[calc(190vw-19rem)] sm:pl-1/2 sm:[&_div]:h-[calc(100vh-8.5rem)] sm:top-0"
+            className="pl-14 top-36 w-full [&_div]:h-[calc(100vh-19rem)] [&_div]:max-h-[calc(190vw-19rem)] sm:pl-1/2 sm:[&_div]:h-[calc(100vh-8.5rem)] sm:[&_div]:max-h-[calc(90vw-8.5rem)] sm:top-0"
             image={posts[index].mainImage}
             key="image"
             slug={posts[index].slug}

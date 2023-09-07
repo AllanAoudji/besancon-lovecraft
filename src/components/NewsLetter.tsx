@@ -9,10 +9,10 @@ function NewsLetter() {
 
   return (
     <section className="bg-secondary px-3 pt-16 pb-8">
-      <h4 className={`pb-10 text-4xl ${bodoniModa.className}`}>
+      <h4 className={`pb-10 text-4xl text-center ${bodoniModa.className}`}>
         Abonnez-vous à la newsletter
       </h4>
-      <form className="flex gap-2" onSubmit={subscribe}>
+      <form className="flex gap-2 mx-auto max-w-lg" onSubmit={subscribe}>
         <div className="grow">
           <input
             autoComplete="email"
