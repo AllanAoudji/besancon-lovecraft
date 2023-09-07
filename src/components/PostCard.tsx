@@ -13,14 +13,18 @@ function PostCard({ post, showCategories = true, variant = 'normal' }: Props) {
   return (
     <Link
       className={`col-span-1 flex last-of-type:pb-0 [&_img]:hover:scale-150 ${
-        variant === 'normal' ? 'flex-col pb-12' : 'justify-between pb-5'
+        variant === 'normal'
+          ? 'flex-col pb-12'
+          : 'justify-between pb-5 sm:justify-normal sm:pb-12 sm:flex-col'
       }`}
       href={`/post/${post.slug}`}
     >
       {post.mainImage && post.mainImage.url && (
         <div
           className={`overflow-hidden ${
-            variant === 'normal' ? '' : 'basis-28 grow-0 h-28 mr-4 shrink-0'
+            variant === 'normal'
+              ? ''
+              : 'basis-28 grow-0 h-28 mr-4 shrink-0 sm:basis-auto sm:grow-auto sm:h-auto sm:mr-0 sm:shrink-auto'
           }`}
         >
           <Image
@@ -34,7 +38,11 @@ function PostCard({ post, showCategories = true, variant = 'normal' }: Props) {
           />
         </div>
       )}
-      <div className={`grow text-light ${variant === 'normal' ? 'pt-3' : ''}`}>
+      <div
+        className={`grow text-light ${
+          variant === 'normal' ? 'pt-3' : 'sm:pt-3'
+        }`}
+      >
         <div className="pb-4">
           <p className="opacity-50 text-xs first-letter:uppercase">
             {moment(post.publishedAt).fromNow()}
@@ -59,7 +67,7 @@ function PostCard({ post, showCategories = true, variant = 'normal' }: Props) {
         </div>
         <h3
           className={`font-bold text-light uppercase ${bodoniModa.className} ${
-            variant === 'normal' ? 'text-3xl' : 'text-lg'
+            variant === 'normal' ? 'text-3xl' : 'text-lg sm:text-3xl'
           }`}
         >
           {post.title}
