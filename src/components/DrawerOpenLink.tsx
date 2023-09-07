@@ -26,14 +26,14 @@ function DrawerOpenLink({ className = '', color = 'light' }: Props) {
 
   return (
     <Link
-      className={`absolute left-0 mx-6 my-5 top-0 ${className}`}
+      className={className}
       href={{ query: { drawer: true } }}
       replace={true}
       scroll={false}
     >
       <Image
         alt="hamburger menu"
-        className="h-8 w-auto"
+        className="h-6 w-auto"
         src={color === 'dark' ? hamburgerMenuDark : hamburgerMenuLight}
       />
     </Link>
