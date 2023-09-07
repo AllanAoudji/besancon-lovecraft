@@ -273,7 +273,7 @@ function HomeHeader({ posts }: Props) {
           />
           <HomeHeaderTitle
             animate={controlsTitle}
-            className="py-3 text-4xl top-9 sm:w-[calc(60vw-6rem)] sm:top-8 sm:pl-20"
+            className="py-3 text-4xl top-9 sm:w-[calc(60vw-6rem)] sm:top-6 sm:pl-20"
             key="title"
             title={posts[index].title}
           />
