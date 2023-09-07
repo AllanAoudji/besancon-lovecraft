@@ -63,7 +63,7 @@ async function InstaFeeds() {
           </h4>
         </div>
         <a
-          className="gap-1 grid grid-cols-2 px-2"
+          className="gap-1 grid grid-cols-2 px-2 sm:grid-cols-4"
           href={INSTAGRAM_LINK}
           target="_blank"
         >
