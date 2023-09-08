@@ -268,12 +268,12 @@ function HomeHeader({ posts }: Props) {
           <HomeHeaderCategories
             animate={constrolsCategories}
             categories={posts[index].categories}
-            className="left-0 pl-14 py-3 text-sm top-3 w-full sm:top-0 sm:pt-0 sm:pl-20 sm:w-[calc(60vw-6rem)]"
+            className="left-0 pl-14 py-3 text-sm top-3 w-full sm:top-0 sm:pt-0 sm:pl-0 sm:w-[calc(75vw-6rem)]"
             key="categories"
           />
           <HomeHeaderTitle
             animate={controlsTitle}
-            className="py-3 text-4xl top-9 sm:w-[calc(60vw-6rem)] sm:top-6 sm:pl-20"
+            className="py-3 text-4xl top-9 sm:w-[calc(75vw-6rem)] sm:top-6 sm:pl-0"
             key="title"
             title={posts[index].title}
           />
