@@ -262,24 +262,24 @@ function HomeHeader({ posts }: Props) {
   }
 
   return (
-    <div className="h-[calc(100vh-5rem)] max-h-[calc(190vw-5rem)] overflow-hidden px-6 sm:px-12 sm:max-h-[calc(90vw-5rem)]">
+    <div className="h-[calc(75vw-5rem)] min-h-[calc(100vh-5rem)] mx-auto overflow-hidden px-6 transition-all sm:px-28 md:px-48 md:h-[calc(60vw-5rem)] lg:px-52 md:max-w-6xl">
       <div className="h-full overflow-hidden relative w-full">
         <AnimatePresence>
           <HomeHeaderCategories
             animate={constrolsCategories}
             categories={posts[index].categories}
-            className="left-0 pl-14 py-3 text-sm top-3 w-full sm:top-0 sm:pt-0 sm:pl-0 sm:w-[calc(75vw-6rem)]"
+            className="left-0 py-3 text-sm top-3 w-full"
             key="categories"
           />
           <HomeHeaderTitle
             animate={controlsTitle}
-            className="py-3 text-4xl top-9 sm:w-[calc(75vw-6rem)] sm:top-6 sm:pl-0"
+            className="py-3 text-4xl top-9"
             key="title"
             title={posts[index].title}
           />
           <HomeHeaderImage
             animate={controlsImage}
-            className="pl-14 top-36 w-full [&_div]:h-[calc(100vh-19rem)] [&_div]:max-h-[calc(190vw-19rem)] sm:pl-1/2 sm:[&_div]:h-[calc(100vh-8.5rem)] sm:[&_div]:max-h-[calc(90vw-8.5rem)] sm:top-0"
+            className="pl-14 top-36 w-full [&_div]:h-[calc(75vw-19rem)] [&_div]:min-h-[calc(100vh-19rem)] md:[&_div]:h-[calc(60vw-19rem)]"
             image={posts[index].mainImage}
             key="image"
             slug={posts[index].slug}
@@ -287,12 +287,12 @@ function HomeHeader({ posts }: Props) {
           />
           <HomeHeaderPublishedAt
             animate={controlsPublishedAt}
-            className="bottom-20 left-10 origin-bottom-left -rotate-90 text-xs sm:left-[calc(50%-1rem)] sm:bottom-14"
+            className="bottom-20 left-10 origin-bottom-left -rotate-90 text-xs"
             key="publishedAt"
             publishedAt={posts[index].publishedAt}
           />
           <HomeHeaderNavigation
-            className="bottom-0 h-20 pl-14 w-full sm:h-14 sm:pl-1/2"
+            className="bottom-0 h-20 pl-14 w-full"
             index={index}
             key="navigation"
             onClickNext={handlePressNext}
