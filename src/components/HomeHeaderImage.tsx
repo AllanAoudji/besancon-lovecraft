@@ -22,18 +22,20 @@ function HomeHeaderImage({
   title,
 }: Props) {
   return (
-    <div className={`absolute ${className}`}>
-      <motion.div animate={animate} className="overflow-hidden relative w-full">
+    <div className={`overflow-hidden ${className}`}>
+      <motion.div animate={animate}>
         <Link href={`/post/${slug}`}>
-          <Image
-            alt={image.alt || title}
-            blurDataURL={image.metadata.lqip}
-            className="absolute duration-1000 h-full object-cover transition-all w-full hover:scale-110"
-            height={image.metadata.dimensions.height}
-            placeholder="blur"
-            src={image.url}
-            width={image.metadata.dimensions.width}
-          />
+          <div className="pb-13/12 relative">
+            <Image
+              alt={image.alt || title}
+              blurDataURL={image.metadata.lqip}
+              className="absolute duration-1000 h-full object-cover transition w-full hover:scale-110"
+              height={image.metadata.dimensions.height}
+              placeholder="blur"
+              src={image.url}
+              width={image.metadata.dimensions.width}
+            />
+          </div>
         </Link>
       </motion.div>
     </div>

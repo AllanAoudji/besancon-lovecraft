@@ -17,7 +17,7 @@ type Props = {
 function HomeHeaderCategories({ animate, categories, className = '' }: Props) {
   return (
     <div
-      className={`absolute font-light opacity-50 overflow-hidden text-light ${className}`}
+      className={`font-light opacity-50 overflow-hidden text-light text-sm ${className}`}
     >
       <motion.div animate={animate}>
         {!!categories &&

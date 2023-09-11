@@ -20,9 +20,9 @@ function HomeHeaderNavigation({
   }
 
   return (
-    <div className={`absolute flex items-stretch text-light ${className}`}>
-      <div className="flex grow items-center justify-between">
-        <span className="opacity-50 text-light text-xs">
+    <div className={`text-light w-full ${className}`}>
+      <div className="flex items-center justify-between">
+        <span className="opacity-50 text-xs">
           {index + 1}
           {' /// '}
           {postsLength}

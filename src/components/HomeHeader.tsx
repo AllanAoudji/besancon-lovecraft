@@ -10,6 +10,7 @@ import HomeHeaderImage from './HomeHeaderImage';
 import HomeHeaderNavigation from './HomeHeaderNavigation';
 import HomeHeaderPublishedAt from './HomeHeaderPublishedAt';
 import HomeHeaderTitle from './HomeHeaderTitle';
+import Wrapper from './Wrapper';
 
 type Props = {
   posts: Post[];
@@ -262,46 +263,51 @@ function HomeHeader({ posts }: Props) {
   }
 
   return (
-    <div className="h-[calc(80vw-5rem)] min-h-[calc(100vh-5rem)] mx-auto overflow-hidden px-6 sm:px-28 md:px-48 md:h-[calc(65vw-5rem)] md:max-w-6xl lg:px-52">
-      <div className="h-full overflow-hidden relative w-full">
+    <Wrapper>
+      <div className="gap-3 grid grid-cols-6 h-full min-h-[calc(105vw+7rem)] relative md:grid-cols-12 md:min-h-[calc(57.5vw+12rem)] lg:min-h-[calc(40vw+10rem)]">
         <AnimatePresence>
-          <HomeHeaderCategories
-            animate={constrolsCategories}
-            categories={posts[index].categories}
-            className="left-0 py-3 text-sm top-3 w-full"
-            key="categories"
-          />
-          <HomeHeaderTitle
-            animate={controlsTitle}
-            className="py-3 text-4xl top-9"
-            key="title"
-            title={posts[index].title}
-          />
-          <HomeHeaderImage
-            animate={controlsImage}
-            className="pl-14 top-36 w-full [&_div]:h-[calc(80vw-19rem)] [&_div]:min-h-[calc(100vh-19rem)] md:[&_div]:h-[calc(65vw-19rem)]"
-            image={posts[index].mainImage}
-            key="image"
-            slug={posts[index].slug}
-            title={posts[index].title}
-          />
-          <HomeHeaderPublishedAt
-            animate={controlsPublishedAt}
-            className="bottom-20 left-10 origin-bottom-left -rotate-90 text-xs"
-            key="publishedAt"
-            publishedAt={posts[index].publishedAt}
-          />
-          <HomeHeaderNavigation
-            className="bottom-0 h-20 pl-14 w-full"
-            index={index}
-            key="navigation"
-            onClickNext={handlePressNext}
-            onClickPrevious={handlePressPrevious}
-            postsLength={posts.length}
-          />
+          <div className="absolute gap-x-3 gap-y-2 grid grid-cols-6 inset-x-0 pt-4 top-0 z-10 md:grid-cols-12 md:pt-8 lg:pt-12">
+            <HomeHeaderCategories
+              animate={constrolsCategories}
+              categories={posts[index].categories}
+              className="col-span-6 md:col-span-8 md:col-start-3 lg:col-span-7 lg:col-start-3"
+              key="categories"
+            />
+            <HomeHeaderTitle
+              animate={controlsTitle}
+              className="col-span-6 sm:col-span-8 md:col-start-3 lg:col-span-7 lg:col-start-3"
+              key="title"
+              title={posts[index].title}
+            />
+          </div>
+          <div className="col-span-5 col-start-2 flex flex-col justify-center md:col-span-6 md:col-start-6 lg:col-span-5 lg:col-start-6">
+            <div className="relative">
+              <HomeHeaderImage
+                animate={controlsImage}
+                image={posts[index].mainImage}
+                key="image"
+                slug={posts[index].slug}
+                title={posts[index].title}
+              />
+              <HomeHeaderPublishedAt
+                animate={controlsPublishedAt}
+                className="bottom-0 -left-4 origin-bottom-left -rotate-90 text-xs z-10"
+                key="publishedAt"
+                publishedAt={posts[index].publishedAt}
+              />
+            </div>
+            <HomeHeaderNavigation
+              className="pt-4 w-full"
+              index={index}
+              key="navigation"
+              onClickNext={handlePressNext}
+              onClickPrevious={handlePressPrevious}
+              postsLength={posts.length}
+            />
+          </div>
         </AnimatePresence>
       </div>
-    </div>
+    </Wrapper>
   );
 }
 
