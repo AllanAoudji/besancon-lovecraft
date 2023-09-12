@@ -1,4 +1,3 @@
-import { bodoniModa } from '@src/utils/fonts';
 import Wrapper from './Wrapper';
 
 type TextProps = {
@@ -7,7 +6,7 @@ type TextProps = {
 
 function Text({ children }: TextProps) {
   return (
-    <div className="[&_span]:pl-4 [&_span]:first:pl-0 lg:[&_span]:pl-8 ">
+    <div className="[&_span]:pl-8 [&_span]:first:pl-0">
       <span>{children}</span>
     </div>
   );
@@ -16,16 +15,16 @@ function Text({ children }: TextProps) {
 function HomeAbout() {
   return (
     <Wrapper
-      backgroundColor="secondary"
-      className="py-16 grid grid-cols-1 mx-auto sm:grid-cols-5 sm:gap-4 lg:max-w-4xl lg:grid-cols-4 lg:py-20"
+      backgroundColor="darker"
+      className="gap-2 grid grid-cols-6 mx-auto py-12"
     >
       <h2
-        className={`pb-2 text-light text-xl transition uppercase sm:pb-0 sm:col-span-2 sm:text-2xl sm:text-right lg:text-left lg:col-span-3 lg:text-4xl ${bodoniModa.className}`}
+        className={`col-span-6 font-bold leading-[3rem] pb-2 text-dark text-4xl transition uppercase`}
       >
         Qu&apos;est-ce que le projet{' '}
-        <b className="font-bold">Besancon-Lovecraft</b>?
+        <b className="font-normal italic">les suivant de la vouivre</b> ?
       </h2>
-      <div className="pl-9 text-dark text-sm sm:pl-0 col-span-3 lg:col-start-2 lg:text-lg">
+      <div className="col-span-5 col-start-2 text-lighter text-lg leading-6">
         <Text>
           Le projet Besancon-Lovecraft est un projet de création de jeu de rôle
           sur table se déroulant dans un Besançon des années 1910, dans une

@@ -9,7 +9,6 @@ import {
   sanityTitle as title,
 } from './lib/environment';
 import schemas from './sanity/schemas';
-import { defaultDocumentNode } from './sanity/desk/defaultDocumentNode';
 import SanityNavBar from './src/components/SanityNavBar';
 import { myTheme } from './theme';
 
