@@ -15,9 +15,7 @@ function HomeHeaderPublishedAt({
   publishedAt,
 }: Props) {
   return (
-    <div
-      className={`absolute opacity-50 overflow-hidden text-light ${className}`}
-    >
+    <div className={`absolute italic overflow-hidden text-light ${className}`}>
       <motion.span animate={animate} className="block first-letter:uppercase">
         {moment(publishedAt, 'YYYYMMDD').fromNow() + '.'}
       </motion.span>

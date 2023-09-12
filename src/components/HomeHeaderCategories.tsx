@@ -16,9 +16,7 @@ type Props = {
 
 function HomeHeaderCategories({ animate, categories, className = '' }: Props) {
   return (
-    <div
-      className={`font-light opacity-50 overflow-hidden text-light text-sm ${className}`}
-    >
+    <div className={`overflow-hidden text-darker ${className}`}>
       <motion.div animate={animate}>
         {!!categories &&
           categories
@@ -29,7 +27,7 @@ function HomeHeaderCategories({ animate, categories, className = '' }: Props) {
               </span>
             ))}
         {!!categories && categories.length > 2 && (
-          <span>, +{categories.length - 2}</span>
+          <span className="text-dark">, +{categories.length - 2}</span>
         )}
       </motion.div>
     </div>

@@ -25,7 +25,7 @@ function HomeHeaderImage({
     <div className={`overflow-hidden ${className}`}>
       <motion.div animate={animate}>
         <Link href={`/post/${slug}`}>
-          <div className="pb-13/12 relative">
+          <div className="pb-15/12 relative">
             <Image
               alt={image.alt || title}
               blurDataURL={image.metadata.lqip}

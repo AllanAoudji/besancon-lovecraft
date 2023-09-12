@@ -10,7 +10,7 @@ type Props = {
 function HomeHeaderTitle({ animate, className = '', title }: Props) {
   return (
     <div
-      className={`overflow-hidden text-3xl text-light w-full sm:text-4xl ${className}`}
+      className={`overflow-hidden text-3xl text-darker w-full sm:text-4xl ${className}`}
     >
       <motion.h3
         animate={animate}

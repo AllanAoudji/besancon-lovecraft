@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import Footer from '@src/components/Footer';
 import FullScreenImage from '@src/components/FullScreenImage';
 import Header from '@src/components/Header';
-import { rubik } from '@src/utils/fonts';
+import { libreBodoni } from '@src/utils/fonts';
 
 export const metadata: Metadata = {
   title: 'Allan Aoudji | Web & graphic designer',
@@ -17,10 +17,10 @@ type Props = {
 const RootLayout = ({ children }: Props) => {
   return (
     <body
-      className={`bg-secondary flex flex-col min-h-screen relative ${rubik.className}`}
+      className={`bg-lighter flex flex-col min-h-screen relative ${libreBodoni.className}`}
     >
       <FullScreenImage />
-      <div className="bg-gradient-to-b flex flex-col from-50% from-dark min-h-screen to-darker">
+      <div className="flex flex-col min-h-screen">
         <Header />
         <main className="grow">{children}</main>
         <Footer />

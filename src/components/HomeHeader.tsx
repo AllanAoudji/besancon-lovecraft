@@ -266,7 +266,7 @@ function HomeHeader({ posts }: Props) {
     <Wrapper>
       <div className="gap-3 grid grid-cols-6 h-full min-h-[calc(105vw+7rem)] relative md:grid-cols-12 md:min-h-[calc(57.5vw+12rem)] lg:min-h-[calc(40vw+10rem)]">
         <AnimatePresence>
-          <div className="absolute gap-x-3 gap-y-2 grid grid-cols-6 inset-x-0 pt-4 top-0 z-10 md:grid-cols-12 md:pt-8 lg:pt-12">
+          <div className="absolute gap-x-3 gap-y-2 grid grid-cols-6 inset-x-0 pt-2 top-0 z-10 md:grid-cols-12 md:pt-8 lg:pt-12">
             <HomeHeaderCategories
               animate={constrolsCategories}
               categories={posts[index].categories}
@@ -280,7 +280,7 @@ function HomeHeader({ posts }: Props) {
               title={posts[index].title}
             />
           </div>
-          <div className="col-span-5 col-start-2 flex flex-col justify-center md:col-span-6 md:col-start-6 lg:col-span-5 lg:col-start-6">
+          <div className="col-span-5 col-start-2 flex flex-col justify-center pt-10 md:col-span-6 md:col-start-6 lg:col-span-5 lg:col-start-6">
             <div className="relative">
               <HomeHeaderImage
                 animate={controlsImage}
@@ -291,13 +291,13 @@ function HomeHeader({ posts }: Props) {
               />
               <HomeHeaderPublishedAt
                 animate={controlsPublishedAt}
-                className="bottom-0 -left-4 origin-bottom-left -rotate-90 text-xs z-10"
+                className="bottom-0 -left-4 origin-bottom-left -rotate-90 z-10"
                 key="publishedAt"
                 publishedAt={posts[index].publishedAt}
               />
             </div>
             <HomeHeaderNavigation
-              className="pt-4 w-full"
+              className="py-4 w-full"
               index={index}
               key="navigation"
               onClickNext={handlePressNext}
