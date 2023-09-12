@@ -12,19 +12,17 @@ type Props = {
 function PostCard({ post, showCategories = true, variant = 'normal' }: Props) {
   return (
     <Link
-      className={`col-span-1 flex last-of-type:pb-0 [&_img]:hover:scale-150 ${
+      className={`col-span-1 last-of-type:pb-12 [&_img]:hover:scale-150 ${
         variant === 'normal'
-          ? 'flex-col pb-12'
-          : 'justify-between pb-5 sm:justify-normal sm:pb-12 sm:flex-col'
+          ? 'flex flex-col pb-12'
+          : 'gap-2 grid grid-cols-6 pb-3'
       }`}
       href={`/post/${post.slug}`}
     >
       {post.mainImage && post.mainImage.url && (
         <div
           className={`overflow-hidden ${
-            variant === 'normal'
-              ? ''
-              : 'basis-28 grow-0 h-28 mr-4 shrink-0 sm:basis-auto sm:grow-auto sm:h-auto sm:mr-0 sm:shrink-auto'
+            variant === 'normal' ? '' : 'col-span-2 aspect-square'
           }`}
         >
           <Image
@@ -38,36 +36,29 @@ function PostCard({ post, showCategories = true, variant = 'normal' }: Props) {
           />
         </div>
       )}
-      <div
-        className={`grow text-light ${
-          variant === 'normal' ? 'pt-3' : 'sm:pt-3'
-        }`}
-      >
-        <div className="pb-4">
-          <p className="opacity-50 text-xs first-letter:uppercase">
+      <div className={`text-sm ${variant === 'normal' ? '' : 'col-span-4'}`}>
+        <div className={`text-light ${variant === 'normal' ? 'pt-2' : ''}`}>
+          <p className="first-letter:uppercase">
             {moment(post.publishedAt).fromNow()}
           </p>
           {post.categories && showCategories && (
-            <div className="flex flex-wrap font-bold gap-2 text-light text-sm">
+            <div className="font-bold text-darker">
               {post.categories.slice(0, 2).map((category, index, array) => (
                 <span key={category.slug}>
-                  {category.name}
-                  {index < array.length - 1 ? (
-                    <span className="text-secondary">, </span>
-                  ) : (
-                    <span />
-                  )}
+                  {category.name + (index < array.length - 1 ? ', ' : '')}
                 </span>
               ))}
               {post.categories.length > 2 && (
-                <span>+{post.categories.length - 2}</span>
+                <span className="text-dark">
+                  , +{post.categories.length - 2}
+                </span>
               )}
             </div>
           )}
         </div>
         <h3
-          className={`font-bold text-light uppercase ${bodoniModa.className} ${
-            variant === 'normal' ? 'text-3xl' : 'text-lg sm:text-3xl'
+          className={`font-bold text-darker ${bodoniModa.className} ${
+            variant === 'normal' ? 'pt-2 text-4xl' : 'pt-1 text-xl'
           }`}
         >
           {post.title}
