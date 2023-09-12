@@ -12,17 +12,19 @@ type Props = {
 function PostCard({ post, showCategories = true, variant = 'normal' }: Props) {
   return (
     <Link
-      className={`col-span-1 last-of-type:pb-12 [&_img]:hover:scale-150 ${
+      className={`col-span-1 [&_img]:hover:scale-150 ${
         variant === 'normal'
           ? 'flex flex-col pb-12'
-          : 'gap-2 grid grid-cols-6 pb-3'
+          : 'gap-2 grid grid-cols-6 pb-3 sm:gap sm:flex sm:flex-col sm:pb-12 sm:gap-0'
       }`}
       href={`/post/${post.slug}`}
     >
       {post.mainImage && post.mainImage.url && (
         <div
           className={`overflow-hidden ${
-            variant === 'normal' ? '' : 'col-span-2 aspect-square'
+            variant === 'normal'
+              ? ''
+              : 'col-span-2 aspect-square sm:col-span-full sm:aspect-auto'
           }`}
         >
           <Image
@@ -36,8 +38,14 @@ function PostCard({ post, showCategories = true, variant = 'normal' }: Props) {
           />
         </div>
       )}
-      <div className={`text-sm ${variant === 'normal' ? '' : 'col-span-4'}`}>
-        <div className={`text-light ${variant === 'normal' ? 'pt-2' : ''}`}>
+      <div
+        className={`text-sm ${
+          variant === 'normal' ? '' : 'col-span-4 sm:col-span-full'
+        }`}
+      >
+        <div
+          className={`text-light ${variant === 'normal' ? 'pt-2' : 'sm:pt-2'}`}
+        >
           <p className="italic first-letter:uppercase">
             {moment(post.publishedAt).fromNow()}
           </p>
@@ -58,7 +66,9 @@ function PostCard({ post, showCategories = true, variant = 'normal' }: Props) {
         </div>
         <h3
           className={`font-bold text-darker ${bodoniModa.className} ${
-            variant === 'normal' ? 'pt-2 text-4xl' : 'pt-1 text-xl'
+            variant === 'normal'
+              ? 'pt-2 text-4xl'
+              : 'pt-1 text-xl sm:pt-2 sm:text-4xl'
           }`}
         >
           {post.title}
