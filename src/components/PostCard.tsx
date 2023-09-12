@@ -15,7 +15,7 @@ function PostCard({ post, showCategories = true, variant = 'normal' }: Props) {
       className={`col-span-1 [&_img]:hover:scale-150 ${
         variant === 'normal'
           ? 'flex flex-col pb-12'
-          : 'gap-2 grid grid-cols-6 pb-3 sm:gap sm:flex sm:flex-col sm:pb-12 sm:gap-0'
+          : 'gap-2 grid grid-cols-6 pb-3 sm:gap-0 sm:flex sm:flex-col sm:pb-12'
       }`}
       href={`/post/${post.slug}`}
     >
@@ -24,7 +24,7 @@ function PostCard({ post, showCategories = true, variant = 'normal' }: Props) {
           className={`overflow-hidden ${
             variant === 'normal'
               ? ''
-              : 'col-span-2 aspect-square sm:col-span-full sm:aspect-auto'
+              : 'aspect-square col-span-2 sm:aspect-auto sm:col-span-full'
           }`}
         >
           <Image

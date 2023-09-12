@@ -11,17 +11,17 @@ function NewsLetter() {
   return (
     <Wrapper backgroundColor="darker" className="py-12 sm:py-16">
       <h4
-        className={`pb-10 text-4xl uppercase text-dark sm:text-center ${bodoniModa.className}`}
+        className={`pb-10 text-4xl text-dark uppercase sm:text-center ${bodoniModa.className}`}
       >
         Abonnez-vous à la newsletter
       </h4>
       <form
-        className="grid grid-cols-6 gap-x-2 gap-y-4 sm:grid-cols-12"
+        className="gap-x-2 gap-y-4 grid grid-cols-6 sm:grid-cols-12"
         onSubmit={subscribe}
       >
         <input
           autoComplete="email"
-          className="col-span-6 bg-dark border-2 text-lg font-bold border-lighter border-opacity-50 duration-300 h-12 outline-none pl-4 text-lighter transition-all focus:border-opacity-100 placeholder:opacity-50 placeholder:text-lighter placeholder:font-normal sm:col-start-4"
+          className="bg-dark border-2 border-lighter border-opacity-50 col-span-6 duration-300 font-bold h-12 text-lg outline-none pl-4 text-lighter transition-all focus:border-opacity-100 placeholder:opacity-50 placeholder:text-lighter placeholder:font-normal sm:col-start-4"
           placeholder="votre adresse e-mail"
           ref={inputEl}
           required
@@ -35,7 +35,7 @@ function NewsLetter() {
           {form.message && <span>{form.message}</span>}
         </div>
         <button
-          className="col-span-4 col-start-2 bg-dark h-12 px-4 rounded-full uppercase text-darker sm:col-start-5"
+          className="bg-dark col-span-4 col-start-2 h-12 px-4 rounded-full text-darker uppercase sm:col-start-5"
           type="submit"
         >
           {form.state === Form.Loading ? 'loading...' : "S'abonner"}

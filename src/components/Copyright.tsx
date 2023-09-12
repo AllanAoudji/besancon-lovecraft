@@ -6,7 +6,7 @@ type Props = {
 
 function Copyright({ className = '' }: Props) {
   return (
-    <div className={`flex flex-col text-md text-dark ${className}`}>
+    <div className={`flex flex-col text-dark text-md ${className}`}>
       <span>
         © Les Suivants de la Vouivre, {currentYear != 2023 && '2023 - '}{' '}
         {currentYear}
@@ -14,7 +14,7 @@ function Copyright({ className = '' }: Props) {
       <span>
         site web:{' '}
         <a
-          className="text-bold border-b-2 border-dark italic"
+          className="border-b-2 border-dark italic text-bold"
           target="_blank"
           href="https://allan-aoudji.vercel.app/"
         >

@@ -1,23 +1,23 @@
 type Props = {
   backgroundColor?:
-    | 'light'
-    | 'lighter'
     | 'dark'
     | 'darker'
-    | 'secondary'
-    | 'none';
+    | 'light'
+    | 'lighter'
+    | 'none'
+    | 'secondary';
   children?: React.ReactNode;
   className?: string;
 };
 
 const bgColor = (
   backgroundColor:
-    | 'light'
-    | 'lighter'
     | 'dark'
     | 'darker'
-    | 'secondary'
+    | 'light'
+    | 'lighter'
     | 'none'
+    | 'secondary'
 ) => {
   switch (backgroundColor) {
     case 'dark':
@@ -28,11 +28,11 @@ const bgColor = (
       return 'bg-light';
     case 'lighter':
       return 'bg-lighter';
-    case 'secondary':
-      return 'bg-secondary';
     default:
     case 'none':
       return 'bg-non';
+    case 'secondary':
+      return 'bg-secondary';
   }
 };
 

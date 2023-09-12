@@ -50,7 +50,7 @@ async function InstaFeeds() {
     return (
       <Wrapper backgroundColor="dark" className="py-12 sm:py-16">
         <h4
-          className={`font-bold text-darker pb-12 text-4xl leading-[3rem] uppercase sm:text-center ${bodoniModa.className}`}
+          className={`font-bold leading-[3rem] pb-12 text-4xl text-darker uppercase sm:text-center ${bodoniModa.className}`}
         >
           Suivez le projet sur{' '}
           <a

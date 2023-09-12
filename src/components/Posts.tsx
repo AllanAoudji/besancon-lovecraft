@@ -84,7 +84,7 @@ function Posts({
         />
       ))}
       <LoaderButton
-        className="col-span-1 pt-20 flex text-light items-center justify-center text-xl sm:col-span-2 lg:col-span-3"
+        className="col-span-1 flex items-center justify-center pt-20 text-light text-xl sm:col-span-2 lg:col-span-3"
         loading={loading}
         onClick={postsGetter}
         show={!!lastSlug}

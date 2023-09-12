@@ -42,11 +42,11 @@ export default async function Home({ searchParams: { drawer } }: Props) {
       drawer={drawer}
     >
       <h4
-        className={`text-dark leading-[3rem] py-12 text-4xl font-bold text-center uppercase sm:pt-16 ${bodoniModa.className}`}
+        className={`font-bold leading-[3rem] py-12 text-4xl text-center text-dark uppercase sm:pt-16 ${bodoniModa.className}`}
       >
         Les derniers articles
       </h4>
-      <div className="gap-0 grid grid-cols-1 pb-12 sm:grid-cols-2 sm:gap-2 sm:pb-16">
+      <div className="gap-0 grid grid-cols-1 pb-12 sm:gap-2 sm:grid-cols-2 sm:pb-16">
         <Posts posts={posts} />
       </div>
     </PageContainer>
