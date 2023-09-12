@@ -38,7 +38,7 @@ function PostCard({ post, showCategories = true, variant = 'normal' }: Props) {
       )}
       <div className={`text-sm ${variant === 'normal' ? '' : 'col-span-4'}`}>
         <div className={`text-light ${variant === 'normal' ? 'pt-2' : ''}`}>
-          <p className="first-letter:uppercase">
+          <p className="italic first-letter:uppercase">
             {moment(post.publishedAt).fromNow()}
           </p>
           {post.categories && showCategories && (
