@@ -40,7 +40,7 @@ function Wrapper({ backgroundColor = 'none', children, className }: Props) {
   return (
     <div className={bgColor(backgroundColor)}>
       <div
-        className={`duration-300 mx-auto px-6 transition-all sm:px-12 md:max-w-6xl ${className}`}
+        className={`duration-300 mx-auto px-6 transition-all sm:px-9 md:max-w-6xl ${className}`}
       >
         {children}
       </div>
