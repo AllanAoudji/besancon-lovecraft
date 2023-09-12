@@ -33,7 +33,7 @@ function DrawerOpenLink({ className = '', color = 'light' }: Props) {
     >
       <Image
         alt="hamburger menu"
-        className="h-6 w-auto"
+        className="h-8 w-auto"
         src={color === 'dark' ? hamburgerMenuDark : hamburgerMenuLight}
       />
     </Link>

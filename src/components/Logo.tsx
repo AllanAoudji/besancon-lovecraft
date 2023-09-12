@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import logoDark from '@/public/logo-dark.png';
+import logoDark from '@/public/logo-image-light.png';
 import logoLight from '@/public/logo-light.png';
 
 type Props = {
