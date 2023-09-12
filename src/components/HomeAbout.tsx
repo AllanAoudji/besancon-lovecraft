@@ -16,15 +16,13 @@ function HomeAbout() {
   return (
     <Wrapper
       backgroundColor="darker"
-      className="gap-2 grid grid-cols-6 mx-auto py-12"
+      className="gap-2 grid grid-cols-6 mx-auto py-12 sm:grid-cols-12 sm:py-16"
     >
-      <h2
-        className={`col-span-6 font-bold leading-[3rem] pb-2 text-dark text-4xl transition uppercase`}
-      >
+      <h2 className="col-span-6 font-bold leading-[3rem] pb-2 text-dark text-4xl transition uppercase sm:col-span-10">
         Qu&apos;est-ce que le projet{' '}
         <b className="font-normal italic">les suivant de la vouivre</b> ?
       </h2>
-      <div className="col-span-5 col-start-2 text-lighter text-lg leading-6">
+      <div className="col-span-5 col-start-2 text-lighter text-lg leading-6 sm:col-span-10 sm:col-start-3">
         <Text>
           Le projet Besancon-Lovecraft est un projet de création de jeu de rôle
           sur table se déroulant dans un Besançon des années 1910, dans une
