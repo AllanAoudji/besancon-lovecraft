@@ -1,6 +1,7 @@
 import { instagramAccessToken } from '@/lib/environment';
 import { bodoniModa } from '@src/utils/fonts';
 import Image from 'next/image';
+import Wrapper from './Wrapper';
 
 type Data =
   | {
@@ -47,31 +48,26 @@ async function InstaFeeds() {
     }
 
     return (
-      <div className="bg-light pb-16">
-        <div className="flex items-center justify-center py-16">
-          <h4
-            className={`font-bold px-6 text-3xl text-center ${bodoniModa.className}`}
+      <Wrapper backgroundColor="dark" className="py-12">
+        <h4
+          className={`font-bold text-darker pb-12 text-4xl leading-[3rem] uppercase ${bodoniModa.className}`}
+        >
+          Suivez le projet sur{' '}
+          <a
+            className="border-b-4 border-darker"
+            href={INSTAGRAM_LINK}
+            target="_blank"
           >
-            Suivez le projet sur{' '}
-            <a
-              className="border-b-4 border-secondary font-black text-secondary"
-              href={INSTAGRAM_LINK}
-              target="_blank"
-            >
-              Instagram
-            </a>
-          </h4>
-        </div>
+            Instagram
+          </a>
+        </h4>
         <a
-          className="gap-1 grid grid-cols-2 px-2 sm:grid-cols-4 sm:gap-3"
+          className="gap-2 grid grid-cols-2 sm:grid-cols-4"
           href={INSTAGRAM_LINK}
           target="_blank"
         >
           {data.data.map((post) => (
-            <div
-              className="aspect-square bg-secondary grow relative"
-              key={post.id}
-            >
+            <div className="aspect-square bg-lighter relative" key={post.id}>
               <Image
                 alt="image"
                 className="object-cover"
@@ -86,7 +82,7 @@ async function InstaFeeds() {
             </div>
           ))}
         </a>
-      </div>
+      </Wrapper>
     );
   } catch (e) {
     return null;
