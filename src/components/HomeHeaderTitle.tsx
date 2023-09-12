@@ -1,5 +1,5 @@
-import { bodoniModa } from '@src/utils/fonts';
 import { AnimationControls, motion } from 'framer-motion';
+import Title from './Title';
 
 type Props = {
   animate: AnimationControls;
@@ -9,16 +9,16 @@ type Props = {
 
 function HomeHeaderTitle({ animate, className = '', title }: Props) {
   return (
-    <div
-      className={`overflow-hidden text-3xl text-darker w-full sm:text-4xl ${className}`}
+    <Title
+      className={`overflow-hidden w-full ${className}`}
+      size="normal"
+      type="h3"
+      uppercase={true}
     >
-      <motion.h3
-        animate={animate}
-        className={`font-bold uppercase ${bodoniModa.className}`}
-      >
+      <motion.span animate={animate} className="block">
         {title}
-      </motion.h3>
-    </div>
+      </motion.span>
+    </Title>
   );
 }
 

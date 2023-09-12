@@ -1,7 +1,7 @@
-import { bodoniModa } from '@src/utils/fonts';
 import moment from 'moment';
 import Image from 'next/image';
 import Link from 'next/link';
+import Title from './Title';
 
 type Props = {
   post: Post;
@@ -64,15 +64,13 @@ function PostCard({ post, showCategories = true, variant = 'normal' }: Props) {
             </div>
           )}
         </div>
-        <h3
-          className={`font-bold text-darker ${bodoniModa.className} ${
-            variant === 'normal'
-              ? 'pt-2 text-4xl'
-              : 'pt-1 text-xl sm:pt-2 sm:text-4xl'
-          }`}
+        <Title
+          className={variant === 'small' ? 'sm:pt-2 sm:text-4xl' : ''}
+          type="h3"
+          size={variant === 'normal' ? 'normal' : 'small'}
         >
           {post.title}
-        </h3>
+        </Title>
       </div>
     </Link>
   );

@@ -2,19 +2,22 @@
 
 import { Form } from '@/lib/enums';
 import { useSubscribeToNewsletter } from '@src/hooks/useSubscribeToNewsletter';
-import { bodoniModa } from '@src/utils/fonts';
 import Wrapper from './Wrapper';
+import Title from './Title';
 
 function NewsLetter() {
   const { form, inputEl, subscribe } = useSubscribeToNewsletter();
 
   return (
     <Wrapper backgroundColor="darker" className="py-12 sm:py-16">
-      <h4
-        className={`pb-10 text-4xl text-dark uppercase sm:text-center ${bodoniModa.className}`}
+      <Title
+        className="pb-10 sm:text-center"
+        color="dark"
+        type="h2"
+        uppercase={true}
       >
         Abonnez-vous à la newsletter
-      </h4>
+      </Title>
       <form
         className="gap-x-2 gap-y-4 grid grid-cols-6 sm:grid-cols-12"
         onSubmit={subscribe}

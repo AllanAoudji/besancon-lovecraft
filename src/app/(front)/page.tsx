@@ -3,9 +3,9 @@ import Posts from '@src/components/Posts';
 import { getPosts } from '@/sanity/sanity.queries';
 import HomeHeader from '@src/components/HomeHeader';
 import HomeAbout from '@src/components/HomeAbout';
-import { bodoniModa } from '@src/utils/fonts';
 import InstaFeeds from '@src/components/InstaFeeds';
 import NewsLetter from '@src/components/NewsLetter';
+import Title from '@src/components/Title';
 
 type Props = {
   searchParams: {
@@ -41,11 +41,14 @@ export default async function Home({ searchParams: { drawer } }: Props) {
       }
       drawer={drawer}
     >
-      <h4
-        className={`font-bold leading-[3rem] py-12 text-4xl text-center text-dark uppercase sm:pt-16 ${bodoniModa.className}`}
+      <Title
+        className="py-12 text-center sm:pt-16"
+        color="dark"
+        type="h2"
+        uppercase={true}
       >
         Les derniers articles
-      </h4>
+      </Title>
       <div className="gap-0 grid grid-cols-1 pb-12 sm:gap-2 sm:grid-cols-2 sm:pb-16">
         <Posts posts={posts} />
       </div>

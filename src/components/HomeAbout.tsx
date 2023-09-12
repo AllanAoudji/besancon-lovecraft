@@ -1,3 +1,4 @@
+import Title from './Title';
 import Wrapper from './Wrapper';
 
 type TextProps = {
@@ -18,10 +19,15 @@ function HomeAbout() {
       backgroundColor="darker"
       className="gap-2 grid grid-cols-6 mx-auto py-12 sm:grid-cols-12 sm:py-16"
     >
-      <h2 className="col-span-6 font-bold leading-[3rem] pb-2 text-4xl text-dark transition uppercase sm:col-span-10">
+      <Title
+        className="col-span-6 leading-[3rem] pb-2 transition sm:col-span-10"
+        color="dark"
+        type="h2"
+        uppercase={true}
+      >
         Qu&apos;est-ce que le projet{' '}
         <b className="font-normal italic">les suivant de la vouivre</b> ?
-      </h2>
+      </Title>
       <div className="col-span-5 col-start-2 leading-6 text-lg text-lighter sm:col-span-10 sm:col-start-3">
         <Text>
           Le projet Besancon-Lovecraft est un projet de création de jeu de rôle

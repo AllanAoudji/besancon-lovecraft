@@ -1,7 +1,7 @@
 import { instagramAccessToken } from '@/lib/environment';
-import { bodoniModa } from '@src/utils/fonts';
 import Image from 'next/image';
 import Wrapper from './Wrapper';
+import Title from './Title';
 
 type Data =
   | {
@@ -49,9 +49,8 @@ async function InstaFeeds() {
 
     return (
       <Wrapper backgroundColor="dark" className="py-12 sm:py-16">
-        <h4
-          className={`font-bold leading-[3rem] pb-12 text-4xl text-darker uppercase sm:text-center ${bodoniModa.className}`}
-        >
+        <Title className="pb-12 sm:text-center" type="h2" uppercase={true}>
+          {' '}
           Suivez le projet sur{' '}
           <a
             className="border-b-4 border-darker"
@@ -60,7 +59,7 @@ async function InstaFeeds() {
           >
             Instagram
           </a>
-        </h4>
+        </Title>
         <a
           className="gap-2 grid grid-cols-2 sm:grid-cols-4"
           href={INSTAGRAM_LINK}
