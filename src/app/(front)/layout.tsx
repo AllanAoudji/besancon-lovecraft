@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import Footer from '@src/components/Footer';
 import FullScreenImage from '@src/components/FullScreenImage';
 import Header from '@src/components/Header';
-import { libreBodoni } from '@src/utils/fonts';
+import { playfair } from '@src/utils/fonts';
 
 export const metadata: Metadata = {
   title: 'Allan Aoudji | Web & graphic designer',
@@ -17,7 +17,7 @@ type Props = {
 const RootLayout = ({ children }: Props) => {
   return (
     <body
-      className={`bg-lighter flex flex-col min-h-screen relative ${libreBodoni.className}`}
+      className={`bg-lighter flex flex-col min-h-screen relative ${playfair.className}`}
     >
       <FullScreenImage />
       <div className="flex flex-col min-h-screen">

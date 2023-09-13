@@ -1,7 +1,6 @@
 import { instagramAccessToken } from '@/lib/environment';
 import Image from 'next/image';
 import Wrapper from './Wrapper';
-import Title from './Title';
 import Grid from './Grid';
 
 type Data =
@@ -49,23 +48,27 @@ async function InstaFeeds() {
     }
 
     return (
-      <Wrapper backgroundColor="dark" className="py-12 sm:py-16 lg:py-24">
-        <Title
-          className="pb-12 sm:text-center lg:pb-20"
-          type="h2"
-          uppercase={true}
-        >
-          {' '}
-          Suivez le projet sur{' '}
+      <Wrapper backgroundColor="darker" className="py-24 lg:py-28">
+        <div className="flex flex-col justify-center items-center gap-1 font-bold pb-20 text-lighter text-center">
+          <h3 className="text-3xl uppercase">
+            Suivez le projet sur{' '}
+            <a className="text-dark" href={INSTAGRAM_LINK} target="_blank">
+              Instagram
+            </a>
+          </h3>
           <a
-            className="border-b-4 border-darker"
             href={INSTAGRAM_LINK}
             target="_blank"
+            className="text-xl text-dark"
           >
-            Instagram
+            #lessuivantsdelavouivre
           </a>
-        </Title>
-        <a className="block" href={INSTAGRAM_LINK} target="_blank">
+        </div>
+        <a
+          className="block col-span-6 sm:col-span-12"
+          href={INSTAGRAM_LINK}
+          target="_blank"
+        >
           <Grid>
             {data.data.map((post) => (
               <div

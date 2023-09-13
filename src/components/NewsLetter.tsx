@@ -3,7 +3,6 @@
 import { Form } from '@/lib/enums';
 import { useSubscribeToNewsletter } from '@src/hooks/useSubscribeToNewsletter';
 import Wrapper from './Wrapper';
-import Title from './Title';
 import Grid from './Grid';
 
 function NewsLetter() {
@@ -11,20 +10,20 @@ function NewsLetter() {
 
   return (
     <Wrapper
-      backgroundColor="darker"
-      className="border-b-4 border-dark py-12 sm:py-20 lg:py-28"
+      backgroundColor="dark"
+      border="bottom"
+      borderColor="darker"
+      className="py-24 lg:py-32"
     >
-      <Title
-        className="pb-10 sm:text-center sm:pb-20"
-        color="dark"
-        type="h2"
-        uppercase={true}
-      >
-        Abonnez-vous à la newsletter
-      </Title>
+      <div className="flex flex-col justify-center items-center gap-1 font-bold pb-20 text-lighter text-center">
+        <h3 className="text-3xl uppercase">Abonnez-vous à la newsletter</h3>
+        <h4 className="text-darker text-xl">
+          Soyez les premiers à suivre et connaître l&apos;avancée du projet
+        </h4>
+      </div>
       <form onSubmit={subscribe}>
-        <Grid>
-          <div className="col-span-6 sm:col-start-2 lg:col-span-4 lg:col-start-4">
+        <Grid className="gap-y-4">
+          <div className="col-span-6 sm:col-start-4 lg:col-span-4 lg:col-start-4">
             <input
               autoComplete="email"
               className="bg-dark border-2 w-full border-lighter border-opacity-50 duration-300 font-bold h-12 text-lg outline-none pl-4 text-lighter transition-all focus:border-opacity-100 placeholder:opacity-50 placeholder:text-lighter placeholder:font-normal "
@@ -42,7 +41,7 @@ function NewsLetter() {
             </div>
           </div>
           <button
-            className="bg-dark col-span-4 col-start-2 h-12 px-4 rounded-full text-darker uppercase lg:col-start-auto lg:col-span-2"
+            className="sm:col-start-5 bg-darker border-2 border-darker col-span-4 col-start-2 text-lg h-12 px-4 text-dark transition-all uppercase lg:col-start-auto lg:col-span-2 hover:bg-dark hover:text-darker"
             type="submit"
           >
             {form.state === Form.Loading ? 'loading...' : "S'abonner"}
