@@ -30,10 +30,12 @@ const sizeGenerator = (size: Size, uppercase: boolean) => {
   switch (size) {
     default:
     case 'large':
-      return `text-4xl ${uppercase ? 'leading-[3rem] uppercase' : ''}`;
+      return `text-4xl lg:text-5xl ${
+        uppercase ? 'leading-[3rem] uppercase lg:leading-[3.5rem]' : ''
+      }`;
     case 'normal':
-      return `text-3xl sm:text-4xl lg-text-5xl ${
-        uppercase ? 'uppercase sm:leading-[3rem]' : ''
+      return `text-3xl sm:text-4xl lg:text-5xl ${
+        uppercase ? 'uppercase sm:leading-[3rem] lg:leading-[3.5rem]' : ''
       }`;
     case 'small':
       return `text-xl ${uppercase ? 'uppercase' : ''}`;

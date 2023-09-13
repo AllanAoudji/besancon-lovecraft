@@ -17,10 +17,10 @@ function HomeAbout() {
   return (
     <Wrapper
       backgroundColor="darker"
-      className="gap-2 grid grid-cols-6 mx-auto py-12 sm:grid-cols-12 sm:py-16"
+      className="gap-2 grid grid-cols-6 mx-auto py-12 sm:grid-cols-12 sm:py-16 lg:gap-4 lg:py-24"
     >
       <Title
-        className="col-span-6 leading-[3rem] pb-2 transition sm:col-span-10"
+        className="col-span-6 leading-[3rem] pb-2 transition sm:col-span-10 lg:col-span-5 lg:text-right"
         color="dark"
         type="h2"
         uppercase={true}
@@ -28,7 +28,7 @@ function HomeAbout() {
         Qu&apos;est-ce que le projet{' '}
         <b className="font-normal italic">les suivant de la vouivre</b> ?
       </Title>
-      <div className="col-span-5 col-start-2 leading-6 text-lg text-lighter sm:col-span-10 sm:col-start-3">
+      <div className="col-span-5 col-start-2 leading-6 text-lg text-lighter sm:col-span-10 sm:col-start-3 lg:col-span-7 lg:col-start-auto lg:text-xl">
         <Text>
           Le projet Besancon-Lovecraft est un projet de création de jeu de rôle
           sur table se déroulant dans un Besançon des années 1910, dans une
