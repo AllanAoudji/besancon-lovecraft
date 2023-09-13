@@ -46,7 +46,7 @@ function PostCard({ post, showCategories = true, variant = 'normal' }: Props) {
           className={`text-light ${
             variant === 'normal'
               ? 'border-b-2 border-darker pb-2 mb-1'
-              : 'sm:border-b-2 sm:border-darker sm:pb-2 sm:mb-1'
+              : 'pb-1 sm:border-b-2 sm:border-darker sm:pb-2 sm:mb-1'
           }`}
         >
           <p
@@ -78,7 +78,7 @@ function PostCard({ post, showCategories = true, variant = 'normal' }: Props) {
         </div>
         <h3
           className={`font-light text-darker ${
-            variant === 'normal' ? 'text-2xl' : 'sm:text-2xl'
+            variant === 'normal' ? 'text-2xl' : 'text-xl sm:text-2xl'
           }`}
         >
           {post.title}

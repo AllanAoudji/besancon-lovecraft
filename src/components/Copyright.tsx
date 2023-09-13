@@ -6,7 +6,7 @@ type Props = {
 
 function Copyright({ className = '' }: Props) {
   return (
-    <div className={`flex flex-col text-dark text-md ${className}`}>
+    <div className={`text-xs flex flex-col text-dark lg:text-sm ${className}`}>
       <span>
         © Les Suivants de la Vouivre, {currentYear != 2023 && '2023 - '}{' '}
         {currentYear}
