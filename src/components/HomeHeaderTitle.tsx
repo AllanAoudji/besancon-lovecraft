@@ -1,5 +1,4 @@
 import { AnimationControls, motion } from 'framer-motion';
-import Title from './Title';
 
 type Props = {
   animate: AnimationControls;
@@ -9,16 +8,11 @@ type Props = {
 
 function HomeHeaderTitle({ animate, className = '', title }: Props) {
   return (
-    <Title
-      className={`overflow-hidden w-full lg:leading-[3.5rem] lg:text-5xl ${className}`}
-      size="normal"
-      type="h3"
-      uppercase={true}
+    <div
+      className={`overflow-hidden w-full text-darker font-black text-4xl pb-3 uppercase lg:text-5xl ${className}`}
     >
-      <motion.span animate={animate} className="block">
-        {title}
-      </motion.span>
-    </Title>
+      <motion.h4 animate={animate}>{title}</motion.h4>
+    </div>
   );
 }
 

@@ -265,13 +265,13 @@ function HomeHeader({ posts }: Props) {
 
   return (
     <Wrapper>
-      <Grid className="h-full min-h-[calc(105vw+7rem)] relative md:min-h-[calc(57.5vw+12rem)] lg:min-h-[calc(40vw+6rem)]">
+      <Grid className="h-full min-h-[calc(105vw+7rem)] relative sm:min-h-[calc(57.5vw+12rem)] lg:min-h-[calc(40vw+6rem)]">
         <AnimatePresence>
           <Grid
-            className="absolute gap-y-2 inset-x-0 pointer-events-none pt-2 top-0 z-10 md:pt-8 lg:flex lg:flex-col lg:justify-center lg:h-3/4 lg:pt-0"
+            className="absolute gap-y-2 inset-x-0 pointer-events-none pt-2 top-0 z-10 sm:pt-8 lg:flex lg:flex-col lg:h-3/5 lg:justify-center lg:pt-0"
             key="top-content"
           >
-            <div className="col-span-6 md:col-span-8 md:col-start-3 lg:col-span-6 lg:col-start-2 lg:grid lg:grid-cols-12 lg:gap-4">
+            <div className="col-span-6 sm:col-span-8 sm:col-start-3 lg:col-span-6 lg:col-start-2 lg:gap-2 lg:grid lg:grid-cols-12">
               <HomeHeaderCategories
                 animate={constrolsCategories}
                 categories={posts[index].categories}
@@ -285,7 +285,7 @@ function HomeHeader({ posts }: Props) {
             </div>
           </Grid>
           <div
-            className="col-span-5 col-start-2 flex flex-col justify-center pt-10 sm:col-span-10 sm:col-start-3 md:col-span-6 md:col-start-5 lg:col-start-7 lg:col-span-5 lg:pt-2"
+            className="col-span-5 col-start-2 flex flex-col justify-center pt-10 sm:col-span-6 sm:col-start-5 sm:pt-6 lg:col-start-7 lg:col-span-5 lg:pt-0"
             key="bottom-content"
           >
             <div className="relative">

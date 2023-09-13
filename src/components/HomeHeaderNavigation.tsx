@@ -21,13 +21,13 @@ function HomeHeaderNavigation({
 
   return (
     <div className={`text-light w-full ${className}`}>
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between lg:text-lg">
         <span>
           {index + 1}
           {' /// '}
           {postsLength}
         </span>
-        <div className="text-lg">
+        <div className="text-lg font-bold lg:text-xl">
           <button className="uppercase" onClick={onClickPrevious}>
             précédent
           </button>
