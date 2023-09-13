@@ -22,10 +22,10 @@ function HomeHeaderImage({
   title,
 }: Props) {
   return (
-    <div className={`overflow-hidden ${className}`}>
+    <div className="overflow-hidden">
       <motion.div animate={animate}>
         <Link href={`/post/${slug}`}>
-          <div className="pb-15/12 relative">
+          <div className={`relative ${className}`}>
             <Image
               alt={image.alt || title}
               blurDataURL={image.metadata.lqip}

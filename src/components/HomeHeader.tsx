@@ -264,30 +264,31 @@ function HomeHeader({ posts }: Props) {
 
   return (
     <Wrapper>
-      <div className="gap-2 grid grid-cols-6 h-full min-h-[calc(105vw+7rem)] relative md:grid-cols-12 md:min-h-[calc(57.5vw+12rem)] lg:min-h-[calc(40vw+10rem)]">
+      <div className="gap-2 grid grid-cols-6 h-full min-h-[calc(105vw+7rem)] relative md:grid-cols-12 md:min-h-[calc(57.5vw+12rem)] lg:min-h-[calc(40vw+10rem)] lg:gap-4">
         <AnimatePresence>
           <div
-            className="absolute gap-x-3 gap-y-2 grid grid-cols-6 inset-x-0 pt-2 top-0 z-10 md:grid-cols-12 md:pt-8 lg:pt-12"
+            className="absolute gap-x-3 gap-y-2 grid grid-cols-6 inset-x-0 pt-2 top-0 z-10 md:grid-cols-12 md:pt-8 lf:gap-x-4 lg:pt-16"
             key="top-content"
           >
             <HomeHeaderCategories
               animate={constrolsCategories}
               categories={posts[index].categories}
-              className="col-span-6 md:col-span-8 md:col-start-3 lg:col-span-7 lg:col-start-3"
+              className="col-span-6 md:col-span-8 md:col-start-3 lg:col-span-6 lg:col-start-2"
             />
             <HomeHeaderTitle
               animate={controlsTitle}
-              className="col-span-6 sm:col-span-8 md:col-start-3 lg:col-span-7 lg:col-start-3"
+              className="col-span-6 sm:col-span-8 md:col-start-3 lg:col-span-6 lg:col-start-2"
               title={posts[index].title}
             />
           </div>
           <div
-            className="col-span-5 col-start-2 flex flex-col justify-center pt-10 md:col-span-6 md:col-start-5"
+            className="col-span-5 col-start-2 flex flex-col justify-center pt-10 md:col-span-6 md:col-start-5 lg:col-start-6 lg:pt-2 lg:col-span-6"
             key="bottom-content"
           >
             <div className="relative">
               <HomeHeaderImage
                 animate={controlsImage}
+                className="pb-15/12 lg:pb-13/12"
                 image={posts[index].mainImage}
                 slug={posts[index].slug}
                 title={posts[index].title}

@@ -9,7 +9,10 @@ function NewsLetter() {
   const { form, inputEl, subscribe } = useSubscribeToNewsletter();
 
   return (
-    <Wrapper backgroundColor="darker" className="py-12 sm:py-16">
+    <Wrapper
+      backgroundColor="darker"
+      className="border-b-4 border-dark py-12 sm:py-16"
+    >
       <Title
         className="pb-10 sm:text-center"
         color="dark"
