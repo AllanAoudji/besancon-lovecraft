@@ -34,7 +34,7 @@ const sizeGenerator = (size: Size, uppercase: boolean) => {
         uppercase ? 'leading-[3rem] uppercase lg:leading-[3.5rem]' : ''
       }`;
     case 'normal':
-      return `text-3xl sm:text-4xl lg:text-5xl ${
+      return `text-3xl sm:text-4xl ${
         uppercase ? 'uppercase sm:leading-[3rem] lg:leading-[3.5rem]' : ''
       }`;
     case 'small':

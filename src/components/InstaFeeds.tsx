@@ -2,6 +2,7 @@ import { instagramAccessToken } from '@/lib/environment';
 import Image from 'next/image';
 import Wrapper from './Wrapper';
 import Title from './Title';
+import Grid from './Grid';
 
 type Data =
   | {
@@ -48,8 +49,12 @@ async function InstaFeeds() {
     }
 
     return (
-      <Wrapper backgroundColor="dark" className="py-12 sm:py-16">
-        <Title className="pb-12 sm:text-center" type="h2" uppercase={true}>
+      <Wrapper backgroundColor="dark" className="py-12 sm:py-16 lg:py-24">
+        <Title
+          className="pb-12 sm:text-center lg:pb-20"
+          type="h2"
+          uppercase={true}
+        >
           {' '}
           Suivez le projet sur{' '}
           <a
@@ -60,26 +65,27 @@ async function InstaFeeds() {
             Instagram
           </a>
         </Title>
-        <a
-          className="gap-2 grid grid-cols-2 sm:grid-cols-4"
-          href={INSTAGRAM_LINK}
-          target="_blank"
-        >
-          {data.data.map((post) => (
-            <div className="aspect-square bg-lighter relative" key={post.id}>
-              <Image
-                alt="image"
-                className="object-cover"
-                fill
-                src={
-                  post.media_type === 'VIDEO'
-                    ? post.thumbnail_url
-                    : post.media_url
-                }
-                sizes="40vw"
-              />
-            </div>
-          ))}
+        <a className="block" href={INSTAGRAM_LINK} target="_blank">
+          <Grid>
+            {data.data.map((post) => (
+              <div
+                className="aspect-square bg-lighter relative col-span-3"
+                key={post.id}
+              >
+                <Image
+                  alt="image"
+                  className="object-cover"
+                  fill
+                  src={
+                    post.media_type === 'VIDEO'
+                      ? post.thumbnail_url
+                      : post.media_url
+                  }
+                  sizes="40vw"
+                />
+              </div>
+            ))}
+          </Grid>
         </a>
       </Wrapper>
     );

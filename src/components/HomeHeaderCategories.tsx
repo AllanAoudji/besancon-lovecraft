@@ -1,5 +1,6 @@
 'use client';
 
+import { inter } from '@src/utils/fonts';
 import { AnimationControls, motion } from 'framer-motion';
 
 type Props = {
@@ -16,7 +17,9 @@ type Props = {
 
 function HomeHeaderCategories({ animate, categories, className = '' }: Props) {
   return (
-    <div className={`overflow-hidden text-darker ${className}`}>
+    <div
+      className={`font-bold overflow-hidden text-dark ${className} ${inter.className}`}
+    >
       <motion.div animate={animate}>
         {!!categories &&
           categories
@@ -27,7 +30,9 @@ function HomeHeaderCategories({ animate, categories, className = '' }: Props) {
               </span>
             ))}
         {!!categories && categories.length > 2 && (
-          <span className="text-dark">, +{categories.length - 2}</span>
+          <span>
+            , <span className="text-light">+{categories.length - 2}</span>
+          </span>
         )}
       </motion.div>
     </div>

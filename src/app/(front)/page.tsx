@@ -6,6 +6,7 @@ import HomeAbout from '@src/components/HomeAbout';
 import InstaFeeds from '@src/components/InstaFeeds';
 import NewsLetter from '@src/components/NewsLetter';
 import Title from '@src/components/Title';
+import Grid from '@src/components/Grid';
 
 type Props = {
   searchParams: {
@@ -42,16 +43,16 @@ export default async function Home({ searchParams: { drawer } }: Props) {
       drawer={drawer}
     >
       <Title
-        className="py-12 text-center sm:pt-16"
+        className="py-12 text-center sm:pt-16 lg:py-24"
         color="dark"
         type="h2"
         uppercase={true}
       >
         Les derniers articles
       </Title>
-      <div className="gap-0 grid grid-cols-1 pb-12 sm:gap-2 sm:grid-cols-2 sm:pb-16">
+      <Grid className="pb-12 sm:pb-16 lg:pb-24">
         <Posts posts={posts} />
-      </div>
+      </Grid>
     </PageContainer>
   );
 }

@@ -2,6 +2,7 @@ import moment from 'moment';
 import Image from 'next/image';
 import Link from 'next/link';
 import Title from './Title';
+import { inter } from '@src/utils/fonts';
 
 type Props = {
   post: Post;
@@ -12,7 +13,7 @@ type Props = {
 function PostCard({ post, showCategories = true, variant = 'normal' }: Props) {
   return (
     <Link
-      className={`col-span-1 [&_img]:hover:scale-150 ${
+      className={`col-span-6 [&_img]:hover:scale-150 sm:col-span-6 lg:col-span-3 ${
         variant === 'normal'
           ? 'flex flex-col pb-12'
           : 'gap-2 grid grid-cols-6 pb-3 sm:gap-0 sm:flex sm:flex-col sm:pb-12'
@@ -50,22 +51,27 @@ function PostCard({ post, showCategories = true, variant = 'normal' }: Props) {
             {moment(post.publishedAt).fromNow()}
           </p>
           {post.categories && showCategories && (
-            <div className="font-bold text-darker">
+            <div className={`font-bold text-darker ${inter.className}`}>
               {post.categories.slice(0, 2).map((category, index, array) => (
                 <span key={category.slug}>
                   {category.name + (index < array.length - 1 ? ', ' : '')}
                 </span>
               ))}
               {post.categories.length > 2 && (
-                <span className="text-dark">
-                  , +{post.categories.length - 2}
+                <span>
+                  ,{' '}
+                  <span className="text-dark">
+                    +{post.categories.length - 2}
+                  </span>
                 </span>
               )}
             </div>
           )}
         </div>
         <Title
-          className={variant === 'small' ? 'sm:pt-2 sm:text-4xl' : ''}
+          className={`lg:text-3xl sm:pt-2 ${
+            variant === 'small' ? 'sm:text-4xl' : ''
+          }`}
           type="h3"
           size={variant === 'normal' ? 'normal' : 'small'}
         >

@@ -10,7 +10,7 @@ type Props = {
 function HomeHeaderTitle({ animate, className = '', title }: Props) {
   return (
     <Title
-      className={`overflow-hidden w-full ${className}`}
+      className={`overflow-hidden w-full lg:leading-[3.5rem] lg:text-5xl ${className}`}
       size="normal"
       type="h3"
       uppercase={true}
