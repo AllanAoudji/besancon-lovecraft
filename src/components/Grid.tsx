@@ -6,7 +6,7 @@ type Props = {
 function Grid({ children, className = '' }: Props) {
   return (
     <div
-      className={`gap-2 grid grid-cols-6 sm:grid-cols-12 lg:gap-8 ${className}`}
+      className={`gap-2 grid grid-cols-6 transition-all sm:grid-cols-12 lg:gap-5 ${className}`}
     >
       {children}
     </div>
