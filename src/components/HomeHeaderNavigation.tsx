@@ -21,18 +21,24 @@ function HomeHeaderNavigation({
 
   return (
     <div className={`text-light w-full ${className}`}>
-      <div className="flex items-center justify-between lg:text-lg">
-        <span>
+      <div className="flex items-center justify-between lg:text-lg text-light [&_span]:hover:text-darker">
+        <span className="duration-500 transition-all">
           {index + 1}
           {' /// '}
           {postsLength}
         </span>
         <div className="text-lg font-bold lg:text-xl">
-          <button className="uppercase" onClick={onClickPrevious}>
+          <button
+            className="duration-500 transition-all uppercase hover:text-darker"
+            onClick={onClickPrevious}
+          >
             précédent
           </button>
           {' / '}
-          <button className="uppercase" onClick={onClickNext}>
+          <button
+            className="duration-500 transition-all uppercase hover:text-darker"
+            onClick={onClickNext}
+          >
             suivant
           </button>
         </div>
