@@ -1,5 +1,4 @@
 import Grid from './Grid';
-import Title from './Title';
 import Wrapper from './Wrapper';
 
 type TextProps = {
@@ -16,18 +15,13 @@ function Text({ children }: TextProps) {
 
 function HomeAbout() {
   return (
-    <Wrapper backgroundColor="darker" className="py-12 sm:py-16 lg:py-28">
-      <Grid>
-        <Title
-          className="col-span-6 pb-2 sm:col-span-10 lg:col-span-5 lg:text-right"
-          color="dark"
-          type="h2"
-          uppercase={true}
-        >
+    <Wrapper backgroundColor="darker" className="py-24 lg:py-28">
+      <Grid className="lg:gap-y-2">
+        <h3 className="col-span-6 font-black pb-2 text-3xl text-lighter uppercase sm:col-span-10 sm:text-4xl lg:col-span-6 lg:col-start-2 lg:pb-0">
           Qu&apos;est-ce que le projet{' '}
-          <b className="font-normal italic">les suivant de la vouivre</b> ?
-        </Title>
-        <div className="col-span-5 col-start-2 leading-6 text-lg text-lighter sm:col-span-10 sm:col-start-3 lg:col-span-7 lg:col-start-auto lg:text-xl">
+          <b className="font-normal">les suivant de la vouivre</b>&nbsp;?
+        </h3>
+        <div className="col-span-5 col-start-2 leading-6 text-lg text-lighter sm:col-span-10 sm:col-start-3 lg:col-span-7 lg:col-start-5 lg:text-xl">
           <Text>
             Le projet Besancon-Lovecraft est un projet de création de jeu de
             rôle sur table se déroulant dans un Besançon des années 1910, dans
