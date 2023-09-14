@@ -53,7 +53,7 @@ const bgColor = (backgroundColor: Color | 'none') => {
       return 'bg-lighter';
     default:
     case 'none':
-      return 'bg-non';
+      return 'bg-none';
     case 'secondary':
       return 'bg-secondary';
   }

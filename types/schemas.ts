@@ -56,6 +56,11 @@ declare global {
     _id: string;
     _createdAt: Date;
     body: PortableTextBlock[] | null;
+    mainImage: {
+      url: string;
+      metadata: ImageMetadata;
+      alt: string;
+    };
     name: string;
     slug: string;
   };
