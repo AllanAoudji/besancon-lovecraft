@@ -60,7 +60,7 @@ declare global {
       url: string;
       metadata: ImageMetadata;
       alt: string;
-    };
+    } | null;
     name: string;
     slug: string;
   };
