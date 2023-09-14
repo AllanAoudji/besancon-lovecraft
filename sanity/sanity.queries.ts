@@ -176,6 +176,7 @@ export const getPage = (slug: string) =>
 const postsQuery = groq`*[
   _type == "post" &&
   publishedAt <= $now &&
+  slug.current != $not &&
   (publishedAt < $lastPublishedAt ||
   (publishedAt == $lastPublishedAt && slug.current < $lastSlug))
 ] | order(publishedAt desc, slug.current asc) [0...$query] {
@@ -218,15 +219,17 @@ const postsQuery = groq`*[
 export const getPosts = (
   lastPublishedAt: string,
   lastSlug: string,
-  options?: { numToFetch?: number }
+  options?: { numToFetch?: number; not?: string }
 ) => {
   const query = options?.numToFetch ? options.numToFetch : 12;
   const now = new Date().toISOString();
+  const not = options?.not ?? '';
   return getCachedClient()<Post[]>(postsQuery, {
     lastPublishedAt,
     lastSlug,
     now,
     query,
+    not,
   });
 };
 

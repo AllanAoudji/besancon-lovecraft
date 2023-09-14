@@ -34,6 +34,7 @@ function HomeHeader({ posts }: Props) {
   const controlsTitle = useAnimationControls();
 
   const intervalRef = useRef<NodeJS.Timer | null>();
+  const mountedRef = useRef<boolean>(true);
 
   const clearTimer = useCallback(() => {
     if (!intervalRef.current) {
@@ -82,6 +83,8 @@ function HomeHeader({ posts }: Props) {
         y: Y_TITLE_ANIMATION,
       }),
     ]);
+    if (!mountedRef.current) return;
+
     setIndex((prevState) =>
       prevState - 1 < 0 ? posts.length - 1 : prevState - 1
     );
@@ -124,6 +127,7 @@ function HomeHeader({ posts }: Props) {
         y: 0,
       }),
     ]);
+    if (!mountedRef.current) return;
     setCanPress(true);
   }, [
     canPress,
@@ -174,6 +178,9 @@ function HomeHeader({ posts }: Props) {
         },
       }),
     ]);
+
+    if (!mountedRef.current) return;
+
     setIndex((prevState) => (prevState + 1) % posts.length);
     controlsImage.set({ x: -X_IMAGE_ANIMATION });
     await Promise.all([
@@ -214,6 +221,9 @@ function HomeHeader({ posts }: Props) {
         },
       }),
     ]);
+
+    if (!mountedRef.current) return;
+
     setCanPress(true);
   }, [
     canPress,
@@ -258,6 +268,14 @@ function HomeHeader({ posts }: Props) {
     controlsImage.set({ x: 0, opacity: 1 });
     controlsTitle.set({ y: 1, opacity: 1 });
   }, [controlsImage, controlsTitle]);
+
+  // dismount before async call finished
+  useEffect(
+    () => () => {
+      mountedRef.current = false;
+    },
+    []
+  );
 
   if (!posts.length) {
     return;
