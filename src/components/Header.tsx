@@ -9,7 +9,7 @@ function Header() {
       <Wrapper className="flex items-center justify-between">
         <DrawerOpenLink color="dark" className="md:hidden" />
         <Logo className="h-20" color="dark" />
-        <Pages className="hidden space-x-4 text-darker font-bold items-center text-lg md:flex" />
+        <Pages className="hidden space-x-3 text-darker font-bold items-center md:flex" />
       </Wrapper>
     </header>
   );
