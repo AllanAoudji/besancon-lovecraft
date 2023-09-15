@@ -12,16 +12,16 @@ function PostCard({ post, showCategories = true, variant = 'normal' }: Props) {
   return (
     <Link
       className={`col-span-6 [&_img]:hover:scale-150 sm:col-span-6 lg:col-span-3 ${
-        variant === 'normal'
+        variant === 'normal' || showCategories
           ? 'flex flex-col pb-12'
           : 'gap-2 grid grid-cols-6 pb-3 sm:gap-0 sm:flex sm:flex-col sm:pb-12'
       }`}
       href={`/post/${post.slug}`}
     >
-      {post.mainImage && post.mainImage.url && (
+      {!!post.mainImage && !!post.mainImage.url && post.mainImage.metadata && (
         <div
           className={`overflow-hidden ${
-            variant === 'normal'
+            variant === 'normal' || showCategories
               ? 'mb-2'
               : 'aspect-square col-span-2 sm:aspect-auto sm:col-span-full sm:mb-2'
           }`}
@@ -39,19 +39,21 @@ function PostCard({ post, showCategories = true, variant = 'normal' }: Props) {
       )}
       <div
         className={`text-sm ${
-          variant === 'normal' ? '' : 'col-span-4 sm:col-span-full'
+          variant === 'normal' || showCategories
+            ? ''
+            : 'col-span-4 sm:col-span-full'
         }`}
       >
         <div
           className={`text-light ${
-            variant === 'normal'
+            variant === 'normal' || showCategories
               ? 'border-b-2 border-darker pb-2 mb-1'
               : 'pb-1 sm:border-b-2 sm:border-darker sm:pb-2 sm:mb-1'
           }`}
         >
           <p
             className={`italic first-letter:uppercase lg:text-base ${
-              variant === 'normal' ? 'text-lg' : 'sm:text-lg'
+              variant === 'normal' || showCategories ? 'text-lg' : 'sm:text-lg'
             }`}
           >
             {moment(post.publishedAt).fromNow()}
@@ -59,7 +61,9 @@ function PostCard({ post, showCategories = true, variant = 'normal' }: Props) {
           {post.categories && showCategories && (
             <div
               className={`font-black text-darker lg:text-base ${
-                variant === 'normal' ? 'text-lg' : 'sm:text-lg'
+                variant === 'normal' || showCategories
+                  ? 'text-lg'
+                  : 'sm:text-lg'
               }`}
             >
               {post.categories.slice(0, 2).map((category, index, array) => (
@@ -78,7 +82,9 @@ function PostCard({ post, showCategories = true, variant = 'normal' }: Props) {
         </div>
         <h3
           className={`font-light text-darker ${
-            variant === 'normal' ? 'text-2xl' : 'text-xl sm:text-2xl'
+            variant === 'normal' || showCategories
+              ? 'text-2xl'
+              : 'text-xl sm:text-2xl'
           }`}
         >
           {post.title}

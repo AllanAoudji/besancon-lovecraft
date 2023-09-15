@@ -72,7 +72,7 @@ const categoriesQuery = groq`*[_type == "category" && slug.current > $lastSlug] 
 }`;
 export const getCategories = (
   lastSlug: string,
-  lastPostPublishedAt: Date,
+  lastPostPublishedAt: string,
   lastPostSlug: string
 ) => {
   const now = new Date().toISOString();
@@ -93,10 +93,10 @@ const categoryQuery = groq`*[_type == "category" && slug.current == $slug][0] {
   title,
   "posts": *[
     _type == "post" &&
-    ^.slug.current in categories[]->slug.current &&
     publishedAt <= $now &&
-    (publishedAt > $lastPublishedAt ||
-    (publishedAt == $lastPublishedAt && slug.current > $lastPostSlug))
+    ^.slug.current in categories[]->slug.current &&
+    (publishedAt < $lastPostPublishedAt ||
+    (publishedAt == $lastPostPublishedAt && slug.current < $lastPostSlug))
   ] | order(publishedAt, slug.current) [0...15]{
     _id,
     _createdAt,
@@ -123,12 +123,12 @@ const categoryQuery = groq`*[_type == "category" && slug.current == $slug][0] {
 }`;
 export const getCategory = (
   slug: string,
-  lastPublishedAt: Date,
+  lastPostPublishedAt: string,
   lastPostSlug: string
 ) => {
   const now = new Date().toISOString();
   return getCachedClient()<Category>(categoryQuery, {
-    lastPublishedAt,
+    lastPostPublishedAt,
     lastPostSlug,
     now,
     slug,

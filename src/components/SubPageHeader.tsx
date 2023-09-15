@@ -10,7 +10,7 @@ type Props = {
         slug: string;
       }[]
     | null;
-  image?: { url?: string; metadata: ImageMetadata; alt: string } | null;
+  image?: Image | null;
   publishedAt?: string;
   title: string;
 };
@@ -39,7 +39,7 @@ function SubPageHeader({ categories, image, publishedAt, title }: Props) {
             </div>
           )}
           {(!!categories || !!publishedAt) && (
-            <div className="pt-4 text-sm sm:flex sm:items-end sm:gap-8">
+            <div className="pt-4 text-sm sm:flex sm:items-end sm:gap-8 sm:text-base">
               {!!publishedAt && (
                 <p className="text-darker">
                   Publié {moment(publishedAt).fromNow()}

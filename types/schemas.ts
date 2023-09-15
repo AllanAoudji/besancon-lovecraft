@@ -27,6 +27,12 @@ declare global {
     message?: string;
   };
 
+  type Image = {
+    alt: string | null;
+    metadata: ImageMetadata | null;
+    url: string | null;
+  };
+
   type ImageMetadata = {
     hasAlpha: boolean;
     lqip: string;
@@ -43,11 +49,7 @@ declare global {
   };
 
   type NextPost = {
-    mainImage: {
-      alt: string;
-      metadata: ImageMetadata;
-      url: string;
-    };
+    mainImage: Image;
     slug: string;
     title: string;
   };
@@ -56,11 +58,7 @@ declare global {
     _id: string;
     _createdAt: Date;
     body: PortableTextBlock[] | null;
-    mainImage: {
-      url: string;
-      metadata: ImageMetadata;
-      alt: string;
-    } | null;
+    mainImage: Image;
     name: string;
     slug: string;
   };
@@ -81,11 +79,7 @@ declare global {
           slug: string;
         }[]
       | null;
-    mainImage: {
-      url: string;
-      metadata: ImageMetadata;
-      alt: string;
-    };
+    mainImage: Image;
     nextPost: NextPost | null;
     publishedAt: string;
     slug: string;
