@@ -15,7 +15,7 @@ function NewsLetter() {
       borderColor="darker"
       className="py-24 lg:py-32"
     >
-      <div className="flex flex-col justify-center items-center gap-1 font-bold pb-20 text-lighter text-center">
+      <div className="flex flex-col justify-center items-center gap-1 font-bold pb-10 text-lighter text-center transition-all lg:pb-20">
         <h3 className="text-3xl uppercase">Abonnez-vous à la newsletter</h3>
         <h4 className="text-darker text-xl">
           Soyez les premiers à suivre et connaître l&apos;avancée du projet

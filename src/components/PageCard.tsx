@@ -1,5 +1,7 @@
 import Link from 'next/link';
 
+import 'moment/locale/fr';
+
 type Props = {
   page: Page;
 };

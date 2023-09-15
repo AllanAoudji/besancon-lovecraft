@@ -49,7 +49,7 @@ async function InstaFeeds() {
 
     return (
       <Wrapper backgroundColor="darker" className="py-24 lg:py-28">
-        <div className="flex flex-col justify-center items-center gap-1 font-bold pb-20 text-lighter text-center">
+        <div className="flex flex-col justify-center items-center gap-1 font-bold pb-10 text-lighter text-center transition-all lg:pb-20">
           <h3 className="text-3xl uppercase">
             Suivez le projet sur{' '}
             <a className="text-dark" href={INSTAGRAM_LINK} target="_blank">

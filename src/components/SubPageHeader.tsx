@@ -1,0 +1,59 @@
+import moment from 'moment';
+import LinkImage from './LinkImage';
+import Categories from './Categories';
+
+type Props = {
+  categories?:
+    | {
+        name: string;
+        title: string;
+        slug: string;
+      }[]
+    | null;
+  image?: { url?: string; metadata: ImageMetadata; alt: string } | null;
+  publishedAt?: string;
+  title: string;
+};
+
+function SubPageHeader({ categories, image, publishedAt, title }: Props) {
+  return (
+    <div className="pb-10 sm:pb-16">
+      <h2 className="font-bold text-4xl text-darker transition-all md:text-5xl lg:text-6xl">
+        {title}
+      </h2>
+      {(!!categories ||
+        (!!image && !!image.url && !!image.metadata) ||
+        !!publishedAt) && (
+        <div className="pt-8 sm:pt-12">
+          {!!image && !!image.url && !!image.metadata && (
+            <div className="overflow-hidden pb-3/5 relative">
+              <LinkImage
+                alt={image.alt || title}
+                blurDataURL={image.metadata.lqip}
+                className="absolute duration-1000 h-full object-cover top-0 w-full"
+                height={image.metadata.dimensions.height}
+                placeholder="blur"
+                src={image.url}
+                width={image.metadata.dimensions.width}
+              />
+            </div>
+          )}
+          {(!!categories || !!publishedAt) && (
+            <div className="pt-4 text-sm sm:flex sm:items-end sm:gap-8">
+              {!!publishedAt && (
+                <p className="text-darker">
+                  Publié {moment(publishedAt).fromNow()}
+                </p>
+              )}
+              {!!categories && (
+                <Categories className="text-darker" categories={categories} />
+              )}
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default SubPageHeader;
