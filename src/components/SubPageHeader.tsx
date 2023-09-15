@@ -1,6 +1,8 @@
+import 'moment/locale/fr';
+
 import moment from 'moment';
-import LinkImage from './LinkImage';
 import Categories from './Categories';
+import Image from 'next/image';
 
 type Props = {
   categories?:
@@ -27,10 +29,10 @@ function SubPageHeader({ categories, image, publishedAt, title }: Props) {
         <div className="pt-8 sm:pt-12">
           {!!image && !!image.url && !!image.metadata && (
             <div className="overflow-hidden pb-3/5 relative">
-              <LinkImage
+              <Image
                 alt={image.alt || title}
                 blurDataURL={image.metadata.lqip}
-                className="absolute duration-1000 h-full object-cover top-0 w-full"
+                className="absolute duration-1000 h-full object-cover inset-0 w-full"
                 height={image.metadata.dimensions.height}
                 placeholder="blur"
                 src={image.url}

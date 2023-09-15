@@ -40,7 +40,7 @@ export default async function Page({
   }
 
   return (
-    <PageContainer className="pt-8 sm:pt-10 lg:pt-16" drawer={drawer}>
+    <PageContainer className="pt-8 sm:pt-10 lg:pt-20" drawer={drawer}>
       <SubPageHeader title={page.name} image={page.mainImage} />
       <SubPageInnerContainer>
         {page.body && <RichPortableText value={page.body} />}

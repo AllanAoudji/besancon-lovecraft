@@ -7,7 +7,7 @@ import {
 import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 import { useNextSanityImage } from 'next-sanity-image';
 import { PortableTextBlock } from 'sanity';
-import LinkImage from './LinkImage';
+import Image from 'next/image';
 
 type Props = {
   value: PortableTextBlock[];
@@ -21,8 +21,9 @@ function ImageComponent(
   if (!imageProps) return null;
 
   return (
-    <LinkImage
+    <Image
       alt="image"
+      className="h-auto w-full bg-secondary"
       height={imageProps.height}
       src={imageProps.src}
       width={imageProps.width}

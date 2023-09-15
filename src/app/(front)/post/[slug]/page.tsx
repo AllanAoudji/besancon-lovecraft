@@ -1,5 +1,3 @@
-import 'moment/locale/fr';
-
 import { getPost, getPosts } from '@/sanity/sanity.queries';
 import Grid from '@src/components/Grid';
 import PageContainer from '@src/components/PageContainer';
@@ -45,7 +43,7 @@ export default async function Page({
   });
 
   return (
-    <PageContainer className="pt-8 sm:pt-10 lg:pt-16" drawer={drawer}>
+    <PageContainer className="pt-8 sm:pt-10 lg:pt-20" drawer={drawer}>
       <SubPageHeader
         title={post.title}
         categories={post.categories}

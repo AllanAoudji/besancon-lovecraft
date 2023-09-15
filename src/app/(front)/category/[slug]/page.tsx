@@ -35,7 +35,7 @@ async function Categorypage({ params, searchParams: { drawer } }: Props) {
   }
 
   return (
-    <PageContainer className="pt-8 sm:pt-10 lg:pt-16" drawer={drawer}>
+    <PageContainer className="pt-8 sm:pt-10 lg:pt-20" drawer={drawer}>
       <SubPageHeader title={category.title} />
       <Grid>
         <Posts
