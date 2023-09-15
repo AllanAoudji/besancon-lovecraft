@@ -5,7 +5,6 @@ import Header from '@src/components/Header';
 import { playfair } from '@src/utils/fonts';
 
 export const metadata: Metadata = {
-  title: 'Allan Aoudji | Web & graphic designer',
   description: 'Home page',
 };
 

@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Default NextJs/sanity v3 app',
+  title: 'Les Suivants de la Vouivre',
 };
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {

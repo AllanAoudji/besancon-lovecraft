@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: `Allan Aoudji | ${category.name}`,
+    title: `Les Suivants de la Vouivre | ${category.name}`,
     description: 'single category page',
   };
 }

@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: `Allan Aoudji | ${page.name}`,
+    title: `Les Suivants de la Vouivre | ${page.name}`,
     description: 'single page',
   };
 }
