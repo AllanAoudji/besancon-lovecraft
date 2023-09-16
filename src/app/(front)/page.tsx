@@ -41,12 +41,16 @@ export default async function Home({ searchParams: { drawer } }: Props) {
       }
       drawer={drawer}
     >
-      <h3 className="font-black pb-20 pt-24 text-3xl text-center text-darker uppercase lg:pt-28 lg:text-4xl">
-        Les derniers articles
-      </h3>
-      <Grid className="pb-12 sm:pb-16 lg:pb-24">
-        <Posts posts={posts} />
-      </Grid>
+      {!!posts.length && (
+        <>
+          <h3 className="font-black pb-20 pt-24 text-3xl text-center text-darker uppercase lg:pt-28 lg:text-4xl">
+            Les derniers articles
+          </h3>
+          <Grid className="pb-12 sm:pb-16 lg:pb-24">
+            <Posts posts={posts} />
+          </Grid>
+        </>
+      )}
     </PageContainer>
   );
 }

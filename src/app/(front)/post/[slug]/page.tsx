@@ -53,14 +53,16 @@ export default async function Page({
       <SubPageInnerContainer>
         {post.body && <RichPortableText value={post.body} />}
       </SubPageInnerContainer>
-      <div className="border-t-2 border-darker">
-        <h3 className="font-black pb-20 pt-24 text-3xl text-center text-darker uppercase lg:pt-28 lg:text-4xl">
-          Les derniers articles
-        </h3>
-        <Grid>
-          <Posts posts={posts} />
-        </Grid>
-      </div>
+      {!!posts.length && (
+        <div className="border-t-2 border-darker">
+          <h3 className="font-black pb-20 pt-24 text-3xl text-center text-darker uppercase lg:pt-28 lg:text-4xl">
+            Les derniers articles
+          </h3>
+          <Grid>
+            <Posts posts={posts} />
+          </Grid>
+        </div>
+      )}
     </PageContainer>
   );
 }
