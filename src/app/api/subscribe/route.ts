@@ -65,62 +65,62 @@ export async function POST(req: Request) {
       });
     } catch (error) {
       return NextResponse.json({ error }, { status: 400 });
-      if (typeof error !== 'object' || error === null) {
-        return NextResponse.json({ error: 'error' }, { status: 400 });
-      }
-      if (
-        !('response' in error) ||
-        typeof error.response !== 'object' ||
-        error.response === null
-      ) {
-        return NextResponse.json({ error: 'error' }, { status: 400 });
-      }
-      if (
-        !('body' in error.response) ||
-        typeof error.response.body !== 'object' ||
-        error.response.body === null
-      ) {
-        return NextResponse.json({ error: 'error' }, { status: 400 });
-      }
-      if (
-        !('title' in error.response.body) ||
-        typeof error.response.body.title !== 'string' ||
-        error.response.body.title.trim() === ''
-      ) {
-        return NextResponse.json({ error: 'error' }, { status: 400 });
-      }
-      if (error.response.body.title === 'Member Exists') {
-        return NextResponse.json(
-          {
-            error:
-              'Il semblerait que vous soyez déjà inscrit à la newsletter des Suivants de la Vouivre.',
-          },
-          { status: 400 }
-        );
-      }
-      if (error.response.body.title === 'Forgotten Email Not Subscribed') {
-        return NextResponse.json(
-          {
-            error:
-              'Désolé, il y a un problème de notre côté, réessayé plus tard :/',
-          },
-          { status: 400 }
-        );
-      }
+    //   if (typeof error !== 'object' || error === null) {
+    //     return NextResponse.json({ error: 'error' }, { status: 400 });
+    //   }
+    //   if (
+    //     !('response' in error) ||
+    //     typeof error.response !== 'object' ||
+    //     error.response === null
+    //   ) {
+    //     return NextResponse.json({ error: 'error' }, { status: 400 });
+    //   }
+    //   if (
+    //     !('body' in error.response) ||
+    //     typeof error.response.body !== 'object' ||
+    //     error.response.body === null
+    //   ) {
+    //     return NextResponse.json({ error: 'error' }, { status: 400 });
+    //   }
+    //   if (
+    //     !('title' in error.response.body) ||
+    //     typeof error.response.body.title !== 'string' ||
+    //     error.response.body.title.trim() === ''
+    //   ) {
+    //     return NextResponse.json({ error: 'error' }, { status: 400 });
+    //   }
+    //   if (error.response.body.title === 'Member Exists') {
+    //     return NextResponse.json(
+    //       {
+    //         error:
+    //           'Il semblerait que vous soyez déjà inscrit à la newsletter des Suivants de la Vouivre.',
+    //       },
+    //       { status: 400 }
+    //     );
+    //   }
+    //   if (error.response.body.title === 'Forgotten Email Not Subscribed') {
+    //     return NextResponse.json(
+    //       {
+    //         error:
+    //           'Désolé, il y a un problème de notre côté, réessayé plus tard :/',
+    //       },
+    //       { status: 400 }
+    //     );
+    //   }
 
-      if (error.response.body.title === 'Invalid Resource') {
-        return NextResponse.json(
-          {
-            error:
-              'Une adresse email valide est requis pour vous abonnez à la newsletter des Suivants de la Vouivre.',
-          },
-          { status: 400 }
-        );
-      }
-      return NextResponse.json(
-        { error: error.response.body.title },
-        { status: 400 }
-      );
-    }
+    //   if (error.response.body.title === 'Invalid Resource') {
+    //     return NextResponse.json(
+    //       {
+    //         error:
+    //           'Une adresse email valide est requis pour vous abonnez à la newsletter des Suivants de la Vouivre.',
+    //       },
+    //       { status: 400 }
+    //     );
+    //   }
+    //   return NextResponse.json(
+    //     { error: error.response.body.title },
+    //     { status: 400 }
+    //   );
+    // }
   }
 }
