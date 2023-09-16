@@ -5,8 +5,8 @@ import crypto from 'crypto';
 type Body = { email?: string };
 
 mailchimp.setConfig({
-  apiKey: process.env.MAILCHIMP_API_KEY,
-  server: process.env.MAILCHIMP_API_SERVER,
+  apiKey: process.env.NEXT_PUBLIC_MAILCHIMP_API_KEY,
+  server: process.env.NEXT_PUBLIC_MAILCHIMP_API_SERVER,
 });
 
 export async function DELETE(req: Request) {
@@ -19,7 +19,7 @@ export async function DELETE(req: Request) {
     });
   }
 
-  const AUDIENCE_ID = process.env.MAILCHIMP_AUDIENCE_ID || '';
+  const AUDIENCE_ID = process.env.NEXT_PUBLIC_MAILCHIMP_AUDIENCE_ID || '';
 
   const subscriberHash = crypto.createHash('md5').update(email).digest('hex');
 

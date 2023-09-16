@@ -1,13 +1,11 @@
 import mailchimp from '@mailchimp/mailchimp_marketing';
 import crypto from 'crypto';
 
-// https://agirlcodes.medium.com/setup-a-newsletter-with-next-js-and-mailchimp-d9933cfd785e
-
 import { NextResponse } from 'next/server';
 
 mailchimp.setConfig({
-  apiKey: process.env.MAILCHIMP_API_KEY,
-  server: process.env.MAILCHIMP_API_SERVER,
+  apiKey: process.env.NEXT_PUBLIC_MAILCHIMP_API_KEY,
+  server: process.env.NEXT_PUBLIC_MAILCHIMP_API_SERVER,
 });
 
 type Body = { email?: string };
@@ -25,7 +23,7 @@ export async function POST(req: Request) {
     );
   }
 
-  const AUDIENCE_ID = process.env.MAILCHIMP_AUDIENCE_ID || '';
+  const AUDIENCE_ID = process.env.NEXT_PUBLIC_MAILCHIMP_AUDIENCE_ID || '';
   const subscriberHash = crypto.createHash('md5').update(email).digest('hex');
   let userStatus: mailchimp.Status | undefined;
 

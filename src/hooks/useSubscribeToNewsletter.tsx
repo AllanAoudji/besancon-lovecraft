@@ -33,7 +33,9 @@ export function useSubscribeToNewsletter() {
       }
       setForm({
         state: Form.Success,
-        message: message ? message : `Success! You've been added to the list!`,
+        message: message
+          ? message
+          : `Votre inscription a été prise en compte. Merci :)`,
       });
     } catch (e) {
       setForm({
