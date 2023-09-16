@@ -1,6 +1,6 @@
 {
-  "name": "besancon-lovecraft",
-  "version": "0.1.0",
+  "name": "les-suivants-de-la-vouivre",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
