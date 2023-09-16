@@ -11,6 +11,11 @@ mailchimp.setConfig({
 type Body = { email?: string };
 
 export async function POST(req: Request) {
+  return NextResponse.json({
+    apiKey: process.env.NEXT_PUBLIC_MAILCHIMP_API_KEY,
+    server: process.env.NEXT_PUBLIC_MAILCHIMP_API_SERVER,
+    AUDIENCE_ID = process.env.NEXT_PUBLIC_MAILCHIMP_AUDIENCE_ID,
+  });
   const { email }: Body = await req.json();
 
   if (!email || typeof email !== 'string' || !email.length) {
