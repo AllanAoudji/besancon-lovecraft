@@ -1,12 +1,12 @@
-import { bodoniModa } from '@src/utils/fonts';
+import { playfair } from '@src/utils/fonts';
 import Link from 'next/link';
 
 function NotFound() {
   return (
-    <div className="bg-dark flex flex-col h-screen justify-center p-12 text-light lg:p-48 transition-all">
-      <h2 className={`text-5xl font-black ${bodoniModa.className}`}>
-        404 - Not Found
-      </h2>
+    <div
+      className={`bg-dark flex flex-col h-screen justify-center p-12 text-darker lg:p-48 transition-all ${playfair.className}`}
+    >
+      <h2 className={`text-5xl font-black `}>404 - Not Found</h2>
       <p>Could not find requested resource</p>
       <div className="mt-12">
         <Link
