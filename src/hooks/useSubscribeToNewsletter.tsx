@@ -19,7 +19,7 @@ export function useSubscribeToNewsletter() {
         method: 'POST',
       });
 
-      const { error } = await res.json();
+      const { error, message } = await res.json();
 
       if (error) {
         setForm({
@@ -33,7 +33,7 @@ export function useSubscribeToNewsletter() {
       }
       setForm({
         state: Form.Success,
-        message: `Success! You've been added to the list!`,
+        message: message ? message : `Success! You've been added to the list!`,
       });
     } catch (e) {
       setForm({

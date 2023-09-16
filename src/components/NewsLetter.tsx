@@ -53,7 +53,9 @@ function NewsLetter() {
         </form>
       ) : (
         <div className="text-lighter text-center text-xl">
-          <span>Votre inscription a été prise en compte.</span>
+          <span>
+            {form.message ?? 'Votre inscription a été prise en compte.'}{' '}
+          </span>
         </div>
       )}
     </Wrapper>
