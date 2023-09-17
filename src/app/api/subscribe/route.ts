@@ -7,6 +7,14 @@ import { NextResponse } from 'next/server';
 // Ajouter une validation par recatcha manuellement
 // https://prateeksurana.me/blog/integrating-recaptcha-with-next/
 
+const validateEmail = (email: string) => {
+  return String(email)
+    .toLowerCase()
+    .match(
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
+};
+
 mailchimp.setConfig({
   apiKey: process.env.NEXT_PUBLIC_MAILCHIMP_API_KEY,
   server: process.env.NEXT_PUBLIC_MAILCHIMP_API_SERVER,
@@ -17,7 +25,12 @@ type Body = { email?: string };
 export async function POST(req: Request) {
   const { email }: Body = await req.json();
 
-  if (!email || typeof email !== 'string' || !email.length) {
+  if (
+    !email ||
+    typeof email !== 'string' ||
+    !email.length ||
+    !validateEmail(email)
+  ) {
     return NextResponse.json(
       {
         error:
