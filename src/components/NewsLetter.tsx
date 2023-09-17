@@ -1,5 +1,7 @@
 'use client';
 
+import ReCAPTCHA from 'react-google-recaptcha';
+
 import { Form } from '@/lib/enums';
 import { useSubscribeToNewsletter } from '@src/hooks/useSubscribeToNewsletter';
 import Wrapper from './Wrapper';
@@ -49,7 +51,8 @@ function SuccessMessage({ message }: { message?: string }) {
 }
 
 function NewsLetter() {
-  const { form, inputEl, subscribe } = useSubscribeToNewsletter();
+  const { form, inputEl, subscribe, onReCAPTCHAChange, recaptchaRef } =
+    useSubscribeToNewsletter();
 
   return (
     <Wrapper
@@ -66,6 +69,12 @@ function NewsLetter() {
       </div>
       {form.state !== Form.Success ? (
         <form onSubmit={subscribe}>
+          <ReCAPTCHA
+            ref={recaptchaRef}
+            size="invisible"
+            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}
+            onChange={onReCAPTCHAChange}
+          />
           <Grid className="gap-y-4">
             <div className="col-span-6 sm:col-start-4 lg:col-span-4 lg:col-start-4">
               <input
