@@ -58,11 +58,7 @@ const components: Partial<PortableTextReactComponents> = {
         children === null ||
         (Array.isArray(children) && children.length === 1 && children[0] === '')
       ) {
-        return (
-          <div>
-            <p className="pt-8 first:pt-0 last:pt-0" />
-          </div>
-        );
+        return <div className="pt-8 first:pt-0 last:pt-0" />;
       }
       return (
         <div>
