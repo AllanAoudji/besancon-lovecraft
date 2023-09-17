@@ -25,10 +25,8 @@ export function useSubscribeToNewsletter() {
 
   async function subscribe(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    console.log('subscibe');
 
     if (recaptchaRef.current) {
-      console.log('recatcha');
       recaptchaRef.current.execute();
     }
 
