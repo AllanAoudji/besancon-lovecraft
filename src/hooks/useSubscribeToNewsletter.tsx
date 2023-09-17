@@ -3,7 +3,7 @@ import { FormEvent, useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 
 export function useSubscribeToNewsletter() {
-  const [form, setForm] = useState<FormState>({ state: Form.Initial });
+  const [form] = useState<FormState>({ state: Form.Initial });
   const inputEl = useRef<HTMLInputElement>(null);
   const recaptchaRef = useRef<ReCAPTCHA>(null);
 
