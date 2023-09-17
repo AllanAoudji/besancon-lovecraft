@@ -14,16 +14,16 @@ const borderGenerator = (border: Border, color: Color) => {
 
   switch (border) {
     case 'bottom':
-      borderStyle = 'border-b-4';
+      borderStyle = 'border-b-2';
       break;
     case 'full':
-      borderStyle = 'border-4';
+      borderStyle = 'border-2';
       break;
     default:
     case 'none':
       break;
     case 'top':
-      borderStyle = 'border-t-4';
+      borderStyle = 'border-t-2';
       break;
   }
   switch (color) {

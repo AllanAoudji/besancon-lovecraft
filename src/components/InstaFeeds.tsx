@@ -48,49 +48,51 @@ async function InstaFeeds() {
     }
 
     return (
-      <Wrapper backgroundColor="darker" className="py-24 lg:py-28">
-        <div className="flex flex-col justify-center items-center gap-1 font-bold pb-10 text-lighter text-center transition-all lg:pb-20">
-          <h3 className="text-3xl uppercase">
-            Suivez le projet sur{' '}
-            <a className="text-dark" href={INSTAGRAM_LINK} target="_blank">
-              Instagram
+      <section>
+        <Wrapper backgroundColor="darker" className="py-24 lg:py-28">
+          <div className="flex flex-col justify-center items-center gap-1 font-bold pb-10 text-lighter text-center transition-all lg:pb-20">
+            <h3 className="text-3xl uppercase">
+              Suivez le projet sur{' '}
+              <a className="text-dark" href={INSTAGRAM_LINK} target="_blank">
+                Instagram
+              </a>
+            </h3>
+            <a
+              href={INSTAGRAM_LINK}
+              target="_blank"
+              className="text-xl text-dark"
+            >
+              #lessuivantsdelavouivre
             </a>
-          </h3>
+          </div>
           <a
+            className="block col-span-6 sm:col-span-12"
             href={INSTAGRAM_LINK}
             target="_blank"
-            className="text-xl text-dark"
           >
-            #lessuivantsdelavouivre
+            <Grid>
+              {data.data.map((post) => (
+                <div
+                  className="aspect-square bg-lighter relative col-span-3"
+                  key={post.id}
+                >
+                  <Image
+                    alt="image"
+                    className="object-cover"
+                    fill
+                    src={
+                      post.media_type === 'VIDEO'
+                        ? post.thumbnail_url
+                        : post.media_url
+                    }
+                    sizes="40vw"
+                  />
+                </div>
+              ))}
+            </Grid>
           </a>
-        </div>
-        <a
-          className="block col-span-6 sm:col-span-12"
-          href={INSTAGRAM_LINK}
-          target="_blank"
-        >
-          <Grid>
-            {data.data.map((post) => (
-              <div
-                className="aspect-square bg-lighter relative col-span-3"
-                key={post.id}
-              >
-                <Image
-                  alt="image"
-                  className="object-cover"
-                  fill
-                  src={
-                    post.media_type === 'VIDEO'
-                      ? post.thumbnail_url
-                      : post.media_url
-                  }
-                  sizes="40vw"
-                />
-              </div>
-            ))}
-          </Grid>
-        </a>
-      </Wrapper>
+        </Wrapper>
+      </section>
     );
   } catch (e) {
     return null;
