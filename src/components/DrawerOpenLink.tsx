@@ -40,10 +40,10 @@ function DrawerOpenLink({ className = '', color = 'light' }: Props) {
 
   useEffect(() => {
     if (!width) return;
-    if (width > 768) {
+    if (width > 768 && searchParams.get('drawer') === 'true') {
       router.replace(pathname as Route, { scroll: false });
     }
-  }, [width, router, pathname]);
+  }, [width, router, pathname, searchParams]);
 
   useEffect(() => {
     if (searchParams.get('drawer') == 'true') {
