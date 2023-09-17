@@ -20,10 +20,10 @@ mailchimp.setConfig({
   server: process.env.NEXT_PUBLIC_MAILCHIMP_API_SERVER,
 });
 
-type Body = { email?: string };
+type Body = { captcha?: string; email?: string };
 
 export async function POST(req: Request) {
-  const { email }: Body = await req.json();
+  const { captcha, email }: Body = await req.json();
 
   if (
     !email ||
@@ -36,13 +36,44 @@ export async function POST(req: Request) {
         error:
           'Une adresse email valide est requis pour vous abonnez à la newsletter des Suivants de la Vouivre.',
       },
-      { status: 400 }
+      { status: 422 }
+    );
+  }
+
+  if (!captcha) {
+    return NextResponse.json(
+      {
+        error: 'Unproccesable request, please provide the required fields',
+      },
+      { status: 422 }
     );
   }
 
   const AUDIENCE_ID = process.env.NEXT_PUBLIC_MAILCHIMP_AUDIENCE_ID || '';
   const subscriberHash = crypto.createHash('md5').update(email).digest('hex');
   let userStatus: mailchimp.Status | undefined;
+
+  try {
+    const response = await fetch(
+      `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${captcha}`,
+      {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
+        },
+        method: 'POST',
+      }
+    );
+    const captchaValidation = await response.json();
+
+    if (!captchaValidation.success) {
+      return NextResponse.json(
+        {
+          error: 'Unproccesable request, Invalid captcha code',
+        },
+        { status: 422 }
+      );
+    }
+  } catch (err) {}
 
   try {
     const user = await mailchimp.lists.getListMember(
