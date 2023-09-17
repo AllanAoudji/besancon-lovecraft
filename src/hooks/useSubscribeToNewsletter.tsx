@@ -50,12 +50,12 @@ export function useSubscribeToNewsletter() {
         state: Form.Error,
         message: 'something went wrong...',
       });
-    }
-
-    // Reset the reCAPTCHA so that it can be executed again if user
-    // submits another email.
-    if (recaptchaRef.current) {
-      recaptchaRef.current.reset();
+    } finally {
+      // Reset the reCAPTCHA so that it can be executed again if user
+      // submits another email.
+      if (recaptchaRef.current) {
+        recaptchaRef.current.reset();
+      }
     }
   };
 
