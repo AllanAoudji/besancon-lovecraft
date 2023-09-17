@@ -54,6 +54,19 @@ export default defineType({
     select: {
       title: 'name',
       media: 'profilePicture',
+      subtitle: 'email',
     },
   },
+  orderings: [
+    {
+      title: 'Nom, desc',
+      name: 'SlugDesc',
+      by: [{ field: 'slug.current', direction: 'desc' }],
+    },
+    {
+      title: 'Nom, asc',
+      name: 'SlugAsc',
+      by: [{ field: 'slug.current', direction: 'asc' }],
+    },
+  ],
 });

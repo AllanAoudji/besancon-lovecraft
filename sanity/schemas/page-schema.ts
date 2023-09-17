@@ -52,4 +52,22 @@ export default defineType({
       type: 'blockContent',
     }),
   ],
+  orderings: [
+    {
+      title: 'ordre, asc',
+      name: 'orderAsc',
+      by: [
+        { field: 'order', direction: 'asc' },
+        { field: 'slug.current', direction: 'asc' },
+      ],
+    },
+    {
+      title: 'ordre, desc',
+      name: 'orderDesc',
+      by: [
+        { field: 'order', direction: 'desc' },
+        { field: 'slug.current', direction: 'desc' },
+      ],
+    },
+  ],
 });

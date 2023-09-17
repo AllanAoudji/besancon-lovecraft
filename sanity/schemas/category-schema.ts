@@ -40,4 +40,16 @@ export default defineType({
       title: 'name',
     },
   },
+  orderings: [
+    {
+      title: 'Nom, asc',
+      name: 'SlugAsc',
+      by: [{ field: 'slug.current', direction: 'asc' }],
+    },
+    {
+      title: 'Nom, desc',
+      name: 'SlugDesc',
+      by: [{ field: 'slug.current', direction: 'desc' }],
+    },
+  ],
 });

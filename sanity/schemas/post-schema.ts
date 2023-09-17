@@ -80,4 +80,32 @@ export default defineType({
       return { ...selection, subtitle: author && `by ${author}` };
     },
   },
+  orderings: [
+    {
+      title: 'Date de publication, new',
+      name: 'publishedAtDesc',
+      by: [
+        { field: 'publishedAt', direction: 'desc' },
+        { field: 'slug.current', direction: 'desc' },
+      ],
+    },
+    {
+      title: 'Date de publication, old',
+      name: 'publishedAtAsc',
+      by: [
+        { field: 'publishedAt', direction: 'asc' },
+        { field: 'slug.current', direction: 'desc' },
+      ],
+    },
+    {
+      title: 'Titre, asc',
+      name: 'SlugAsc',
+      by: [{ field: 'slug.current', direction: 'asc' }],
+    },
+    {
+      title: 'Title, desc',
+      name: 'SlugDesc',
+      by: [{ field: 'slug.current', direction: 'desc' }],
+    },
+  ],
 });
