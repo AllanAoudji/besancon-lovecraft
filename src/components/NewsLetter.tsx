@@ -5,6 +5,49 @@ import { useSubscribeToNewsletter } from '@src/hooks/useSubscribeToNewsletter';
 import Wrapper from './Wrapper';
 import Grid from './Grid';
 
+function SuccessMessage({ message }: { message?: string }) {
+  if (message === 'unsubscribed') {
+    return (
+      <div className="text-center text-lighter text-xl">
+        <div>
+          <span>
+            Il semblerait que vous vous soyez désabonné de la Newsletter des
+            Suivants de la Vouivre
+          </span>
+        </div>
+        <div>
+          <span>
+            Si vous souhaitez vous abonnez de nouveau, cliquez sur{' '}
+            <a
+              className="border-b-2 border-lighter font-bold transition-all hover:border-darker hover:text-darker"
+              href={process.env.NEXT_PUBLIC_MAILCHIMP_SUBSCRIBTION_LINK}
+              target="_blank"
+            >
+              ce lien
+            </a>{' '}
+            pour vous réabonnez
+          </span>
+          <div className="pt-10">
+            <a
+              href={process.env.NEXT_PUBLIC_MAILCHIMP_SUBSCRIBTION_LINK}
+              className="border-2 border-lighter font-bold inline-block px-8 py-3 transition-all hover:bg-lighter hover:text-dark"
+              target="_blank"
+            >
+              Vous ré-abonnez
+            </a>{' '}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="text-center text-lighter text-xl">
+      <span>{message ?? 'Votre inscription a été prise en compte.'} </span>
+    </div>
+  );
+}
+
 function NewsLetter() {
   const { form, inputEl, subscribe } = useSubscribeToNewsletter();
 
@@ -52,11 +95,7 @@ function NewsLetter() {
           </Grid>
         </form>
       ) : (
-        <div className="text-lighter text-center text-xl">
-          <span>
-            {form.message ?? 'Votre inscription a été prise en compte.'}{' '}
-          </span>
-        </div>
+        <SuccessMessage message={form.message} />
       )}
     </Wrapper>
   );
