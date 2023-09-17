@@ -23,7 +23,7 @@ function ImageComponent(
   return (
     <Image
       alt="image"
-      className="h-auto w-full bg-secondary"
+      className="h-auto w-full"
       height={imageProps.height}
       src={imageProps.src}
       width={imageProps.width}
