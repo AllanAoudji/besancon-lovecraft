@@ -101,6 +101,17 @@ function NewsLetter() {
             >
               {form.state === Form.Loading ? 'loading...' : "S'abonner"}
             </button>
+            <div className="col-span-6 pt-4 text-center text-lighter text-sm sm:col-span-6 sm:col-start-4 lg:pt-8">
+              This site is protected by reCAPTCHA and the Google{' '}
+              <a className="italic" href="https://policies.google.com/privacy">
+                Privacy Policy
+              </a>{' '}
+              and{' '}
+              <a className="italic" href="https://policies.google.com/terms">
+                Terms of Service
+              </a>{' '}
+              apply.
+            </div>
           </Grid>
         </form>
       ) : (
