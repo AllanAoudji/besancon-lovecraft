@@ -8,7 +8,7 @@ type Props = {
 const socialMedias: SocialMedia[] = [
   {
     image: Instagram,
-    link: 'https://www.instagram.com/allanjouannet/',
+    link: 'https://www.instagram.com/les.suivants.de.la.vouivre/',
     name: 'Instagram',
   },
 ];

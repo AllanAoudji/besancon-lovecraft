@@ -27,7 +27,7 @@ type InstaFeeds = {
   };
 };
 
-const INSTAGRAM_LINK = 'https://www.instagram.com/allanjouannet/';
+const INSTAGRAM_LINK = 'https://www.instagram.com/les.suivants.de.la.vouivre/';
 
 export const revalidate = 3600;
 
