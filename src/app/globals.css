@@ -5,3 +5,13 @@
 .grecaptcha-badge {
   visibility: hidden;
 }
+
+::selection {
+  color: #7d4f50;
+  background: #f9eae1;
+}
+
+::-moz-selection {
+  color: #7d4f50;
+  background: #f9eae1;
+}
