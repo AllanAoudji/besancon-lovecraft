@@ -80,6 +80,7 @@ declare global {
         }[]
       | null;
     mainImage: Image;
+    headerImage: Image;
     nextPost: NextPost | null;
     publishedAt: string;
     slug: string;

@@ -11,7 +11,7 @@ type Props = {
 function PostCard({ post, showCategories = true, variant = 'normal' }: Props) {
   return (
     <Link
-      className={`col-span-6 [&_img]:hover:scale-150 sm:col-span-6 lg:col-span-3 ${
+      className={`col-span-6 [&_img]:hover:scale-105 sm:col-span-6 lg:col-span-3 ${
         variant === 'normal' || showCategories
           ? 'flex flex-col pb-12'
           : 'gap-2 grid grid-cols-6 pb-3 sm:gap-0 sm:flex sm:flex-col sm:pb-12'

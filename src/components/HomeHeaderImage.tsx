@@ -26,7 +26,7 @@ function HomeHeaderImage({
               <Image
                 alt={image.alt || title}
                 blurDataURL={image.metadata.lqip}
-                className="absolute duration-1000 h-full object-cover transition w-full hover:scale-110"
+                className="absolute duration-1000 h-full object-cover transition w-full hover:scale-105"
                 height={image.metadata.dimensions.height}
                 placeholder="blur"
                 src={image.url}

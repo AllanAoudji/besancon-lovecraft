@@ -53,6 +53,7 @@ const categoriesQuery = groq`*[_type == "category" && slug.current > $lastSlug] 
       ...,
       _type == "image" => {
         ...,
+        "url": asset->url,
         "metadata": asset->metadata,
         caption,
         alt,
@@ -73,6 +74,11 @@ const categoriesQuery = groq`*[_type == "category" && slug.current > $lastSlug] 
       "alt": mainImage.alt,
       "metadata": mainImage.asset->metadata,
       "url": mainImage.asset->url,
+    },
+    "headerImage" : {
+      "alt": headerImage.alt,
+      "metadata": headerImage.asset->metadata,
+      "url": headerImage.asset->url,
     },
     "slug": slug.current,
   },
@@ -112,6 +118,7 @@ const categoryQuery = groq`*[_type == "category" && slug.current == $slug][0] {
       ...,
       _type == "image" => {
         ...,
+        "url": asset->url,
         "metadata": asset->metadata,
         caption,
         alt,
@@ -133,6 +140,11 @@ const categoryQuery = groq`*[_type == "category" && slug.current == $slug][0] {
       "alt": mainImage.alt,
       "metadata": mainImage.asset->metadata,
       "url": mainImage.asset->url,
+    },
+    "headerImage" : {
+      "alt": headerImage.alt,
+      "metadata": headerImage.asset->metadata,
+      "url": headerImage.asset->url,
     },
   },
   "slug": slug.current,
@@ -162,6 +174,7 @@ const headerPagesQuery = groq`*[_type == "page" && showOnFooter == false] | orde
     ...,
     _type == "image" => {
       ...,
+      "url": asset->url,
       "metadata": asset->metadata,
       caption,
       alt,
@@ -184,6 +197,7 @@ const pagesQuery = groq`*[_type == "page"] | order(order asc) [0...15] {
     ...,
     _type == "image" => {
       ...,
+      "url": asset->url,
       "metadata": asset->metadata,
       caption,
       alt,
@@ -207,6 +221,7 @@ const pageQuery = groq`*[_type == "page" && slug.current == $slug][0] {
     ...,
     _type == "image" => {
       ...,
+      "url": asset->url,
       "metadata": asset->metadata,
       caption,
       alt,
@@ -240,7 +255,8 @@ const postsQuery = groq`*[
     ...,
     _type == "image" => {
       ...,
-      "metadate": asset->metadata
+      "url": asset->url,
+      "metadate": asset->metadata,
     }
   },
   publishedAt,
@@ -274,6 +290,11 @@ const postsQuery = groq`*[
     "metadata": mainImage.asset->metadata,
     "url": mainImage.asset->url,
   },
+  "headerImage": {
+    "alt": headerImage.alt,
+    "metadata": headerImage.asset->metadata,
+    "url": headerImage.asset->url,
+  },
   "slug": slug.current,
 }`;
 export const getPosts = (
@@ -306,6 +327,7 @@ const postsByCategoryQuery = groq`*[
     ...,
     _type == "image" => {
       ...,
+      "url": asset->url,
       "metadata": asset->metadata,
       caption,
       alt,
@@ -343,6 +365,11 @@ const postsByCategoryQuery = groq`*[
       "metadata": mainImage.asset->metadata,
       "url": mainImage.asset->url,
   },
+  "headerImage" : {
+    "alt": headerImage.alt,
+    "metadata": headerImage.asset->metadata,
+    "url": headerImage.asset->url,
+  },
 }`;
 export const getPostsByCategory = (
   lastPublishedAt: string,
@@ -366,6 +393,7 @@ const postQuery = groq`*[_type == "post" && slug.current == $slug && publishedAt
       ...,
       _type == "image" => {
         ...,
+        "url": asset->url,
         "metadata": asset->metadata,
         caption,
         alt,
@@ -401,6 +429,11 @@ const postQuery = groq`*[_type == "post" && slug.current == $slug && publishedAt
       "alt": mainImage.alt,
       "metadata": mainImage.asset->metadata,
       "url": mainImage.asset->url,
+    },
+    "headerImage" : {
+      "alt": headerImage.alt,
+      "metadata": headerImage.asset->metadata,
+      "url": headerImage.asset->url,
     },
 }`;
 export const getPost = (slug: string) => {

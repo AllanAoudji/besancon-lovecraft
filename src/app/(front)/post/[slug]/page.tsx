@@ -47,7 +47,9 @@ export default async function Page({
       <SubPageHeader
         title={post.title}
         categories={post.categories}
-        image={post.mainImage}
+        image={
+          post.headerImage.url === null ? post.mainImage : post.headerImage
+        }
         publishedAt={post.publishedAt}
       />
       <SubPageInnerContainer>

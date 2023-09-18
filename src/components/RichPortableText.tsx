@@ -1,54 +1,12 @@
-import { client } from '@/sanity/lib/client';
-import {
-  PortableText,
-  PortableTextReactComponents,
-  PortableTextTypeComponentProps,
-} from '@portabletext/react';
-import { SanityImageSource } from '@sanity/image-url/lib/types/types';
-import { useNextSanityImage } from 'next-sanity-image';
+import { PortableText, PortableTextReactComponents } from '@portabletext/react';
 import { PortableTextBlock } from 'sanity';
-import Image from 'next/image';
+import PortableImage from './PortableImage';
 
 // https://stackoverflow.com/questions/61280906/text-image-alignment-in-sanity-io-portable-text-rich-text-editor
 
 type Props = {
   value: PortableTextBlock[];
 };
-
-function ImageComponent(
-  props: PortableTextTypeComponentProps<
-    SanityImageSource & {
-      alt: string | null;
-      caption: string | null;
-      metadata: ImageMetadata;
-    }
-  >
-) {
-  const imageProps = useNextSanityImage(client, props.value);
-
-  if (!imageProps) return null;
-
-  return (
-    <div>
-      <Image
-        alt={props.value.alt ?? 'image de contenu'}
-        blurDataURL={props.value.metadata.lqip}
-        className="h-auto w-full"
-        height={imageProps.height}
-        src={imageProps.src}
-        placeholder="blur"
-        width={imageProps.width}
-      />
-      {props.value.caption && (
-        <div className="flex pr-2 border-r-2 border-secondary break-words mt-2">
-          <caption className="text-sm text-right w-full text-secondary">
-            {props.value.caption}
-          </caption>
-        </div>
-      )}
-    </div>
-  );
-}
 
 const components: Partial<PortableTextReactComponents> = {
   block: {
@@ -95,7 +53,7 @@ const components: Partial<PortableTextReactComponents> = {
     ),
   },
   types: {
-    image: ImageComponent,
+    image: PortableImage,
   },
   marks: {
     center: (props) => <div className="text-center">{props.children}</div>,
