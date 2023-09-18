@@ -29,10 +29,11 @@ function HomeAbout() {
           </h3>
           <div className="col-span-5 col-start-2 leading-6 text-lg text-lighter sm:col-span-10 sm:col-start-3 lg:col-span-7 lg:col-start-5 lg:text-xl">
             <Text>
-              Le projet Les Suivants de la Vouivre est un projet de création de
-              jeu de rôle sur table se déroulant dans un Besançon des années
-              1900, dans une ambiance horreur fantastique librement inspirée des
-              écrits de l&apos;auteur américain H.P. Lovecraft.
+              Le projet <i className="italic">Les Suivants de la Vouivre</i> est
+              un projet de création de jeu de rôle sur table se déroulant dans
+              un Besançon des années 1900, dans une ambiance horreur fantastique
+              librement inspirée des écrits de l&apos;auteur américain{' '}
+              <i className="italic">H.P. Lovecraft</i>.
             </Text>
             <Text>
               Ce blog a pour but de détailler et référencer mes avancées au jour

@@ -28,7 +28,7 @@ function SuccessMessage({ message }: { message?: string }) {
             >
               ce lien
             </a>{' '}
-            pour vous réabonnez
+            pour vous réabonner
           </span>
           <div className="pt-10">
             <a
