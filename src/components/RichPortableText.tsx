@@ -40,7 +40,7 @@ function ImageComponent(
         width={imageProps.width}
       />
       {props.value.caption && (
-        <div className="flex pr-2 border-r-2 mt-2 border-secondary">
+        <div className="flex pr-2 border-r-2 border-secondary break-words mt-2">
           <caption className="text-sm text-right w-full text-secondary">
             {props.value.caption}
           </caption>
@@ -68,7 +68,7 @@ const components: Partial<PortableTextReactComponents> = {
       <h5 className="font-bold pt-1 text-xl text-darker">{children}</h5>
     ),
     blockquote: ({ children }) => (
-      <blockquote className="border border-darker  pl-2text-lg text-darker">
+      <blockquote className="border border-darker break-words pl-2text-lg text-darker">
         {children}
       </blockquote>
     ),
@@ -80,7 +80,7 @@ const components: Partial<PortableTextReactComponents> = {
         return <div className="pt-8 first:pt-0 last:pt-0" />;
       }
       return (
-        <div>
+        <div className="break-words">
           <span className="text-lg text-darker">{children}</span>
         </div>
       );
