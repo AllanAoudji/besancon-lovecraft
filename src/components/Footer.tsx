@@ -3,7 +3,7 @@ import Copyright from './Copyright';
 import Pages from './Pages';
 import SocialMedias from './SocialMedias';
 
-import logoDark from '@/public/logo-image-light.png';
+import logoDark from '@/public/logo-image-dark.png';
 import Wrapper from './Wrapper';
 import Grid from './Grid';
 

@@ -3,8 +3,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import logoDark from '@/public/logo-image-light.png';
-import logoLight from '@/public/logo-light.png';
+import logoDark from '@/public/logo-image-dark.png';
+import logoLight from '@/public/logo-image-light.png';
 import logoHorizontaldark from '@/public/logo-horizontal-dark.png';
 import logoHorizontalLight from '@/public/logo-horizontal-light.png';
 import useWindowSize from '@src/hooks/useWindowSize';
