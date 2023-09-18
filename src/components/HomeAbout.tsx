@@ -29,22 +29,21 @@ function HomeAbout() {
           </h3>
           <div className="col-span-5 col-start-2 leading-6 text-lg text-lighter sm:col-span-10 sm:col-start-3 lg:col-span-7 lg:col-start-5 lg:text-xl">
             <Text>
-              Le projet Besancon-Lovecraft est un projet de création de jeu de
-              rôle sur table se déroulant dans un Besançon des années 1910, dans
-              une ambiance horreur/horifique inspiré des thématiques de
-              l&apos;auteur H.P. Lovecraft.
+              Le projet Les Suivants de la Vouivre est un projet de création de
+              jeu de rôle sur table se déroulant dans un Besançon des années
+              1900, dans une ambiance horreur fantastique librement inspirée des
+              écrits de l&apos;auteur américain H.P. Lovecraft.
             </Text>
             <Text>
-              Ce blog à pour but de détailler et référencer mes avancés au jour
+              Ce blog a pour but de détailler et référencer mes avancées au jour
               le jour autour de ce projet.
             </Text>
             <Text>
-              Les articles que vous trouverez sur ce site tourneront autour des
-              règles du jeux de rôle, de mes recherches autour de
-              l&apos;histoire de Besançon, de l&apos;écriture d&apos;histoire
-              pour le MJ, de toute l&apos;aspect graphique (ressources
-              visuelles, illustration, mise en page du livre de règle, etc.) et
-              de lore ainsi que du financement du projet.
+              Les articles que vous trouverez sur ce site tourneront autour de
+              l&apos;invention des règles du jeu, de mes recherches autour de
+              l&apos;histoire de Besançon, de l&apos;écriture des récits, de
+              tout l&apos;aspect graphique (ressources visuelles, illustrations,
+              mise en page du livre, etc.) ainsi que du financement du projet.
             </Text>
           </div>
         </Grid>
