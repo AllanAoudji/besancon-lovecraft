@@ -14,6 +14,13 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'showOnFooter',
+      title: 'Seulement present dans le footer',
+      type: 'boolean',
+      validation: (Rule) => Rule.required(),
+      initialValue: false,
+    }),
+    defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',

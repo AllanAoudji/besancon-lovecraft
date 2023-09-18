@@ -155,6 +155,28 @@ export const getCategory = (
 // Page
 // ---------------------------------
 // Get all pages
+const headerPagesQuery = groq`*[_type == "page" && showOnFooter == false] | order(order asc) [0...15] {
+  _id,
+  _createdAt,
+  body[]{
+    ...,
+    _type == "image" => {
+      ...,
+      "metadata": asset->metadata,
+      caption,
+      alt,
+    }
+  },
+  name,
+  "mainImage": {
+    "alt": mainImage.alt,
+    "metadata": mainImage.asset->metadata,
+    "url": mainImage.asset->url,
+  },
+  "slug": slug.current,
+}`;
+export const getHeaderPage = () => getCachedClient()<Page[]>(headerPagesQuery);
+
 const pagesQuery = groq`*[_type == "page"] | order(order asc) [0...15] {
   _id,
   _createdAt,
