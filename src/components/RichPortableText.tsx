@@ -102,7 +102,7 @@ const components: Partial<PortableTextReactComponents> = {
     highlight: (props) => <span className="font-bold">{props.children}</span>,
     link: (props) => (
       <a
-        className="bg-light px-2 rounded-full text-dark"
+        className="border-b-2 border-dark italic"
         href={props?.value?.href}
         rel="noopener"
         target="_blank"
