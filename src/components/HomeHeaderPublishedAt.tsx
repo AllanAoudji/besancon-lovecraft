@@ -19,7 +19,7 @@ function HomeHeaderPublishedAt({
       className={`absolute italic overflow-hidden text-light lg:text-lg ${className}`}
     >
       <motion.span animate={animate} className="block first-letter:uppercase">
-        {moment(publishedAt, 'YYYYMMDD').fromNow() + '.'}
+        {moment(publishedAt).fromNow()}
       </motion.span>
     </div>
   );
