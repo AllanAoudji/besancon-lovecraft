@@ -24,8 +24,8 @@ function PortableImage(
         width={props.value.metadata.dimensions.width}
       />
       {props.value.caption && (
-        <div className="flex pr-2 border-r-2 border-secondary break-words mt-2 text-sm text-right text-secondary">
-          {props.value.caption}
+        <div className="flex pr-2 border-r-2 border-secondary break-words mt-2 text-sm justify-end text-secondary">
+          <span className="text-right">{props.value.caption}</span>
         </div>
       )}
     </div>
