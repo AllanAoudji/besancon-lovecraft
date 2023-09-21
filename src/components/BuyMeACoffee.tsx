@@ -10,7 +10,7 @@ function BuyMeACoffee() {
         border="bottom"
         borderColor="darker"
         backgroundColor="dark"
-        className="py-24 lg:py-24"
+        className="py-16 lg:py-24"
       >
         <div className="flex flex-col justify-center items-center gap-1 font-bold pb-10 text-lighter text-center transition-all lg:pb-12">
           <h3 className="text-3xl uppercase">
@@ -28,7 +28,7 @@ function BuyMeACoffee() {
           <a
             href="https://www.buymeacoffee.com/allanaoudji"
             target="_blank"
-            className="col-span-2 col-start-3 lg:col-span-2 lg:col-start-6"
+            className="col-span-2 col-start-3 sm:col-span-2 sm:col-start-6"
           >
             <Image alt="Buy Me A Coffee Button" src={BuyMeACoffeeButton} />
           </a>
