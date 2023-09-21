@@ -1,7 +1,6 @@
 import BuyMeACoffeeButton from '@/public/BuyMeACoffeeButton.png';
 import Image from 'next/image';
 import Wrapper from './Wrapper';
-import Grid from './Grid';
 
 function BuyMeACoffee() {
   return (
