@@ -20,7 +20,7 @@ function BuyMeACoffee() {
             target="_blank"
             className="text-xl text-darker"
           >
-            😊 Achetez moi un café 👋
+            Offrez-moi un café 👋
           </a>
         </div>
         <div className="flex justify-center">
