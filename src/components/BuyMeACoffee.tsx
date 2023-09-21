@@ -24,15 +24,15 @@ function BuyMeACoffee() {
             😊 Achetez moi un café 👋
           </a>
         </div>
-        <Grid>
+        <div className="flex justify-center">
           <a
             href="https://www.buymeacoffee.com/allanaoudji"
             target="_blank"
-            className="col-span-2 col-start-3 sm:col-span-2 sm:col-start-6"
+            className="block w-1/3 lg:w-1/4"
           >
             <Image alt="Buy Me A Coffee Button" src={BuyMeACoffeeButton} />
           </a>
-        </Grid>
+        </div>
       </Wrapper>
     </section>
   );
