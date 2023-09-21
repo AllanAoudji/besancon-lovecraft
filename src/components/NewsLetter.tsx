@@ -11,7 +11,7 @@ function SuccessMessage({ message }: { message?: string }) {
   // affiche le lien vers le formulaire externe si l'utilisateur s'est désabonné
   if (message === 'unsubscribed') {
     return (
-      <div className="text-center text-lighter text-xl">
+      <div className="text-center text-darker text-xl">
         <div>
           <span>
             Il semblerait que vous vous soyez désabonné de la Newsletter des
@@ -22,7 +22,7 @@ function SuccessMessage({ message }: { message?: string }) {
           <span>
             Si vous souhaitez vous abonnez de nouveau, cliquez sur{' '}
             <a
-              className="border-b-2 border-lighter font-bold transition-all hover:border-darker hover:text-darker"
+              className="border-b-2 border-darker font-bold transition-all hover:border-darker hover:text-darker"
               href={process.env.NEXT_PUBLIC_MAILCHIMP_SUBSCRIBTION_LINK}
               target="_blank"
             >
@@ -33,7 +33,7 @@ function SuccessMessage({ message }: { message?: string }) {
           <div className="pt-10">
             <a
               href={process.env.NEXT_PUBLIC_MAILCHIMP_SUBSCRIBTION_LINK}
-              className="border-2 border-lighter font-bold inline-block px-8 py-3 transition-all hover:bg-lighter hover:text-dark"
+              className="border-2 border-darker font-bold inline-block px-8 py-3 transition-all hover:bg-darker hover:text-lighter"
               target="_blank"
             >
               Vous ré-abonnez
@@ -46,7 +46,7 @@ function SuccessMessage({ message }: { message?: string }) {
 
   // Affiche le message de succès aux nouveaux subscribers
   return (
-    <div className="text-center text-lighter text-xl">
+    <div className="text-center text-darker text-xl">
       <span>{message ?? 'Votre inscription a été prise en compte.'} </span>
     </div>
   );
@@ -58,15 +58,10 @@ function NewsLetter() {
 
   return (
     <section>
-      <Wrapper
-        backgroundColor="dark"
-        border="bottom"
-        borderColor="darker"
-        className="py-24 lg:py-32"
-      >
-        <div className="flex flex-col justify-center items-center gap-1 font-bold pb-10 text-lighter text-center transition-all lg:pb-20">
+      <Wrapper border="bottom" borderColor="darker" className="py-24 lg:py-32">
+        <div className="flex flex-col justify-center items-center gap-1 font-bold pb-10 text-darker text-center transition-all lg:pb-20">
           <h3 className="text-3xl uppercase">Abonnez-vous à la newsletter</h3>
-          <h4 className="text-darker text-xl">
+          <h4 className="text-dark text-xl">
             Soyez les premiers à suivre et connaître l&apos;avancée du projet
           </h4>
         </div>
@@ -82,7 +77,7 @@ function NewsLetter() {
               <div className="col-span-6 sm:col-start-4 lg:col-span-4 lg:col-start-4">
                 <input
                   autoComplete="email"
-                  className="bg-dark border-2 w-full border-lighter border-opacity-50 duration-300 font-bold h-12 text-lg outline-none pl-4 text-lighter transition-all focus:border-opacity-100 placeholder:opacity-50 placeholder:text-lighter placeholder:font-normal "
+                  className="bg-lighter border-2 w-full border-darker border-opacity-50 duration-300 font-bold h-12 text-lg outline-none pl-4 text-darker transition-all focus:border-opacity-100 placeholder:opacity-50 placeholder:text-dark placeholder:font-normal "
                   placeholder="votre adresse e-mail"
                   ref={inputEl}
                   required
@@ -103,12 +98,12 @@ function NewsLetter() {
                 </div>
               </div>
               <button
-                className="sm:col-start-5 bg-darker border-2 border-darker col-span-4 col-start-2 text-lg h-12 px-4 text-dark transition-all uppercase lg:col-start-auto lg:col-span-2 hover:bg-dark hover:text-darker"
+                className="sm:col-start-5 bg-darker border-2 border-darker col-span-4 col-start-2 text-lg h-12 px-4 text-lighter transition-all uppercase lg:col-start-auto lg:col-span-2 hover:bg-lighter hover:text-darker"
                 type="submit"
               >
                 {form.state === Form.Loading ? 'loading...' : "S'abonner"}
               </button>
-              <div className="col-span-6 pt-4 text-center text-lighter text-sm sm:col-span-6 sm:col-start-4 lg:pt-8">
+              <div className="col-span-6 pt-4 text-center text-dark text-sm sm:col-span-6 sm:col-start-4 lg:pt-8">
                 This site is protected by reCAPTCHA and the Google{' '}
                 <a
                   className="italic"

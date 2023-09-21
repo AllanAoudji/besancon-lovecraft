@@ -6,6 +6,7 @@ import HomeAbout from '@src/components/HomeAbout';
 import InstaFeeds from '@src/components/InstaFeeds';
 import NewsLetter from '@src/components/NewsLetter';
 import Grid from '@src/components/Grid';
+import BuyMeACoffee from '@src/components/BuyMeACoffee';
 
 type Props = {
   searchParams: {
@@ -37,6 +38,7 @@ export default async function Home({ searchParams: { drawer } }: Props) {
         <>
           <InstaFeeds />
           <NewsLetter />
+          <BuyMeACoffee />
         </>
       }
       drawer={drawer}
