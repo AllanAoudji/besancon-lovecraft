@@ -58,10 +58,12 @@ function NewsLetter() {
 
   return (
     <section>
-      <Wrapper border="bottom" borderColor="darker" className="py-24 lg:py-32">
+      <Wrapper className="pt-24 pb-28 lg:pt-32 lg:pb-36">
         <div className="flex flex-col justify-center items-center gap-1 font-bold pb-10 text-darker text-center transition-all lg:pb-20">
-          <h3 className="text-3xl uppercase">Abonnez-vous à la newsletter</h3>
-          <h4 className="text-dark text-xl">
+          <h3 className="text-3xl uppercase lg:text-4xl">
+            Abonnez-vous à la newsletter
+          </h3>
+          <h4 className="text-dark text-xl lg:text-2xl">
             Soyez les premiers à suivre et connaître l&apos;avancée du projet
           </h4>
         </div>
@@ -103,7 +105,7 @@ function NewsLetter() {
               >
                 {form.state === Form.Loading ? 'loading...' : "S'abonner"}
               </button>
-              <div className="col-span-6 pt-4 text-center text-dark text-sm sm:col-span-6 sm:col-start-4 lg:pt-8">
+              <div className="col-span-6 pt-4 text-center text-dark text-sm sm:col-span-10 sm:col-start-2 lg:pt-8">
                 This site is protected by reCAPTCHA and the Google{' '}
                 <a
                   className="italic"

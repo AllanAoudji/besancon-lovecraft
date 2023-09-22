@@ -10,7 +10,7 @@ import Grid from './Grid';
 function Footer() {
   return (
     <footer>
-      <Wrapper className="pb-5 pt-20 text-light sm:pt-24">
+      <Wrapper className="pb-5 pt-40 text-light sm:pt-44">
         <Grid>
           <Image
             alt="main logo"
