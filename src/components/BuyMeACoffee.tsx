@@ -22,7 +22,7 @@ function BuyMeACoffee() {
           <a
             href="https://www.buymeacoffee.com/allanaoudji"
             target="_blank"
-            className="block w-1/3 lg:w-1/4"
+            className="block w-48"
           >
             <Image alt="Buy Me A Coffee Button" src={BuyMeACoffeeButton} />
           </a>
