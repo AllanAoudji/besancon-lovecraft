@@ -5,7 +5,7 @@ import Wrapper from './Wrapper';
 function BuyMeACoffee() {
   return (
     <section>
-      <Wrapper backgroundColor="dark" className="pt-20 pb-24 lg:pt-24 lg:pb-28">
+      <Wrapper backgroundColor="dark" className="py-24 lg:py-28">
         <div className="flex flex-col justify-center items-center gap-1 font-bold pb-10 text-lighter text-center transition-all lg:pb-12">
           <h3 className="text-3xl uppercase lg:text-4xl">
             Vous voulez soutenir le projet&#160;?
