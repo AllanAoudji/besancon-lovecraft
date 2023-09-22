@@ -16,7 +16,7 @@ function Text({ children }: TextProps) {
 function HomeAbout() {
   return (
     <section>
-      <Wrapper backgroundColor="darker" className="py-24 lg:py-28">
+      <Wrapper backgroundColor="darker" className="py-20 lg:py-28">
         <Grid className="lg:gap-y-2">
           <h3 className="col-span-6 font-black pb-2 text-3xl text-lighter uppercase sm:col-span-10 lg:text-4xl lg:col-span-6 lg:col-start-2 lg:pb-0">
             Qu&apos;est-ce que le projet{' '}

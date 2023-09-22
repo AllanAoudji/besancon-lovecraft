@@ -58,7 +58,7 @@ function NewsLetter() {
 
   return (
     <section>
-      <Wrapper className="py-24 lg:py-28">
+      <Wrapper className="py-20 lg:py-28">
         <div className="flex flex-col justify-center items-center gap-1 font-bold pb-10 text-darker text-center transition-all lg:pb-20">
           <h3 className="text-3xl uppercase lg:text-4xl">
             Abonnez-vous à la newsletter

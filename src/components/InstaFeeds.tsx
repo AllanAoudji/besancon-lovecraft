@@ -51,7 +51,7 @@ async function InstaFeeds() {
       <section>
         <Wrapper
           backgroundColor="darker"
-          className="pt-24 pb-28 lg:pt-28 lg:pb-32"
+          className="pt-20 pb-24 lg:pt-28 lg:pb-32"
         >
           <div className="flex flex-col justify-center items-center gap-1 font-bold pb-10 text-lighter text-center transition-all lg:pb-20">
             <h3 className="text-3xl uppercase lg:text-4xl">
