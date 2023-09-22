@@ -57,7 +57,7 @@ export default async function Page({
       </SubPageInnerContainer>
       {!!posts.length && (
         <div className="border-t-2 border-darker">
-          <h3 className="font-black pb-28 pt-24 text-3xl text-center text-darker uppercase lg:pb-32 lg:pt-28 lg:text-4xl">
+          <h3 className="font-black pb-20 pt-24 text-3xl text-center text-darker uppercase lg:pb-24 lg:pt-28 lg:text-4xl">
             Les derniers articles
           </h3>
           <Grid>
