@@ -12,7 +12,7 @@ function DrawerBackground({ open }: Props) {
 
   return (
     <Link
-      className={`bg-black block duration-500 h-full transition-all w-full ${
+      className={`bg-black block duration-500 h-full transition-all w-full text-transparent ${
         open
           ? 'opacity-90 pointer-events-auto'
           : 'opacity-0 pointer-events-none'
@@ -20,7 +20,9 @@ function DrawerBackground({ open }: Props) {
       href={{ pathname }}
       replace={true}
       scroll={false}
-    />
+    >
+      fermer le drawer
+    </Link>
   );
 }
 
