@@ -16,6 +16,10 @@ const nextConfig = {
         port: '',
       },
     ],
+    // Besoin de cette ligne pour ne pas passer à la caisse.
+    // https://vercel.com/docs/image-optimization/limits-and-pricing
+    // https://vercel.com/docs/image-optimization/managing-image-optimization-costs
+    unoptimized: true,
   },
 };
 

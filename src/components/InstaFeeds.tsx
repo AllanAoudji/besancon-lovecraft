@@ -1,5 +1,3 @@
-'use client';
-
 import { instagramAccessToken } from '@/lib/environment';
 import Image from 'next/image';
 import Wrapper from './Wrapper';
@@ -44,8 +42,6 @@ async function getData(): Promise<InstaFeeds> {
 async function InstaFeeds() {
   try {
     const data = await getData();
-
-    console.log(data);
 
     if (!data.data.length) {
       return null;
