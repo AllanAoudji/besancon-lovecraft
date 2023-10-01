@@ -5,8 +5,8 @@ import Link from 'next/link';
 
 import logoDark from '@/public/logo-image-dark.png';
 import logoLight from '@/public/logo-image-light.png';
-import logoHorizontaldark from '@/public/logo-horizontal-dark.png';
-import logoHorizontalLight from '@/public/logo-horizontal-light.png';
+import logoHorizontalFillDark from '@/public/logoHorizontalFillDark.png';
+import logoHorizontalFillLight from '@/public/logoHorizontalFillLight.png';
 import useWindowSize from '@src/hooks/useWindowSize';
 import { useMemo } from 'react';
 
@@ -27,10 +27,10 @@ function Logo({ className, color = 'light' }: Props) {
       }
     }
     if (color === 'dark') {
-      return logoHorizontaldark;
+      return logoHorizontalFillDark;
     }
 
-    return logoHorizontalLight;
+    return logoHorizontalFillLight;
   }, [width, color]);
 
   return (
