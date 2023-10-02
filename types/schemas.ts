@@ -48,12 +48,6 @@ declare global {
     palette: string;
   };
 
-  type NextPost = {
-    mainImage: Image;
-    slug: string;
-    title: string;
-  };
-
   type Page = {
     _id: string;
     _createdAt: Date;
@@ -81,7 +75,6 @@ declare global {
       | null;
     mainImage: Image;
     headerImage: Image;
-    nextPost: NextPost | null;
     publishedAt: string;
     slug: string;
     title: string;
