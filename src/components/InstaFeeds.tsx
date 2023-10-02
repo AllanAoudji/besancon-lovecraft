@@ -89,6 +89,7 @@ async function InstaFeeds() {
                         : post.media_url
                     }
                     sizes="40vw"
+                    unoptimized={true}
                   />
                 </div>
               ))}

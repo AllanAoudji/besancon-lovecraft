@@ -14,7 +14,6 @@ const nextConfig = {
         protocol: 'https',
         hostname: '*.cdninstagram.com',
         port: '',
-        unoptimized: true,
       },
     ],
     // Besoin de cette ligne pour ne pas passer à la caisse.
