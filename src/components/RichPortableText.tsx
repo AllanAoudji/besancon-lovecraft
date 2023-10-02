@@ -46,10 +46,10 @@ const components: Partial<PortableTextReactComponents> = {
   },
   list: {
     bullet: ({ children }) => (
-      <ul className="list-disc pl-10 text-darker">{children}</ul>
+      <ul className="list-disc pl-10 text-darker text-lg">{children}</ul>
     ),
     number: ({ children }) => (
-      <ol className="list-decimal pl-10 text-darker">{children}</ol>
+      <ol className="list-decimal pl-10 text-darker text-lg">{children}</ol>
     ),
   },
   types: {
