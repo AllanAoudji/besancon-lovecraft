@@ -15,8 +15,12 @@ function Text({ children }: TextProps) {
 
 function HomeAbout() {
   return (
-    <section>
-      <Wrapper backgroundColor="darker" className="py-20 lg:py-28">
+    <section className="bg-fixed bg-center bg-cover relative">
+      <div
+        className="absolute bg-center bg-cover bg-fixed brightness-[0.25] inset-0 -z-10"
+        style={{ backgroundImage: "url('/photoDeBesancon.jpg')" }}
+      />
+      <Wrapper className="py-24 lg:py-36">
         <Grid className="lg:gap-y-2">
           <h3 className="col-span-6 font-black pb-2 text-3xl text-lighter uppercase sm:col-span-10 lg:text-4xl lg:col-span-6 lg:col-start-2 lg:pb-0">
             Qu&apos;est-ce que le projet{' '}
