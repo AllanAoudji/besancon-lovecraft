@@ -1,7 +1,7 @@
 import { instagramAccessToken } from '@/lib/environment';
-import Image from 'next/image';
+// import Image from 'next/image';
 import Wrapper from './Wrapper';
-import Grid from './Grid';
+// import Grid from './Grid';
 
 type Data =
   | {
@@ -68,7 +68,7 @@ async function InstaFeeds() {
               #lessuivantsdelavouivre
             </a>
           </div>
-          <a
+          {/* <a
             className="block col-span-6 sm:col-span-12"
             href={INSTAGRAM_LINK}
             target="_blank"
@@ -93,7 +93,7 @@ async function InstaFeeds() {
                 </div>
               ))}
             </Grid>
-          </a>
+          </a> */}
         </Wrapper>
       </section>
     );
