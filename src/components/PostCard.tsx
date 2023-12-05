@@ -1,6 +1,7 @@
 import moment from 'moment';
 import Link from 'next/link';
 import PostCartImage from './PostCardImage';
+import { memo } from 'react';
 
 type Props = {
   post: Post;
@@ -87,4 +88,4 @@ function PostCard({ post, showCategories = true, variant = 'normal' }: Props) {
   );
 }
 
-export default PostCard;
+export default memo(PostCard);
