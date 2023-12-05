@@ -1,6 +1,6 @@
 import moment from 'moment';
-// import Image from 'next/image';
 import Link from 'next/link';
+import PostCartImage from './PostCardImage';
 
 type Props = {
   post: Post;
@@ -18,25 +18,18 @@ function PostCard({ post, showCategories = true, variant = 'normal' }: Props) {
       }`}
       href={`/post/${post.slug}`}
     >
-      {/* {!!post.mainImage && !!post.mainImage.url && post.mainImage.metadata && (
-        <div
-          className={`overflow-hidden ${
-            variant === 'normal' || showCategories
-              ? 'mb-2'
-              : 'aspect-square col-span-2 sm:aspect-auto sm:col-span-full sm:mb-2'
-          }`}
-        >
-          <Image
-            alt={post.mainImage.alt || post.title}
-            blurDataURL={post.mainImage.metadata.lqip}
-            className="duration-1000 h-full object-cover top-0 transition w-full"
-            height={post.mainImage.metadata.dimensions.height}
-            placeholder="blur"
-            src={post.mainImage.url}
-            width={post.mainImage.metadata.dimensions.width}
-          />
-        </div>
-      )} */}
+      {!!post.mainImage && !!post.mainImage.url && post.mainImage.metadata && (
+        <PostCartImage
+          alt={post.mainImage.alt}
+          height={post.mainImage.metadata.dimensions.height}
+          lqip={post.mainImage.metadata.lqip}
+          showCategories={showCategories}
+          title={post.title}
+          url={post.mainImage.url}
+          variant={variant}
+          width={post.mainImage.metadata.dimensions.width}
+        />
+      )}
       <div
         className={`text-sm ${
           variant === 'normal' || showCategories
