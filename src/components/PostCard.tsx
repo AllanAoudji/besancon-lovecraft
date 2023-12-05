@@ -1,5 +1,5 @@
 import moment from 'moment';
-import Image from 'next/image';
+// import Image from 'next/image';
 import Link from 'next/link';
 
 type Props = {
@@ -18,7 +18,7 @@ function PostCard({ post, showCategories = true, variant = 'normal' }: Props) {
       }`}
       href={`/post/${post.slug}`}
     >
-      {!!post.mainImage && !!post.mainImage.url && post.mainImage.metadata && (
+      {/* {!!post.mainImage && !!post.mainImage.url && post.mainImage.metadata && (
         <div
           className={`overflow-hidden ${
             variant === 'normal' || showCategories
@@ -36,7 +36,7 @@ function PostCard({ post, showCategories = true, variant = 'normal' }: Props) {
             width={post.mainImage.metadata.dimensions.width}
           />
         </div>
-      )}
+      )} */}
       <div
         className={`text-sm ${
           variant === 'normal' || showCategories
