@@ -82,14 +82,13 @@ async function InstaFeeds() {
                   <Image
                     alt="image"
                     className="object-cover"
-                    fill
+                    width={1440}
+                    height={1440}
                     src={
                       post.media_type === 'VIDEO'
                         ? post.thumbnail_url
                         : post.media_url
                     }
-                    sizes="40vw"
-                    unoptimized={true}
                   />
                 </div>
               ))}
