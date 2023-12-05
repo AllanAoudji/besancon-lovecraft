@@ -5,6 +5,8 @@ type TextProps = {
   children: React.ReactNode;
 };
 
+const BACKGROUND_STYLE = { backgroundImage: "url('/photoDeBesancon.jpg')" };
+
 function Text({ children }: TextProps) {
   return (
     <div className="[&_span]:pl-8 [&_span]:first:pl-0 lg:[&_span]:pl-16">
@@ -18,7 +20,7 @@ function HomeAbout() {
     <section className="bg-fixed bg-center bg-cover relative">
       <div
         className="absolute bg-center bg-cover bg-fixed brightness-[0.25] inset-0 -z-10"
-        style={{ backgroundImage: "url('/photoDeBesancon.jpg')" }}
+        style={BACKGROUND_STYLE}
       />
       <Wrapper className="py-24 lg:py-36">
         <Grid className="lg:gap-y-2">
