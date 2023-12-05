@@ -19,7 +19,7 @@ function HomeAbout() {
   return (
     <section className="bg-fixed bg-center bg-cover relative">
       <div
-        className="absolute bg-center bg-cover bg-fixed brightness-[0.25] inset-0 -z-10"
+        className="absolute bg-center bg-cover bg-fixed inset-0 -z-10"
         style={BACKGROUND_STYLE}
       />
       <Wrapper className="py-24 lg:py-36">
