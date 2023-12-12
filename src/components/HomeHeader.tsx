@@ -3,7 +3,7 @@
 import 'moment/locale/fr';
 
 import { AnimatePresence, useAnimationControls } from 'framer-motion';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import HomeHeaderCategories from './HomeHeaderCategories';
 import HomeHeaderImage from './HomeHeaderImage';
@@ -277,6 +277,8 @@ function HomeHeader({ posts }: Props) {
     []
   );
 
+  const currentPost = useMemo(() => posts[index], [index, posts]);
+
   if (!posts.length) {
     return;
   }
@@ -292,13 +294,13 @@ function HomeHeader({ posts }: Props) {
             <div className="col-span-6 sm:col-span-8 sm:col-start-3 lg:col-span-6 lg:col-start-2 lg:gap-2 lg:grid lg:grid-cols-12">
               <HomeHeaderCategories
                 animate={constrolsCategories}
-                categories={posts[index].categories}
+                categories={currentPost.categories}
                 className="lg:col-span-6 lg:col-start-2"
               />
               <HomeHeaderTitle
                 animate={controlsTitle}
                 className="lg:col-span-6 lg:col-start-2"
-                title={posts[index].title}
+                title={currentPost.title}
               />
             </div>
           </Grid>
@@ -310,14 +312,14 @@ function HomeHeader({ posts }: Props) {
               <HomeHeaderImage
                 animate={controlsImage}
                 className="pb-14/12 lg:pb-13/12"
-                image={posts[index].mainImage}
-                slug={posts[index].slug}
-                title={posts[index].title}
+                image={currentPost.mainImage}
+                slug={currentPost.slug}
+                title={currentPost.title}
               />
               <HomeHeaderPublishedAt
                 animate={controlsPublishedAt}
                 className="bottom-0 -left-4 origin-bottom-left -rotate-90 z-10"
-                publishedAt={posts[index].publishedAt}
+                publishedAt={currentPost.publishedAt}
               />
             </div>
             <HomeHeaderNavigation
