@@ -15,12 +15,12 @@ const Pixel = () => {
         t.src=v;s=b.getElementsByTagName(e)[0];
         s.parentNode.insertBefore(t,s)}(window, document,'script',
         'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '910247493884693');
+        fbq('init', '1453439188887645');
         fbq('track', 'PageView');`}
       </script>
       <noscript id="facebook-pixel-image">
         {`<img height="1" width="1" style="display:none"
-        src="https://www.facebook.com/tr?id=910247493884693&ev=PageView&noscript=1"
+        src="https://www.facebook.com/tr?id=1453439188887645&ev=PageView&noscript=1"
         />`}
       </noscript>
     </Helmet>
