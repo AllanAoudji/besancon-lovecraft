@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import Footer from '@src/components/Footer';
 import Header from '@src/components/Header';
 import { playfair } from '@src/utils/fonts';
+import MetaPixel from '@src/components/MetaPixel';
 
 export const metadata: Metadata = {
   description: 'Home page',
@@ -23,6 +24,7 @@ const RootLayout = ({ children }: Props) => {
         <Footer />
       </div>
       <Analytics />
+      <MetaPixel />
     </body>
   );
 };
